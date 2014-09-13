@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClapApp.Resources;
+using ClapApp.Pages;
 
 namespace ClapApp
 {
@@ -20,6 +21,11 @@ namespace ClapApp
 
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(PerfilAnimaisPage.GetUri());
         }
 
         // Sample code for building a localized ApplicationBar
