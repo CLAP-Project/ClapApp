@@ -52,5 +52,10 @@ namespace ClapApp.Pages
 
             updateComponents();
         }
+
+        private void lstAnimais_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            NavigationService.Navigate(AnimalPage.GetUri());
+        }
     }
 }

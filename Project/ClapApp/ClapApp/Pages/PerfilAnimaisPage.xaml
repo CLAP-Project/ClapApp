@@ -66,14 +66,14 @@
                 <StackPanel>
                     <ScrollViewer Height="530">
                         <StackPanel Name="stkAnimais">
-                            <ListBox Name="lstAnimais" ItemsSource="{Binding Animais}">
+                            <ListBox Name="lstAnimais" ItemsSource="{Binding Animais}" SelectionChanged="lstAnimais_SelectionChanged">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
                                             <Image Height="100" Width="100" Source="/Assets/ApplicationIcon.png"/>
                                             <StackPanel>
                                                 <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                                <TextBlock Text="{Binding StatusString}" Style="{StaticResource PhoneTextTitle3Style}"/>
+                                                <TextBlock Text="{Binding StatusString}" Foreground="{Binding StatusBrush}" Style="{StaticResource PhoneTextTitle3Style}"/>
                                             </StackPanel>
                                         </StackPanel>
                                     </DataTemplate>
@@ -82,6 +82,10 @@
                         </StackPanel>
                     </ScrollViewer>
                 </StackPanel>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="configurações">
+            
             </phone:PanoramaItem>
         </phone:Panorama>
     </Grid>

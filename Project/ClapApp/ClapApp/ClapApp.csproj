@@ -99,6 +99,9 @@
     </Compile>
     <Compile Include="Model\Animal.cs" />
     <Compile Include="Model\Perfil.cs" />
+    <Compile Include="Pages\AnimalPage.xaml.cs">
+      <DependentUpon>AnimalPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PerfilAnimaisPage.xaml.cs">
       <DependentUpon>PerfilAnimaisPage.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AnimalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PerfilAnimaisPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,6 +141,7 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\gúgui_méps.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
