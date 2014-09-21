@@ -49,9 +49,9 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel>
                 <Image Width="180" Height="180" Source="/Assets/ApplicationIcon.png"/>
-                <TextBlock Text="E-mail" Style="{StaticResource PhoneTextNormalStyle}"/>
+                <TextBlock Text="E-mail:" Style="{StaticResource PhoneTextNormalStyle}"/>
                 <TextBox/>
-                <TextBlock Text="Senha" Style="{StaticResource PhoneTextNormalStyle}"/>
+                <TextBlock Text="Senha:" Style="{StaticResource PhoneTextNormalStyle}"/>
                 <PasswordBox/>
                 <Button Name="btnLogin" Content="Login" Click="btnLogin_Click"/>
             </StackPanel>

@@ -6,6 +6,8 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
+    xmlns:local="clr-namespace:WP7BlocksPan"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -15,8 +17,7 @@
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
-        <phone:Panorama Title="my application">
-
+        <phone:Panorama Name="Panorama" Title="my application" SelectionChanged="Panorama_SelectionChanged" Loaded="Panorama_Loaded">
             <!--Panorama item one-->
             <phone:PanoramaItem Header="animal">
                 <StackPanel Name="stkAnimal">
@@ -29,50 +30,59 @@
                         <!--TextBlock Text="{Binding Nome}"/>
                         <TextBlock Text="{Binding EspecieSexo}"/>
                         <TextBlock Text="{Binding Informacoes}"/-->
-                        <TextBlock Text="Informações" TextWrapping="Wrap"/>
+                        <TextBlock Text="É uma tartaruguinha daora." Width="240" TextWrapping="Wrap"/>
                     </StackPanel>
                 </StackPanel>
             </phone:PanoramaItem>
 
-            <!--Panorama item two-->
+            <phone:PanoramaItem Header="fotos">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                            <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </phone:PanoramaItem>
+            
             <phone:PanoramaItem Header="localização">
                 <StackPanel>
-                    <Image HorizontalAlignment="Left" Height="383" Margin="10,0,0,0" VerticalAlignment="Top" Width="436" Source="/Assets/gúgui_méps.png" Stretch="Fill"/>
-                    <Button Content="Configurações"></Button>
+                    <TextBlock Text="Toque para visualizar melhor o mapa" Style="{StaticResource PhoneTextSmallStyle}"/>
+                    <Image HorizontalAlignment="Left" Height="300" Margin="10,0,0,0" VerticalAlignment="Top" Width="436" Source="/Images/gúgui_méps.png" Stretch="Fill"/>
                 </StackPanel>
             </phone:PanoramaItem>
-
-            <phone:PanoramaItem Header="fotos">
+            
+            <phone:PanoramaItem Header="rastreamento">
                 <StackPanel>
-                    <ScrollViewer>
-                            <StackPanel Orientation="Vertical" Height="330">
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
-                                    <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
-                                    <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
-                                    <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
-                                    <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
-                                    <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
-                                    <Image Source="/Assets/ApplicationIcon.png" Height="130" Width="130"/>
-                                </StackPanel>
-                        </StackPanel>
-                    </ScrollViewer>
-
-                    <Button Content="Adicionar foto"></Button>
-                    <Button Content="Remover foto"></Button>                    
+                    <toolkit:ToggleSwitch Name="toggleGPS" Header="GPS" Content="Desligado"
+                                          Checked="toggleGPS_Checked" Unchecked="toggleGPS_Unchecked"/>
+                    
+                    <toolkit:ToggleSwitch Name="toggleLuz" Header="Luz da coleira" Content="Desligada"
+                                          Checked="toggleLuz_Checked" Unchecked="toggleLuz_Unchecked"/>
                 </StackPanel>
-            </phone:PanoramaItem>
-
-            <phone:PanoramaItem Header="configurações">
-
             </phone:PanoramaItem>
         </phone:Panorama>
     </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" Mode="Default"/>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>
