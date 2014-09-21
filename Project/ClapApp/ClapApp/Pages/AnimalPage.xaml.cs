@@ -21,11 +21,15 @@ namespace ClapApp.Pages
             // ---
             
             _perfilButtons = new ApplicationBarIconButton[] {
+                PanoramaBar.MakeButton("status.png", "dono", (object sender, EventArgs e) =>
+                {
+                    NavigationService.Navigate(PerfilAnimaisPage.GetUri());
+                }),
                 PanoramaBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
                 {
                     NavigationService.Navigate(AnimalDados.GetUri());
                 }),
-                PanoramaBar.MakeButton("cog.png", "configurar")
+                PanoramaBar.MakeButton("delete.png", "deletar")
             };
 
             // ---
@@ -37,9 +41,7 @@ namespace ClapApp.Pages
             // ---
 
             _fotosButtons = new ApplicationBarIconButton[] {
-                PanoramaBar.MakeButton("add.png", "adicionar"),
-                PanoramaBar.MakeButton("favs.png", "perfil"),
-                PanoramaBar.MakeButton("delete.png", "deletar")
+                PanoramaBar.MakeButton("add.png", "adicionar")
             };
 
             // ---

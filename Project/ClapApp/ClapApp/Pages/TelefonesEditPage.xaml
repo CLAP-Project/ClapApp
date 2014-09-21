@@ -1,12 +1,11 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="ClapApp.Pages.AnimalDados"
+    x:Class="ClapApp.Pages.TelefonesEditPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -23,40 +22,32 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="EDITANDO ANIMAL" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Jack Tartaruga" Style="{StaticResource PhoneTextSmallStyle}"/>
-            <!--TextBlock Text="editando" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/-->
+            <TextBlock Text="EDITANDO TELEFONES" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Mox Wolliamsa" Style="{StaticResource PhoneTextSmallStyle}"/>
+            <!--TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/-->
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel>
-                <StackPanel Visibility="Visible">
-                    <TextBlock Text="Nome" Style="{StaticResource PhoneTextNormalStyle}"/>
-                    <TextBox/>
-
-                    <TextBlock Text="Espécie" Style="{StaticResource PhoneTextNormalStyle}"/>
-                    <TextBox/>
-
-                    <TextBlock Text="Sexo" Style="{StaticResource PhoneTextNormalStyle}"/>
-                    <toolkit:ListPicker>
-                        <toolkit:ListPickerItem Content="Macho"/>
-                        <toolkit:ListPickerItem Content="Fêmea"/>
-                        <toolkit:ListPickerItem Content="Indefinido"/>
-                    </toolkit:ListPicker>
-
-                    <TextBlock Text="Descrição" Style="{StaticResource PhoneTextNormalStyle}"/>
+                <StackPanel Orientation="Horizontal">
+                    <ToggleButton/>
+                    <TextBlock Text="Telefones" VerticalAlignment="Center"/>
                 </StackPanel>
 
-                <TextBox Name="txtDescricao" AcceptsReturn="True" Grid.Row="1"
-                                Height="175" TextWrapping="Wrap"/>
+                <ListBox Height="300"/>
+
+                <StackPanel Margin="0,15,0,0">
+                    <TextBox/>
+                    <Button Name="btnAddTelefone" Content="Adicionar telefone" Click="btnAddTelefone_Click"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True">
-            <shell:ApplicationBarIconButton Text="salvar" IconUri="/Images/save.png"/>
+        <shell:ApplicationBar IsVisible="True" Mode="Default">
+            <shell:ApplicationBarIconButton Text="salvar" IconUri="/Images/email.png"/>
             <shell:ApplicationBarIconButton Text="cancelar" IconUri="/Images/cancel.png" Click="ApplicationBarIconButton_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

@@ -22,13 +22,22 @@ namespace ClapApp.Pages
             // ---
 
             _perfilButtons = new ApplicationBarIconButton[] {
-                PanoramaBar.MakeButton("edit.png", "editar"),
-                PanoramaBar.MakeButton("cog.png", "configurar")
+                PanoramaBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
+                {
+                    Editing.SetTempUsuario();
+                    NavigationService.Navigate(UserEditPage.GetUri());
+                }),
+                PanoramaBar.MakeButton("cog.png", "configurar", (object sender, EventArgs e) =>
+                {
+                    NavigationService.Navigate(UserConfigPage.GetUri());
+                })
             };
 
             _animaisButtons = new ApplicationBarIconButton[] {
-                PanoramaBar.MakeButton("add.png", "adicionar"),
-                PanoramaBar.MakeButton("delete.png", "deletar")
+                PanoramaBar.MakeButton("add.png", "adicionar", (object sender, EventArgs e) =>
+                {
+                    NavigationService.Navigate(AddAnimalPage.GetUri());
+                })
             };
 
             // ---
@@ -75,26 +84,30 @@ namespace ClapApp.Pages
 
         // ---
 
-        Perfil editingPerfil = Perfil.GetExemplo();
-
         void updateComponents()
         {
             Panorama.DataContext = null;
-            Panorama.DataContext = editingPerfil;
+            Panorama.DataContext = Editing.Usuario;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            updateComponents();
         }
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            editingPerfil.Emails.Add(Email.GetExemplo());
-            editingPerfil.Numeros.Add(NumeroTelefonico.GetExemplo());
+            /*Editing.Usuario.Emails.Add(Email.GetExemplo());
+            Editing.Usuario.Numeros.Add(NumeroTelefonico.GetExemplo());
 
-            editingPerfil.Animais.Add(new Animal()
+            Editing.Usuario.Animais.Add(new Animal()
             {
                 Nome="Guido",
                 Status=Status.Ok
             });
 
-            updateComponents();
+            updateComponents();*/
         }
 
         private void lstAnimais_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -115,6 +128,7 @@ namespace ClapApp.Pages
         private void Panorama_Loaded(object sender, RoutedEventArgs e)
         {
             updateButtons();
+            updateComponents();
         }
     }
 }

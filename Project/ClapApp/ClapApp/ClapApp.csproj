@@ -99,15 +99,31 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Animal.cs" />
+    <Compile Include="Model\Editing.cs" />
     <Compile Include="Model\Perfil.cs" />
+    <Compile Include="Pages\AddAnimalPage.xaml.cs">
+      <DependentUpon>AddAnimalPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AnimalDados.xaml.cs">
       <DependentUpon>AnimalDados.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AnimalPage.xaml.cs">
       <DependentUpon>AnimalPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EmailsEditPage.xaml.cs">
+      <DependentUpon>EmailsEditPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PerfilAnimaisPage.xaml.cs">
       <DependentUpon>PerfilAnimaisPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TelefonesEditPage.xaml.cs">
+      <DependentUpon>TelefonesEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserConfigPage.xaml.cs">
+      <DependentUpon>UserConfigPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserEditPage.xaml.cs">
+      <DependentUpon>UserEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PanoramaBar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +142,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddAnimalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AnimalDados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,7 +154,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EmailsEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PerfilAnimaisPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TelefonesEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserConfigPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,6 +194,8 @@
     <Content Include="Images\edit.png" />
     <Content Include="Images\cog.png" />
     <Content Include="Images\favs.png" />
+    <Content Include="Images\email.png" />
+    <Content Include="Images\phone.png" />
     <Content Include="Images\gúgui_méps.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -176,6 +214,7 @@
     </Content>
     <Content Include="Images\minus.png" />
     <Content Include="Images\save.png" />
+    <Content Include="Images\status.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />

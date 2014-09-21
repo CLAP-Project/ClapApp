@@ -31,6 +31,23 @@ namespace ClapApp.Model
 
         // ---
 
+        public static Animal Copy(Animal that)
+        {
+            if (that == null)
+                return null;
+
+            return new Animal()
+            {
+                Nome=that.Nome,
+                Status=that.Status,
+                Especie=that.Especie,
+                Sexo=that.Sexo,
+                Informacoes=that.Informacoes
+            };
+        }
+
+        // ---
+
         public bool IsPerdido
         {
             get { return Status == Status.Perdido; }
