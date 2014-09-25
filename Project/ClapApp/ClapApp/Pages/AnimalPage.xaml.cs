@@ -7,7 +7,9 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-
+using Microsoft.Phone.Maps.Controls;
+using Microsoft.Phone.Maps.Services;
+using Microsoft.Phone.Maps.Toolkit;
 namespace ClapApp.Pages
 {
     public partial class AnimalPage : PhoneApplicationPage

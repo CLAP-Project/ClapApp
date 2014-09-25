@@ -128,7 +128,7 @@ namespace ClapApp.Pages
 
         private void lstAnimais_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            NavigationService.Navigate(AnimalPage.GetUri());
+            NavigationService.Navigate(new Uri("/AnimalPage.xaml", UriKind.Relative));
         }
 
         private void lstAnimais_GotFocus(object sender, RoutedEventArgs e)
