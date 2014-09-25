@@ -30,7 +30,7 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel>
-                <TextBox/>
+                <PasswordBox/>
                 <Button Content="Mudar senha"/>
                 <Button Name="btnRecuperarSenha" Content="Recuperar senha" Click="btnRecuperarSenha_Click"/>
                 
@@ -46,7 +46,7 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" Mode="Default">
-            <shell:ApplicationBarIconButton Text="salvar" IconUri="/Images/email.png"/>
+            <shell:ApplicationBarIconButton Text="salvar" IconUri="/Images/save.png"/>
             <shell:ApplicationBarIconButton Text="cancelar" IconUri="/Images/cancel.png" Click="ApplicationBarIconButton_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

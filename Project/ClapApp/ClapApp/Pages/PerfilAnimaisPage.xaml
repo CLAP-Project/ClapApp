@@ -22,7 +22,7 @@
             <phone:PanoramaItem Header="meu perfil">
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
                     <StackPanel>
-                        <TextBlock Text="{Binding NomeSobrenome}" Visibility="{Binding NomeSobrenomeVisible}" Style="{StaticResource PhoneTextExtraLargeStyle}" Tap="btnEditar_Click"/>
+                        <TextBlock Text="{Binding NomeSobrenome}" TextWrapping="Wrap" Visibility="{Binding NomeSobrenomeVisible}" Style="{StaticResource PhoneTextExtraLargeStyle}" Tap="btnEditar_Click"/>
                         <TextBlock Text="{Binding CidadeEstado}" Visibility="{Binding CidadeEstadoVisible}" Style="{StaticResource PhoneTextSubtleStyle}"/>
 
                         <StackPanel Orientation="Horizontal">
@@ -31,7 +31,7 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Visibility="{Binding EmailsVisible}" Margin="0,15,0,0">
-                                <StackPanel>
+                                <StackPanel Name="stkEmails" Tap="stkEmails_Tap">
                                     <TextBlock Text="E-mails" Style="{StaticResource PhoneTextNormalStyle}"/>
                                     <ScrollViewer local:BlocksPan.IsEnabled="True" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible">
                                         <ListBox ItemsSource="{Binding Emails}" Margin="15, 0, 0, 0">
@@ -46,7 +46,7 @@
                                     </ScrollViewer>
                                 </StackPanel>
 
-                                <StackPanel Margin="0, 10, 0, 0" Visibility="{Binding NumerosVisible}">
+                                <StackPanel Name="stkTelefones"  Margin="0, 10, 0, 0" Visibility="{Binding NumerosVisible}" Tap="stkTelefones_Tap">
                                     <TextBlock Text="Números de telefone" Style="{StaticResource PhoneTextNormalStyle}"/>
                                     <ScrollViewer local:BlocksPan.IsEnabled="True" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Visible">
                                         <ListBox ItemsSource="{Binding Numeros}" Margin="15, 0, 0, 0">

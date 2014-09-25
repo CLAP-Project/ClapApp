@@ -15,13 +15,28 @@ namespace ClapApp.Pages
     {
         ApplicationBarIconButton[] _perfilButtons, _animaisButtons;
 
+        private void navigateTelefones()
+        {
+            NavigationService.Navigate(TelefonesPage.GetUri());
+        }
+
         public PerfilAnimaisPage()
         {
             InitializeComponent();
 
             // ---
 
+            var phoneButton = PanoramaBar.MakeButton("phone.png", "telefones", (object sender, EventArgs e) =>
+            {
+                navigateTelefones();
+            });
+
+            var emailButton = PanoramaBar.MakeButton("email.png", "e-mails");
+
+            // ---
+
             _perfilButtons = new ApplicationBarIconButton[] {
+                emailButton, phoneButton,
                 PanoramaBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
                 {
                     Editing.SetTempUsuario();
@@ -34,6 +49,7 @@ namespace ClapApp.Pages
             };
 
             _animaisButtons = new ApplicationBarIconButton[] {
+                emailButton, phoneButton,
                 PanoramaBar.MakeButton("add.png", "adicionar", (object sender, EventArgs e) =>
                 {
                     NavigationService.Navigate(AddAnimalPage.GetUri());
@@ -98,7 +114,7 @@ namespace ClapApp.Pages
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            /*Editing.Usuario.Emails.Add(Email.GetExemplo());
+            Editing.Usuario.Emails.Add(Email.GetExemplo());
             Editing.Usuario.Numeros.Add(NumeroTelefonico.GetExemplo());
 
             Editing.Usuario.Animais.Add(new Animal()
@@ -107,7 +123,7 @@ namespace ClapApp.Pages
                 Status=Status.Ok
             });
 
-            updateComponents();*/
+            updateComponents();
         }
 
         private void lstAnimais_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -129,6 +145,16 @@ namespace ClapApp.Pages
         {
             updateButtons();
             updateComponents();
+        }
+
+        private void stkEmails_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+
+        }
+
+        private void stkTelefones_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            navigateTelefones();
         }
     }
 }

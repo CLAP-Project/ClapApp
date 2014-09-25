@@ -42,9 +42,14 @@ namespace ClapApp.Pages
             updateDataContext();
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            Editing.CancelTempUsuario();
+        }
+
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
         {
-            Editing.CancelTempUsuario();
             NavigationService.GoBack();
         }
 

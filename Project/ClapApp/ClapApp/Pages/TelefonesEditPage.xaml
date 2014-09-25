@@ -23,7 +23,7 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="EDITANDO TELEFONES" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Mox Wolliamsa" Style="{StaticResource PhoneTextSmallStyle}"/>
+            <TextBlock Text="{Binding NomeSobrenomeRaw}" Style="{StaticResource PhoneTextSmallStyle}"/>
             <!--TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/-->
         </StackPanel>
 
@@ -31,14 +31,34 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <ToggleButton/>
+                    <ToggleButton Name="tglTelefones" IsChecked="{Binding NumerosPublico, Mode=OneTime}" Checked="tglTelefones_Checked"/>
                     <TextBlock Text="Telefones" VerticalAlignment="Center"/>
                 </StackPanel>
 
-                <ListBox Height="300"/>
+                <ListBox ItemsSource="{Binding Numeros}" Margin="0, 15, 0, 0" Height="285">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DDDNumero}" Style="{StaticResource PhoneTextNormalStyle}" Tap="TextBlock_Tap"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
 
                 <StackPanel Margin="0,15,0,0">
-                    <TextBox/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="DDD" Style="{StaticResource PhoneTextNormalStyle}"/>
+                        <TextBlock Text="Número" Margin="45, 0, 0, 0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    </StackPanel>
+                    
+                    <Grid Grid.RowSpan="1" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBox Grid.Column="0"/>
+                        <TextBox Grid.Column="1"/>
+                    </Grid>
+                    
                     <Button Name="btnAddTelefone" Content="Adicionar telefone" Click="btnAddTelefone_Click"/>
                 </StackPanel>
             </StackPanel>
@@ -47,7 +67,7 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" Mode="Default">
-            <shell:ApplicationBarIconButton Text="salvar" IconUri="/Images/email.png"/>
+            <shell:ApplicationBarIconButton Text="salvar" IconUri="/Images/save.png" Click="ApplicationBarIconButton_Click_1"/>
             <shell:ApplicationBarIconButton Text="cancelar" IconUri="/Images/cancel.png" Click="ApplicationBarIconButton_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

@@ -119,6 +119,9 @@
     <Compile Include="Pages\TelefonesEditPage.xaml.cs">
       <DependentUpon>TelefonesEditPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TelefonesPage.xaml.cs">
+      <DependentUpon>TelefonesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\UserConfigPage.xaml.cs">
       <DependentUpon>UserConfigPage.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\TelefonesEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TelefonesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

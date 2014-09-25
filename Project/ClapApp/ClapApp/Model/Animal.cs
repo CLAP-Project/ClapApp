@@ -60,7 +60,7 @@ namespace ClapApp.Model
 
         public SolidColorBrush StatusBrush
         {
-            get { return new SolidColorBrush(IsPerdido? Colors.Red : Colors.White); }
+            get { return new SolidColorBrush(IsPerdido ? Colors.Red : new Color() { R = 0, G = 255, B = 0, A = 255 }); }
         }
 
         // ---
