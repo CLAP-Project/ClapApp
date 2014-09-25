@@ -49,9 +49,9 @@ namespace ClapApp.Pages
             };
 
             _animaisButtons = new ApplicationBarIconButton[] {
-                emailButton, phoneButton,
                 PanoramaBar.MakeButton("add.png", "adicionar", (object sender, EventArgs e) =>
                 {
+                    Editing.SetTempUsuario();
                     NavigationService.Navigate(AddAnimalPage.GetUri());
                 })
             };
@@ -128,12 +128,12 @@ namespace ClapApp.Pages
 
         private void lstAnimais_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            NavigationService.Navigate(AnimalPage.GetUri());
+            
         }
 
         private void lstAnimais_GotFocus(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(AnimalPage.GetUri());
+            
         }
 
         private void Panorama_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -155,6 +155,19 @@ namespace ClapApp.Pages
         private void stkTelefones_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             navigateTelefones();
+        }
+
+        private void AnimalStackPanel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            var selected = lstAnimais.SelectedItem;
+            var animalCast = selected as Animal;
+
+            if (animalCast != null)
+            {
+                Editing.Animal = animalCast;
+                NavigationService.Navigate(AnimalPage.GetUri());
+            }
+            else MessageBox.Show("Isso não deveria aparecer... [animalCast == null; " + selected + ']', "Erro", MessageBoxButton.OK);
         }
     }
 }

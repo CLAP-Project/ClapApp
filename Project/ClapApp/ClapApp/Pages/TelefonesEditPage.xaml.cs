@@ -88,14 +88,14 @@ namespace ClapApp.Pages
             if (deleteButton.IsEnabled = selected != null)
             {
                 prevBrush = selected.Foreground;
-                selected.Foreground = new SolidColorBrush(Colors.Cyan);
+                selected.Foreground = new SolidColorBrush(Colors.Blue);
             }
         }
 
         private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
         {
             Editing.SaveUsuario();
-            NavigationService.GoBack();
+            NavigationService.Navigate(PerfilAnimaisPage.GetUri());
         }
     }
 }

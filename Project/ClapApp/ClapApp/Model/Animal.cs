@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Phone.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,21 +16,40 @@ namespace ClapApp.Model
     public enum Sexo
     {
         Macho,
-        Fêmea,
+        Femea,
         Indefinido
     }
 
     public class Animal
     {
+        public string NumeroColeira { get; set; }
+
         public string Nome { get; set; }
         public Status Status { get; set; }
 
         public string Especie { get; set; }
         public Sexo Sexo { get; set; }
 
-        public string Informacoes { get; set; }
+        public string Descricao { get; set; }
 
         // ---
+
+        public static Sexo ParseSexo(ListPicker lst)
+        {
+            var str = (lst.SelectedItem as ListPickerItem).Content.ToString();
+
+            switch (str)
+            {
+                case "Macho":
+                    return Sexo.Macho;
+
+                case "Fêmea":
+                    return Sexo.Femea;
+
+                default:
+                    return Sexo.Indefinido;
+            }
+        }
 
         public static Animal Copy(Animal that)
         {
@@ -42,7 +62,7 @@ namespace ClapApp.Model
                 Status=that.Status,
                 Especie=that.Especie,
                 Sexo=that.Sexo,
-                Informacoes=that.Informacoes
+                Descricao = that.Descricao
             };
         }
 
@@ -77,7 +97,7 @@ namespace ClapApp.Model
 
         public string EspecieSexo
         {
-            get { return Especie + ", " + SexoString; }
+            get { return Especie + (SexoVisivel? ", " + SexoString : ""); }
         }
     }
 }

@@ -21,16 +21,12 @@
             <!--Panorama item one-->
             <phone:PanoramaItem Header="animal">
                 <StackPanel Name="stkAnimal">
-                    <TextBlock Text="Jack Tartaruga" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                    <TextBlock Text="Cágado, macho" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                    <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
                     
                     <StackPanel Orientation="Horizontal">
                         <Image Height="180" Width="180" Source="/Assets/ApplicationIcon.png"/>
-                        
-                        <!--TextBlock Text="{Binding Nome}"/>
-                        <TextBlock Text="{Binding EspecieSexo}"/>
-                        <TextBlock Text="{Binding Informacoes}"/-->
-                        <TextBlock Text="É uma tartaruguinha daora." Width="240" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Descricao}" Width="230" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
                     </StackPanel>
                 </StackPanel>
             </phone:PanoramaItem>

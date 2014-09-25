@@ -152,6 +152,12 @@ namespace ClapApp.Model
             NumerosPublico = true;
         }
 
+        public Animal AddAnimal(Animal animal)
+        {
+            Animais.Add(animal);
+            return animal;
+        }
+
         public static Perfil Copy(Perfil that)
         {
             if (that == null)
@@ -194,8 +200,11 @@ namespace ClapApp.Model
 
             mox._animais.Add(new Animal()
             {
-                Nome="Jack Tartaruga",
-                Status=Status.Perdido
+                Nome = "Jack Tartaruga",
+                Sexo = Sexo.Macho,
+                Especie = "Cágado",
+                Status = Status.Perdido,
+                Descricao = "A tartaruguinha mais sapeca do pedaço está pronto pra levar uma família à loucura. Ah, come alfafa e alface adoidado."
             });
 
             return mox;

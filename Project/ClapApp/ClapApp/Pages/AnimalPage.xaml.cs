@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using ClapApp.Model;
 
 namespace ClapApp.Pages
 {
@@ -27,6 +28,7 @@ namespace ClapApp.Pages
                 }),
                 PanoramaBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
                 {
+                    Editing.SetTempAnimal();
                     NavigationService.Navigate(AnimalDados.GetUri());
                 }),
                 PanoramaBar.MakeButton("delete.png", "deletar")
@@ -53,6 +55,20 @@ namespace ClapApp.Pages
             // ---
 
             _updateButtons();
+        }
+
+        // ---
+
+        private void updateDataContext()
+        {
+            LayoutRoot.DataContext = null;
+            LayoutRoot.DataContext = Editing.Animal;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            updateDataContext();
         }
 
         // ---

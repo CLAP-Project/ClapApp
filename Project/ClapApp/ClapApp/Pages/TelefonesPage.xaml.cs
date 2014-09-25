@@ -72,7 +72,7 @@ namespace ClapApp.Pages
             if (phoneButton.IsEnabled = selected != null)
             {
                 prevBrush = selected.Foreground;
-                selected.Foreground = new SolidColorBrush(Colors.Cyan);
+                selected.Foreground = new SolidColorBrush(Colors.Blue);
             }
         }
     }

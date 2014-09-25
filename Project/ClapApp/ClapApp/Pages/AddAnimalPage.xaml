@@ -32,16 +32,16 @@
             <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel>
                     <TextBlock Text="Nome" Style="{StaticResource PhoneTextNormalStyle}"/>
-                    <TextBox/>
+                    <TextBox Name="txtNome"/>
 
                     <TextBlock Text="Espécie" Style="{StaticResource PhoneTextNormalStyle}"/>
-                    <TextBox/>
+                    <TextBox Name="txtEspecie"/>
 
                     <TextBlock Text="Sexo" Style="{StaticResource PhoneTextNormalStyle}"/>
-                    <toolkit:ListPicker>
+                    <toolkit:ListPicker Name="pkrSexo">
+                        <toolkit:ListPickerItem Content="Indefinido"/>
                         <toolkit:ListPickerItem Content="Macho"/>
                         <toolkit:ListPickerItem Content="Fêmea"/>
-                        <toolkit:ListPickerItem Content="Indefinido"/>
                     </toolkit:ListPicker>
 
                     <TextBlock Text="Descrição" Style="{StaticResource PhoneTextNormalStyle}"/>
@@ -51,8 +51,8 @@
 
                     <StackPanel Margin="0,15,0,0">
                         <TextBlock Text="Número da coleira" Style="{StaticResource PhoneTextNormalStyle}"/>
-                        <TextBox/>
-                        <Button Content="Adicionar"/>
+                        <TextBox Name="txtNumeroColeira"/>
+                        <Button Name="btnAdicionar" Content="Adicionar" Click="btnAdicionar_Click"/>
                     </StackPanel>
 
                     <StackPanel Margin="0,80,0,0"/>
