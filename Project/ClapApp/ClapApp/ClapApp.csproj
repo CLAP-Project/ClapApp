@@ -113,6 +113,9 @@
     <Compile Include="Pages\EmailsEditPage.xaml.cs">
       <DependentUpon>EmailsEditPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FotoQRCodePage.xaml.cs">
+      <DependentUpon>FotoQRCodePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PerfilAnimaisPage.xaml.cs">
       <DependentUpon>PerfilAnimaisPage.xaml</DependentUpon>
     </Compile>
@@ -161,6 +164,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\FotoQRCodePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PerfilAnimaisPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -194,9 +201,16 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="clap doggy.png" />
+    <Content Include="clap doggy2.png" />
+    <Content Include="clap doggy3.png" />
     <Content Include="Images\add.png" />
     <Content Include="Images\back.png" />
     <Content Include="Images\cancel.png" />
+    <Content Include="Images\clapdoggy.png" />
+    <Content Include="Images\clapdoggy2.png" />
+    <Content Include="Images\clapdoggy3.png" />
+    <Content Include="Images\clapp_icon.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\cog.png" />

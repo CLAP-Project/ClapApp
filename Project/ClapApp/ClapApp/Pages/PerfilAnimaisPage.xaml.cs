@@ -128,7 +128,7 @@ namespace ClapApp.Pages
 
         private void lstAnimais_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
         }
 
         private void lstAnimais_GotFocus(object sender, RoutedEventArgs e)
