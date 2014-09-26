@@ -54,6 +54,7 @@
                 <TextBlock Text="Senha:" Style="{StaticResource PhoneTextNormalStyle}"/>
                 <PasswordBox/>
                 <Button Name="btnLogin" Content="Login" Click="btnLogin_Click"/>
+                <Button Name="btnVisitante" Content="Sou visitante" Click="btnVisitante_Click"/>
             </StackPanel>
         </Grid>
 
