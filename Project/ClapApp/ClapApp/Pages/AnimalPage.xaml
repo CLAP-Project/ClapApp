@@ -65,8 +65,6 @@
                     <StackPanel>
                         <TextBlock Text="Toque para visualizar melhor o mapa" Style="{StaticResource PhoneTextSmallStyle}"/>    
                     </StackPanel>
-                    
-                    <!--maps:Map Height="400" Width="380"/-->
                 </Grid>
                 
             </phone:PanoramaItem>
