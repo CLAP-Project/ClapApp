@@ -9,6 +9,8 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClapApp.Resources;
 using ClapApp.Pages;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace ClapApp
 {
@@ -18,7 +20,6 @@ namespace ClapApp
         public MainPage()
         {
             InitializeComponent();
-
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
