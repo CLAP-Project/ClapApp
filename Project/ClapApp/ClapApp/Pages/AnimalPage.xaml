@@ -65,6 +65,7 @@
                     <StackPanel>
                         <TextBlock Text="Toque para visualizar melhor o mapa" Style="{StaticResource PhoneTextSmallStyle}"/>    
                     </StackPanel>
+                    <maps:Map Name="mapaLocalizacao"></maps:Map>
                 </Grid>
                 
             </phone:PanoramaItem>

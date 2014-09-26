@@ -99,6 +99,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Animal.cs" />
+    <Compile Include="Model\CordinateConverter.cs" />
     <Compile Include="Model\Editing.cs" />
     <Compile Include="Model\Perfil.cs" />
     <Compile Include="Pages\AddAnimalPage.xaml.cs">
@@ -233,6 +234,7 @@
     <Content Include="Images\minus.png" />
     <Content Include="Images\save.png" />
     <Content Include="Images\status.png" />
+    <Content Include="Images\sync.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
