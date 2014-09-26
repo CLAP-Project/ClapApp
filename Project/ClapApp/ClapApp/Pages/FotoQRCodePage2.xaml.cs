@@ -7,19 +7,19 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-
+using MessagingToolkit.Barcode;
 using Microsoft.Devices;
 using System.IO;
 using System.Windows.Media.Imaging;
 
 namespace ClapApp.Pages
 {
-    public partial class FotoQRCode2 : PhoneApplicationPage
+    public partial class FotoQRCodePage2 : PhoneApplicationPage
     {
         private PhotoCamera camera;
         private bool capturing = false;
 
-        public FotoQRCode2()
+        public FotoQRCodePage2()
         {
             InitializeComponent();
         }
@@ -57,6 +57,57 @@ namespace ClapApp.Pages
 
         // ---
 
+        private void camera_CaptureImageAvailable(object sender, ContentReadyEventArgs e)
+        {
+            capturing = false;
+
+            Stream imageStream = (Stream)e.ImageStream;
+            BarcodeDecoder barcodeDecoder = new BarcodeDecoder();
+
+            Dictionary<DecodeOptions, object> decodingOptions =
+                                new Dictionary<DecodeOptions, object>();
+            List<BarcodeFormat> possibleFormats = new List<BarcodeFormat>(1);
+            Result result;
+
+            Dispatcher.BeginInvoke(
+                () =>
+                {
+
+                    WriteableBitmap qrImage = new WriteableBitmap((int)camera.Resolution.Width, (int)camera.Resolution.Height);
+                    imageStream.Position = 0;
+                    qrImage.LoadJpeg(imageStream);
+
+                    possibleFormats.Add(BarcodeFormat.QRCode);
+
+                    decodingOptions.Add(
+                        DecodeOptions.PossibleFormats,
+                        possibleFormats);
+
+                    try
+                    {
+                        result = barcodeDecoder.Decode(qrImage, decodingOptions);
+
+                        resultText.Text = result.Text;
+                    }
+                    catch (NotFoundException)
+                    {
+                        // this is expected if the image does not contain a valid
+                        // code, Or is too distorted to read
+                        resultText.Text = "<nothing to display>";
+                    }
+                    catch (Exception ex)
+                    {
+                        // something else went wrong, so alert the user
+                        MessageBox.Show(
+                            ex.Message,
+                            "Error Decoding Image",
+                            MessageBoxButton.OK);
+                    }
+                }
+            );
+        }
+
+        // ---
         protected override void OnNavigatedTo(
            System.Windows.Navigation.NavigationEventArgs e)
         {

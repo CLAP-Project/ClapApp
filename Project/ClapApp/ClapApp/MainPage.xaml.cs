@@ -32,7 +32,7 @@ namespace ClapApp
 
         private void btnVisitante_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(FotoQRCodePage.GetUri());
+            NavigationService.Navigate(FotoQRCodePage2.GetUri());
         }
 
         // Sample code for building a localized ApplicationBar
