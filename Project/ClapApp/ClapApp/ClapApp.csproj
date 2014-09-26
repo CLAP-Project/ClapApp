@@ -370,6 +370,7 @@
     <Content Include="Assets\Content\99.jpg" />
     <Content Include="Images\add.png" />
     <Content Include="Images\back.png" />
+    <Content Include="Images\cagado.jpg" />
     <Content Include="Images\cancel.png" />
     <Content Include="Images\clapdoggy.png" />
     <Content Include="Images\clapdoggy2.png" />
@@ -380,6 +381,7 @@
     <Content Include="Images\cog.png" />
     <Content Include="Images\favs.png" />
     <Content Include="Images\email.png" />
+    <Content Include="Images\Max.PNG" />
     <Content Include="Images\phone.png" />
     <Content Include="Images\gúgui_méps.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">

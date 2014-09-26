@@ -190,7 +190,7 @@ namespace ClapApp.Model
             Perfil mox = new Perfil()
             {
                 Nome = "Max",
-                Sobrenome = "Wolliamsa",
+                Sobrenome = "Willams",
                 Cidade = "Manaus",
                 Estado = "Amazonas"
             };
@@ -204,7 +204,7 @@ namespace ClapApp.Model
                 Sexo = Sexo.Macho,
                 Especie = "Cágado",
                 Status = Status.Perdido,
-                Descricao = "A tartaruguinha mais sapeca do pedaço está pronto pra levar uma família à loucura. Ah, come alfafa e alface adoidado."
+                Descricao = "A tartaruguinha mais sapeca do pedaço está pronta pra levar uma família à loucura! Ah, e ela come alface pra caramba..."
             });
 
             return mox;

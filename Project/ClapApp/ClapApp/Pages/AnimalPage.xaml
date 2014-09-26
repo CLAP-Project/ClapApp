@@ -27,7 +27,7 @@
                     <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
 
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="180" Width="180" Source="/Assets/ApplicationIcon.png"/>
+                        <Image Height="180" Width="180" Source="/Images/cagado.jpg" Stretch="Fill"/>
                         <TextBlock Text="{Binding Descricao}" Width="230" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
                     </StackPanel>
                     <Button Name="btnGaleria" Content="Galeria" Width="200" HorizontalAlignment="Left" Click="btnGaleria_Click"></Button>
