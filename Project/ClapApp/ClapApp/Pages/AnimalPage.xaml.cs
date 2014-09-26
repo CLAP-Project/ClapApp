@@ -225,5 +225,10 @@ namespace ClapApp.Pages
         {
             _updateButtons();
         }
+
+        private void btnGaleria_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(AnimalGaleriaPage.GetUri());
+        }
     }
 }

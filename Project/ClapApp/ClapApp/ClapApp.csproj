@@ -110,6 +110,9 @@
     <Compile Include="Pages\AnimalDados.xaml.cs">
       <DependentUpon>AnimalDados.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AnimalGaleriaPage.xaml.cs">
+      <DependentUpon>AnimalGaleriaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AnimalPage.xaml.cs">
       <DependentUpon>AnimalPage.xaml</DependentUpon>
     </Compile>
@@ -161,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AnimalDados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AnimalGaleriaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
