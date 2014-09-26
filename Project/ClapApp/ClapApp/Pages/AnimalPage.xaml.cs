@@ -18,7 +18,6 @@ using Windows.Devices.Geolocation; //Provides the Geocoordinate class.
 using System.Windows.Media;
 using System.Windows.Shapes;
 using ShowMyLocationOnMap;
-using PhotoHubSample.ViewModels;
 
 namespace ClapApp.Pages
 {
@@ -29,9 +28,9 @@ namespace ClapApp.Pages
         public AnimalPage()
         {
             InitializeComponent();
-            this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+
             // ---
-            
+
             _perfilButtons = new ApplicationBarIconButton[] {
                 PanoramaBar.MakeButton("status.png", "dono", (object sender, EventArgs e) =>
                 {
@@ -46,7 +45,7 @@ namespace ClapApp.Pages
             };
 
             // ---
-            
+
             _localButtons = new ApplicationBarIconButton[] {
                 PanoramaBar.MakeButton("cog.png", "configurar"),
                 PanoramaBar.MakeButton("sync.png", "atualizar", ShowMyLocationOnTheMap)
@@ -69,24 +68,14 @@ namespace ClapApp.Pages
             _updateButtons();
 
             ShowMyLocationOnTheMap(null, null);
-
-            
-        }
-
-        private void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            var viewModel = new PhotosViewModel();
-            DataContext = viewModel;
-
-            PhotoHubLLS.ScrollTo(PhotoHubLLS.ItemsSource[PhotoHubLLS.ItemsSource.Count - 1]);
         }
 
         // ---
 
         private void updateDataContext()
         {
-            //LayoutRoot.DataContext = null;
-            //LayoutRoot.DataContext = Editing.Animal;
+            LayoutRoot.DataContext = null;
+            LayoutRoot.DataContext = Editing.Animal;
         }
 
         // ---
@@ -199,7 +188,7 @@ namespace ClapApp.Pages
 
         private void Panorama_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _updateButtons();   
+            _updateButtons();
         }
 
         private void txtDescricao_GotFocus(object sender, RoutedEventArgs e)
