@@ -26,30 +26,30 @@ namespace ClapApp.Pages
 
             // ---
 
-            var phoneButton = PanoramaBar.MakeButton("phone.png", "telefones", (object sender, EventArgs e) =>
+            var phoneButton = PivotBar.MakeButton("phone.png", "telefones", (object sender, EventArgs e) =>
             {
                 navigateTelefones();
             });
 
-            var emailButton = PanoramaBar.MakeButton("email.png", "e-mails");
+            var emailButton = PivotBar.MakeButton("email.png", "e-mails");
 
             // ---
 
             _perfilButtons = new ApplicationBarIconButton[] {
                 emailButton, phoneButton,
-                PanoramaBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
+                PivotBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
                 {
                     Editing.SetTempUsuario();
                     NavigationService.Navigate(UserEditPage.GetUri());
                 }),
-                PanoramaBar.MakeButton("cog.png", "configurar", (object sender, EventArgs e) =>
+                PivotBar.MakeButton("cog.png", "configurar", (object sender, EventArgs e) =>
                 {
                     NavigationService.Navigate(UserConfigPage.GetUri());
                 })
             };
 
             _animaisButtons = new ApplicationBarIconButton[] {
-                PanoramaBar.MakeButton("add.png", "adicionar", (object sender, EventArgs e) =>
+                PivotBar.MakeButton("add.png", "adicionar", (object sender, EventArgs e) =>
                 {
                     Editing.SetTempUsuario();
                     NavigationService.Navigate(AddAnimalPage.GetUri());
@@ -165,7 +165,7 @@ namespace ClapApp.Pages
             if (animalCast != null)
             {
                 Editing.Animal = animalCast;
-                NavigationService.Navigate(AnimalPage.GetUri());
+                NavigationService.Navigate(AnimalPivot.GetUri());
             }
             else MessageBox.Show("Isso não deveria aparecer... [animalCast == null; " + selected + ']', "Erro", MessageBoxButton.OK);
         }

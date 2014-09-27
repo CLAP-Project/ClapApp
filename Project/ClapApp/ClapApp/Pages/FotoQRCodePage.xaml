@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
 
         <Canvas x:Name="viewfinderCanvas" Width="640" Height="480" 
-                   HorizontalAlignment="Left" >
+                   HorizontalAlignment="Left" Margin="0,145,0,143" >
 
             <!--Camera viewfinder -->
             <Canvas.Background>

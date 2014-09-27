@@ -30,14 +30,7 @@ namespace ClapApp.Pages
 
         private static string ParseEspecie(string str)
         {
-            if (str.Length != 0)
-            {
-                var strArray = str.ToLowerInvariant().ToCharArray();
-                strArray[0] = char.ToUpperInvariant(strArray[0]);
-                str = new string(strArray);
-            }
-
-            return str;
+            return Animal.ParseEspecie(str);
         }
 
         private static string checkText(string str, string errorMessage)

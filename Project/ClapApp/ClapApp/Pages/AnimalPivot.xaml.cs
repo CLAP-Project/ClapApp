@@ -21,11 +21,11 @@ using ShowMyLocationOnMap;
 
 namespace ClapApp.Pages
 {
-    public partial class AnimalPage : PhoneApplicationPage
+    public partial class AnimalPivot : PhoneApplicationPage
     {
         ApplicationBarIconButton[] _perfilButtons, _localButtons, _fotosButtons, _rastrButtons;
 
-        public AnimalPage()
+        public AnimalPivot()
         {
             InitializeComponent();
 
@@ -74,8 +74,6 @@ namespace ClapApp.Pages
 
         private void updateDataContext()
         {
-            MessageBox.Show(Editing.Animal.Especie);
-
             LayoutRoot.DataContext = null;
             LayoutRoot.DataContext = Editing.Animal;
         }
@@ -137,14 +135,10 @@ namespace ClapApp.Pages
             myLocationOverlay.PositionOrigin = new Point(0.5, 0.5);
             myLocationOverlay.GeoCoordinate = myGeoCoordinate;
 
-            MapOverlay m2 = new MapOverlay();
-            m2.Content = createMarker();
-            m2.PositionOrigin = new Point(0.5, 0.5);
-            m2.GeoCoordinate = myGeoCoordinate;
             //Atribuição para localização
             MapLayer myLocationLayer = new MapLayer();
             myLocationLayer.Add(myLocationOverlay);
-            myLocationLayer.Add(m2);
+
             //Adição da camada no mapa
             this.mapaLocalizacao.Layers.Add(myLocationLayer);
         }
@@ -161,7 +155,7 @@ namespace ClapApp.Pages
 
         public static Uri GetUri()
         {
-            return new Uri("/Pages/AnimalPage.xaml", UriKind.Relative);
+            return new Uri("/Pages/AnimalPivot.xaml", UriKind.Relative);
         }
 
         private void _addButons(ApplicationBarIconButton[] buttons, bool minimize = true)
@@ -197,7 +191,7 @@ namespace ClapApp.Pages
 
         private void _updateButtons()
         {
-            _updateButtons(this.Pivot.SelectedIndex);
+            _updateButtons(this.PivotAnimal.SelectedIndex);
         }
 
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -214,6 +208,13 @@ namespace ClapApp.Pages
         {
             ApplicationBar.IsVisible = true;
         }
+
+        private void tglStatus_Checked(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void 
 
         private void toggleGPS_Checked(object sender, RoutedEventArgs e)
         {

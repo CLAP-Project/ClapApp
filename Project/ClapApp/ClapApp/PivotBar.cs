@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClapApp
 {
-    public static class PanoramaBar
+    public static class PivotBar
     {
         public static ApplicationBarIconButton MakeButton(string iconPng, string text, EventHandler e = null)
         {
