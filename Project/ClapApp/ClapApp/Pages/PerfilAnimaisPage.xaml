@@ -16,10 +16,10 @@
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
-        <phone:Panorama Name="Panorama" Title="my application" TitleTemplate="{StaticResource SmallPanoramaTitle}" SelectionChanged="Panorama_SelectionChanged" Loaded="Panorama_Loaded" >
+        <phone:Pivot Name="Pivot" Title="{Binding}" TitleTemplate="{StaticResource SmallPivotTitle}"  Loaded="Pivot_Loaded" >
 
-            <!--Panorama item one-->
-            <phone:PanoramaItem Header="meu perfil">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="meu perfil">
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
                     <StackPanel>
                         <TextBlock Text="{Binding NomeSobrenome}" TextWrapping="Wrap" Visibility="{Binding NomeSobrenomeVisible}" Style="{StaticResource PhoneTextExtraLargeStyle}" Tap="btnEditar_Click"/>
@@ -32,7 +32,8 @@
                                 <Image Height="180" Width="180" Source="/Images/Max.PNG" Stretch="Fill"/>
                             </StackPanel>
 
-                            <StackPanel Orientation="Vertical" Visibility="{Binding EmailsVisible}" Margin="0,15,0,0">
+                            <StackPanel Orientation="Vertical" Visibility="{Binding EmailsVisible}" Margin="0,0,0,0"> 
+                                <!-- /\/\/\ Mudei a margem para 0 ~Rúben--> 
                                 <StackPanel Name="stkEmails" Tap="stkEmails_Tap">
                                     <TextBlock Text="E-mails" Style="{StaticResource PhoneTextNormalStyle}"/>
                                     <ScrollViewer local:BlocksPan.IsEnabled="True" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
@@ -68,10 +69,10 @@
                         <StackPanel Margin="0,80,0,0"/>
                     </StackPanel>
                 </ScrollViewer>
-            </phone:PanoramaItem>
+            </phone:PivotItem>
 
-            <!--Panorama item two-->
-            <phone:PanoramaItem Header="meus animais">
+            <!--Pivot item two-->
+            <phone:PivotItem Header="meus animais">
                 <ListBox Name="lstAnimais" Height="500" ItemsSource="{Binding Animais}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -85,9 +86,9 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-            </phone:PanoramaItem>
+            </phone:PivotItem>
             
-        </phone:Panorama>
+        </phone:Pivot>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>

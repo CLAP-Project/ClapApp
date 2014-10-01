@@ -9,9 +9,16 @@
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:ClapApp" x:Key="LocalizedStrings"/>
         
-        <DataTemplate x:Key="SmallPanoramaTitle">
+        <DataTemplate x:Key="SmallPivotTitle">
             <ContentPresenter>
-                <TextBlock Text="{Binding}" FontSize="50" Margin="0,70,0,0" />
+                <TextBlock Text="CLAP" Margin="0,0,0,0" />
+            </ContentPresenter>
+        </DataTemplate>
+        
+        
+        <DataTemplate x:Key="AppName">
+            <ContentPresenter>
+                <TextBlock Text="{Binding}" Style="{StaticResource PhoneTextNormalStyle}"></TextBlock>
             </ContentPresenter>
         </DataTemplate>
         

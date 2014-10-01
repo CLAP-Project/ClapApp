@@ -191,7 +191,7 @@ namespace ClapApp.Pages
 
         private void _updateButtons()
         {
-            _updateButtons(this.PivotAnimal.SelectedIndex);
+            _updateButtons(this.Pivot.SelectedIndex);
         }
 
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -214,7 +214,7 @@ namespace ClapApp.Pages
             
         }
 
-        private void 
+        //private void 
 
         private void toggleGPS_Checked(object sender, RoutedEventArgs e)
         {

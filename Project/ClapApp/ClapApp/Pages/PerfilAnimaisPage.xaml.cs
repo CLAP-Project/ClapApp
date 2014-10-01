@@ -95,15 +95,15 @@ namespace ClapApp.Pages
 
         private void updateButtons()
         {
-            updateButtons(Panorama.SelectedIndex);
+            updateButtons(Pivot.SelectedIndex);
         }
 
         // ---
 
         void updateComponents()
         {
-            Panorama.DataContext = null;
-            Panorama.DataContext = Editing.Usuario;
+            Pivot.DataContext = null;
+            Pivot.DataContext = Editing.Usuario;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -119,8 +119,8 @@ namespace ClapApp.Pages
 
             Editing.Usuario.Animais.Add(new Animal()
             {
-                Nome="Guido",
-                Status=Status.Ok
+                Nome = "Guido",
+                Status = Status.Ok
             });
 
             updateComponents();
@@ -133,15 +133,15 @@ namespace ClapApp.Pages
 
         private void lstAnimais_GotFocus(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
-        private void Panorama_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             updateButtons();
         }
 
-        private void Panorama_Loaded(object sender, RoutedEventArgs e)
+        private void Pivot_Loaded(object sender, RoutedEventArgs e)
         {
             updateButtons();
             updateComponents();
