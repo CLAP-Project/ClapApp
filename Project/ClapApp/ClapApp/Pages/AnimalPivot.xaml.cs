@@ -29,17 +29,15 @@ namespace ClapApp.Pages
         {
             InitializeComponent();
 
-            // ---
-
             _perfilButtons = new ApplicationBarIconButton[] {
                 PivotBar.MakeButton("status.png", "dono", (object sender, EventArgs e) =>
                 {
-                    NavigationService.Navigate(PerfilAnimaisPage.GetUri());
+                    NavigationService.Navigate(PerfilPivot.GetUri());
                 }),
                 PivotBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
                 {
                     Editing.SetTempAnimal();
-                    NavigationService.Navigate(AnimalDados.GetUri());
+                    NavigationService.Navigate(AnimalEditPage.GetUri());
                 }),
                 PivotBar.MakeButton("delete.png", "deletar")
             };
@@ -65,7 +63,7 @@ namespace ClapApp.Pages
 
             // ---
 
-            _updateButtons();
+            //_updateButtons();
 
             ShowMyLocationOnTheMap(null, null);
         }

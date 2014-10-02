@@ -25,6 +25,8 @@ namespace ClapApp.Pages
         public FotoQRCodePage()
         {
             InitializeComponent();
+
+            this.LayoutRoot.Background = new SolidColorBrush(App.BackgroundColor);
         }
 
         // ---

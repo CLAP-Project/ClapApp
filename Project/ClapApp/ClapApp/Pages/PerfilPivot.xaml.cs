@@ -8,10 +8,11 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClapApp.Model;
+using System.Windows.Media;
 
 namespace ClapApp.Pages
 {
-    public partial class PerfilAnimaisPage : PhoneApplicationPage
+    public partial class PerfilPivot : PhoneApplicationPage
     {
         ApplicationBarIconButton[] _perfilButtons, _animaisButtons;
 
@@ -20,10 +21,10 @@ namespace ClapApp.Pages
             NavigationService.Navigate(TelefonesPage.GetUri());
         }
 
-        public PerfilAnimaisPage()
+        public PerfilPivot()
         {
             InitializeComponent();
-
+           
             // ---
 
             var phoneButton = PivotBar.MakeButton("phone.png", "telefones", (object sender, EventArgs e) =>
@@ -58,14 +59,13 @@ namespace ClapApp.Pages
 
             // ---
 
-            updateComponents();
         }
 
         // ---
 
         public static Uri GetUri()
         {
-            return new Uri("/Pages/PerfilAnimaisPage.xaml", UriKind.Relative);
+            return new Uri("/Pages/PerfilPivot.xaml", UriKind.Relative);
         }
 
         // ---

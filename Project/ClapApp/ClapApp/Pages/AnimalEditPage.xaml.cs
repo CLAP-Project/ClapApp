@@ -8,12 +8,13 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClapApp.Model;
+using System.Windows.Media;
 
 namespace ClapApp.Pages
 {
-    public partial class AnimalDados : PhoneApplicationPage
+    public partial class AnimalEditPage : PhoneApplicationPage
     {
-        public AnimalDados()
+        public AnimalEditPage()
         {
             InitializeComponent();
         }
@@ -22,7 +23,7 @@ namespace ClapApp.Pages
 
         public static Uri GetUri()
         {
-            return new Uri("/Pages/AnimalDados.xaml", UriKind.Relative);
+            return new Uri("/Pages/AnimalEditPage.xaml", UriKind.Relative);
         }
 
         private bool canChangeSexo = false;

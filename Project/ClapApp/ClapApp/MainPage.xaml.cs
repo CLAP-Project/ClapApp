@@ -27,12 +27,14 @@ namespace ClapApp
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(PerfilAnimaisPage.GetUri());
+            NavigationService.Navigate(PerfilPivot.GetUri());
         }
 
         private void btnVisitante_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(FotoQRCodePage2.GetUri());
+            double f = 5.43456;
+            MessageBox.Show(f.ToString("0.00"));
+            //NavigationService.Navigate(FotoQRCodePage2.GetUri());
         }
 
         // Sample code for building a localized ApplicationBar

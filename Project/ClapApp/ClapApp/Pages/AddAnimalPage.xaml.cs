@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClapApp.Model;
+using System.Windows.Media;
 
 namespace ClapApp.Pages
 {

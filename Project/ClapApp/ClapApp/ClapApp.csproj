@@ -107,8 +107,8 @@
     <Compile Include="Pages\AddAnimalPage.xaml.cs">
       <DependentUpon>AddAnimalPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AnimalDados.xaml.cs">
-      <DependentUpon>AnimalDados.xaml</DependentUpon>
+    <Compile Include="Pages\AnimalEditPage.xaml.cs">
+      <DependentUpon>AnimalEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AnimalGaleriaPage.xaml.cs">
       <DependentUpon>AnimalGaleriaPage.xaml</DependentUpon>
@@ -128,8 +128,8 @@
     <Compile Include="Pages\FotoQRCodePage.xaml.cs">
       <DependentUpon>FotoQRCodePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PerfilAnimaisPage.xaml.cs">
-      <DependentUpon>PerfilAnimaisPage.xaml</DependentUpon>
+    <Compile Include="Pages\PerfilPivot.xaml.cs">
+      <DependentUpon>PerfilPivot.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TelefonesEditPage.xaml.cs">
       <DependentUpon>TelefonesEditPage.xaml</DependentUpon>
@@ -166,7 +166,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AnimalDados.xaml">
+    <Page Include="Pages\AnimalEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -194,7 +194,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PerfilAnimaisPage.xaml">
+    <Page Include="Pages\PerfilPivot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

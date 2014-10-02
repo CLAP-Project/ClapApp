@@ -21,6 +21,14 @@ namespace ClapApp
             }
         }
 
+        public static Color BackgroundColor
+        {
+            get
+            {
+                return Color.FromArgb(100, 65, 121, 170);
+            }
+        }
+
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>

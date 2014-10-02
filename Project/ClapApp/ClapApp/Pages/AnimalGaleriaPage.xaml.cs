@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using PhotoHubSample.ViewModels;
+using System.Windows.Media;
 
 namespace ClapApp.Pages
 {
@@ -17,6 +18,8 @@ namespace ClapApp.Pages
         {
             InitializeComponent();
             this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+
+            this.LayoutRoot.Background = new SolidColorBrush(App.BackgroundColor);
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)

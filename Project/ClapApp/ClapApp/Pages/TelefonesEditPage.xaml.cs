@@ -95,7 +95,7 @@ namespace ClapApp.Pages
         private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
         {
             Editing.SaveUsuario();
-            NavigationService.Navigate(PerfilAnimaisPage.GetUri());
+            NavigationService.Navigate(PerfilPivot.GetUri());
         }
     }
 }

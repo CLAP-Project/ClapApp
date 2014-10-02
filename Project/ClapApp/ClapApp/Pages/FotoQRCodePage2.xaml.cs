@@ -11,6 +11,7 @@ using MessagingToolkit.Barcode;
 using Microsoft.Devices;
 using System.IO;
 using System.Windows.Media.Imaging;
+using System.Windows.Media;
 
 namespace ClapApp.Pages
 {
