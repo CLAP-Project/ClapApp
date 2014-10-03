@@ -23,7 +23,7 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock DataContext="{StaticResource AppName}"></TextBlock>
+            <TextBlock Text="{StaticResource ApplicationName}"></TextBlock>
             <TextBlock Text="novo animal" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
     
@@ -31,26 +31,26 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel>
-                    <TextBlock Text="Nome" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Text="Nome" Style="{StaticResource PhoneTextSmallStyle}"/>
                     <TextBox Name="txtNome"/>
 
-                    <TextBlock Text="Espécie" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Text="Espécie" Style="{StaticResource PhoneTextSmallStyle}"/>
                     <TextBox Name="txtEspecie"/>
 
-                    <TextBlock Text="Sexo" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Text="Sexo" Style="{StaticResource PhoneTextSmallStyle}"/>
                     <toolkit:ListPicker Name="pkrSexo">
                         <toolkit:ListPickerItem Content="Indefinido"/>
                         <toolkit:ListPickerItem Content="Macho"/>
                         <toolkit:ListPickerItem Content="Fêmea"/>
                     </toolkit:ListPicker>
 
-                    <TextBlock Text="Descrição" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Text="Descrição" Style="{StaticResource PhoneTextSmallStyle}"/>
 
                     <TextBox Name="txtDescricao" AcceptsReturn="True" Grid.Row="1"
                                     Height="175" TextWrapping="Wrap"/>
 
                     <StackPanel Margin="0,15,0,0">
-                        <TextBlock Text="Número da coleira" Style="{StaticResource PhoneTextNormalStyle}"/>
+                        <TextBlock Text="Número da coleira" Style="{StaticResource PhoneTextSmallStyle}"/>
                         <TextBox Name="txtNumeroColeira"/>
                         <Button Name="btnAdicionar" Content="Adicionar" Click="btnAdicionar_Click"/>
                     </StackPanel>

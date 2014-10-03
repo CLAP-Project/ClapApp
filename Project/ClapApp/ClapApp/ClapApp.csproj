@@ -122,12 +122,6 @@
     <Compile Include="Pages\EmailsEditPage.xaml.cs">
       <DependentUpon>EmailsEditPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FotoQRCodePage2.xaml.cs">
-      <DependentUpon>FotoQRCodePage2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\FotoQRCodePage.xaml.cs">
-      <DependentUpon>FotoQRCodePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\PerfilPivot.xaml.cs">
       <DependentUpon>PerfilPivot.xaml</DependentUpon>
     </Compile>
@@ -183,14 +177,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\EmailsEditPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FotoQRCodePage2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\FotoQRCodePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

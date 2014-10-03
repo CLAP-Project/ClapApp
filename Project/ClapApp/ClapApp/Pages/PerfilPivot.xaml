@@ -32,7 +32,7 @@
                                 <Image Height="180" Width="180" Source="/Images/Max.PNG" Stretch="Fill"/>
                             </StackPanel>
 							
-							<StackPanel Orientation="Vertical" Visibility="{Binding EmailsVisible}" Margin="0,0,0,0"> 
+							<StackPanel Orientation="Vertical" Visibility="{Binding EmailsVisible}"> 
                                 <StackPanel Name="stkEmails" Tap="stkEmails_Tap">
                                     <TextBlock Text="Enviar e-mail" Style="{StaticResource PhoneTextTitle2Style}"/>
                                     <ScrollViewer local:BlocksPan.IsEnabled="True" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
@@ -55,7 +55,7 @@
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal">
-                                                        <TextBlock Text="{Binding DDDNumero}" Style="{StaticResource PhoneTextNormalStyle}"/>
+                                                        <TextBlock Text="{Binding DDDNumero}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{Binding TextBrush}"/>
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </ListBox.ItemTemplate>
