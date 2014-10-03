@@ -12,6 +12,13 @@ using Microsoft.Phone.Maps.Services;
 using Microsoft.Phone.Maps.Toolkit;
 using ClapApp.Model;
 
+//Localização
+using System.Device.Location; // Provides the GeoCoordinate class.
+using Windows.Devices.Geolocation; //Provides the Geocoordinate class.
+using System.Windows.Media;
+using System.Windows.Shapes;
+using ShowMyLocationOnMap;
+
 namespace ClapApp.Pages
 {
     public partial class AnimalPage : PhoneApplicationPage
@@ -22,51 +29,128 @@ namespace ClapApp.Pages
         {
             InitializeComponent();
 
+            this.LayoutRoot.Background = new SolidColorBrush(App.BackgroundColor);
             // ---
-            
+
             _perfilButtons = new ApplicationBarIconButton[] {
-                PanoramaBar.MakeButton("status.png", "dono", (object sender, EventArgs e) =>
+                PivotBar.MakeButton("status.png", "dono", (object sender, EventArgs e) =>
                 {
-                    NavigationService.Navigate(PerfilAnimaisPage.GetUri());
+                    NavigationService.Navigate(PerfilPivot.GetUri());
                 }),
-                PanoramaBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
+                PivotBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
                 {
                     Editing.SetTempAnimal();
-                    NavigationService.Navigate(AnimalDados.GetUri());
+                    NavigationService.Navigate(AnimalEditPage.GetUri());
                 }),
-                PanoramaBar.MakeButton("delete.png", "deletar")
+                PivotBar.MakeButton("delete.png", "deletar")
             };
 
             // ---
 
             _localButtons = new ApplicationBarIconButton[] {
-                PanoramaBar.MakeButton("cog.png", "configurar")
+                PivotBar.MakeButton("cog.png", "configurar"),
+                PivotBar.MakeButton("sync.png", "atualizar", ShowMyLocationOnTheMap)
             };
 
             // ---
 
             _fotosButtons = new ApplicationBarIconButton[] {
-                PanoramaBar.MakeButton("add.png", "adicionar")
+                PivotBar.MakeButton("add.png", "adicionar")
             };
 
             // ---
 
             _rastrButtons = new ApplicationBarIconButton[] {
-                PanoramaBar.MakeButton("cog.png", "configurar")
+                PivotBar.MakeButton("cog.png", "configurar")
             };
 
             // ---
 
             _updateButtons();
+
+            ShowMyLocationOnTheMap(null, null);
         }
 
         // ---
 
         private void updateDataContext()
         {
+            MessageBox.Show(Editing.Animal.Especie);
+
             LayoutRoot.DataContext = null;
             LayoutRoot.DataContext = Editing.Animal;
         }
+
+        // ---
+        //Código para o dia 26/09/2014
+
+        private async void LocateMe(object sender, EventArgs e)
+        {
+            MessageBox.Show("HEEEEEEEEEEEEEEY");
+
+            Geolocator simulatedLocation = new Geolocator();
+            Geoposition myGeoPosition = null;
+            simulatedLocation.DesiredAccuracyInMeters = 5;
+
+            try
+            {
+                myGeoPosition = await simulatedLocation.GetGeopositionAsync(TimeSpan.FromMinutes(1), TimeSpan.FromSeconds(10));
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Você não pode ocultar seus números e e-mails ao mesmo tempo.", "Bloqueado", MessageBoxButton.OK);
+            }
+
+            this.mapaLocalizacao.Center = new GeoCoordinate(myGeoPosition.Coordinate.Latitude, myGeoPosition.Coordinate.Longitude);
+            this.mapaLocalizacao.ZoomLevel = 15;
+        }
+
+        private Ellipse createMarker()
+        {
+            return new Ellipse()
+            {
+                Fill = new SolidColorBrush(Colors.Blue),
+                Height = 20,
+                Width = 20,
+                Opacity = 50
+            };
+        }
+
+        // --- 
+        //Código a ser usado futuramente...
+        private async void ShowMyLocationOnTheMap(object sender, EventArgs e)
+        {
+            Geolocator myGeolocator = new Geolocator();
+            Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
+            Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
+            GeoCoordinate myGeoCoordinate =
+            CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
+
+            this.mapaLocalizacao.Center = myGeoCoordinate;
+            this.mapaLocalizacao.ZoomLevel = 13;
+
+            //Círculo de marcação no mapa
+
+
+            //Criando camada para conter a marcação
+            MapOverlay myLocationOverlay = new MapOverlay();
+            myLocationOverlay.Content = createMarker();
+            myLocationOverlay.PositionOrigin = new Point(0.5, 0.5);
+            myLocationOverlay.GeoCoordinate = myGeoCoordinate;
+
+            MapOverlay m2 = new MapOverlay();
+            m2.Content = createMarker();
+            m2.PositionOrigin = new Point(0.5, 0.5);
+            m2.GeoCoordinate = myGeoCoordinate;
+            //Atribuição para localização
+            MapLayer myLocationLayer = new MapLayer();
+            myLocationLayer.Add(myLocationOverlay);
+            myLocationLayer.Add(m2);
+            //Adição da camada no mapa
+            this.mapaLocalizacao.Layers.Add(myLocationLayer);
+        }
+
+        // ---
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -114,12 +198,12 @@ namespace ClapApp.Pages
 
         private void _updateButtons()
         {
-            _updateButtons(Panorama.SelectedIndex);
+            _updateButtons(this.Pivot.SelectedIndex);
         }
 
-        private void Panorama_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _updateButtons();   
+            _updateButtons();
         }
 
         private void txtDescricao_GotFocus(object sender, RoutedEventArgs e)
@@ -152,9 +236,14 @@ namespace ClapApp.Pages
             toggleLuz.Content = "Desligada";
         }
 
-        private void Panorama_Loaded(object sender, RoutedEventArgs e)
+        private void Pivot_Loaded(object sender, RoutedEventArgs e)
         {
             _updateButtons();
+        }
+
+        private void btnGaleria_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(AnimalGaleriaPage.GetUri());
         }
     }
 }

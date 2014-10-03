@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClapApp.Model;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 namespace ClapApp.Pages
 {

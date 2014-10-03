@@ -20,21 +20,22 @@ namespace ClapApp.Pages
         public TelefonesPage()
         {
             InitializeComponent();
-
-            phoneButton = PanoramaBar.MakeButton("phone.png", "telefonar", (object sender, EventArgs e) =>
+			
+            phoneButton = PivotBar.MakeButton("phone.png", "telefonar", (object sender, EventArgs e) =>
             {
                 (new PhoneCallTask()
                 {
-                    PhoneNumber = selected.Text,
-                    DisplayName = Editing.Usuario.NomeSobrenome
+                    DisplayName = Editing.Usuario.NomeSobrenomeRaw,
+                    PhoneNumber = selected.Text
                 }).Show();
 
                 selected = null;
                 phoneButton.IsEnabled = false;
             });
+			
             phoneButton.IsEnabled = false;
 
-            editButton = PanoramaBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
+            editButton = PivotBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
             {
                 Editing.SetTempUsuario();
                 NavigationService.Navigate(TelefonesEditPage.GetUri());
@@ -83,7 +84,7 @@ namespace ClapApp.Pages
             if (phoneButton.IsEnabled = selected != null)
             {
                 prevBrush = selected.Foreground;
-                selected.Foreground = new SolidColorBrush(Colors.Blue);
+                selected.Foreground = new SolidColorBrush(App.ThemeColor);
             }
         }
     }

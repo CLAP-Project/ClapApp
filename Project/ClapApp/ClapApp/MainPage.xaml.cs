@@ -9,6 +9,8 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClapApp.Resources;
 using ClapApp.Pages;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace ClapApp
 {
@@ -18,14 +20,21 @@ namespace ClapApp
         public MainPage()
         {
             InitializeComponent();
-
+            
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(PerfilAnimaisPage.GetUri());
+            NavigationService.Navigate(PerfilPivot.GetUri());
+        }
+
+        private void btnVisitante_Click(object sender, RoutedEventArgs e)
+        {
+            double f = 5.43456;
+            MessageBox.Show(f.ToString("0.00"));
+            //NavigationService.Navigate(FotoQRCodePage2.GetUri());
         }
 
         // Sample code for building a localized ApplicationBar

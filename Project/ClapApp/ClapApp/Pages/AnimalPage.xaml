@@ -19,21 +19,22 @@
 
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
-        <phone:Panorama Name="Panorama" Title="my application" TitleTemplate="{StaticResource SmallPanoramaTitle}" SelectionChanged="Panorama_SelectionChanged" Loaded="Panorama_Loaded">
-            <!--Panorama item one-->
-            <phone:PanoramaItem Header="animal">
+        <phone:Pivot Name="Pivot" Title="" TitleTemplate="{StaticResource SmallPanoramaTitle}" SelectionChanged="Pivot_SelectionChanged" Loaded="Pivot_Loaded">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="animal">
                 <StackPanel Name="stkAnimal">
                     <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                     <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                    
+
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="180" Width="180" Source="/Assets/ApplicationIcon.png"/>
+                        <Image Height="180" Width="180" Source="/Images/cagado.jpg" Stretch="Fill"/>
                         <TextBlock Text="{Binding Descricao}" Width="230" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
                     </StackPanel>
+                    <Button Name="btnGaleria" Content="Galeria" Width="200" HorizontalAlignment="Left" Click="btnGaleria_Click"></Button>
                 </StackPanel>
-            </phone:PanoramaItem>
+            </phone:PivotItem>
 
-            <phone:PanoramaItem Header="fotos">
+            <!--<phone:PivotItem Header="fotos">
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible">
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -58,27 +59,28 @@
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
-            </phone:PanoramaItem>
-            
-            <phone:PanoramaItem Header="localização" Width="444">
+            </phone:PivotItem>-->
+
+            <phone:PivotItem Header="localização" Width="444">
                 <Grid>
                     <StackPanel>
-                        <TextBlock Text="Toque para visualizar melhor o mapa" Style="{StaticResource PhoneTextSmallStyle}"/>    
+                        <TextBlock Text="Toque para visualizar melhor o mapa" Style="{StaticResource PhoneTextSmallStyle}"/>
                     </StackPanel>
+                    <maps:Map Name="mapaLocalizacao"></maps:Map>
                 </Grid>
-                
-            </phone:PanoramaItem>
-            
-            <phone:PanoramaItem Header="rastreamento">
+
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="rastreamento">
                 <StackPanel>
                     <toolkit:ToggleSwitch Name="toggleGPS" Header="GPS" Content="Desligado"
                                           Checked="toggleGPS_Checked" Unchecked="toggleGPS_Unchecked"/>
-                    
+
                     <toolkit:ToggleSwitch Name="toggleLuz" Header="Luz da coleira" Content="Desligada"
                                           Checked="toggleLuz_Checked" Unchecked="toggleLuz_Unchecked"/>
                 </StackPanel>
-            </phone:PanoramaItem>
-        </phone:Panorama>
+            </phone:PivotItem>
+        </phone:Pivot>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>

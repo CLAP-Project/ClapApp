@@ -15,7 +15,7 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent" Loaded="LayoutRoot_Loaded">
+    <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundColor}" Loaded="LayoutRoot_Loaded">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -34,7 +34,7 @@
             <ScrollViewer Height="570" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel>
                     <StackPanel Margin="0,15,0,0">
-                        <Image Height="180" Width="180" Source="/Assets/ApplicationIcon.png"/>
+                        <Image Height="180" Width="180" Source="/Images/Max.png"/>
                         <Button Width="210" VerticalAlignment="Center" Content="Alterar avatar"/>
                     </StackPanel>
 

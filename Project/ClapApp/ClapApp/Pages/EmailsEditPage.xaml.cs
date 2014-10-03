@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using System.Windows.Media;
 
 namespace ClapApp.Pages
 {
@@ -15,6 +16,7 @@ namespace ClapApp.Pages
         public EmailsEditPage()
         {
             InitializeComponent();
+
         }
 
         // ---

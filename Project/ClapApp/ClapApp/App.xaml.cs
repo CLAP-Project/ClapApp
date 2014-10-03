@@ -7,11 +7,28 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClapApp.Resources;
+using System.Windows.Media;
 
 namespace ClapApp
 {
     public partial class App : Application
     {
+        public static Color ThemeColor
+        {
+            get
+            {
+                return (Color)Application.Current.Resources["PhoneAccentColor"];
+            }
+        }
+
+        public static Color BackgroundColor
+        {
+            get
+            {
+                return Color.FromArgb(100, 65, 121, 170);
+            }
+        }
+
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>

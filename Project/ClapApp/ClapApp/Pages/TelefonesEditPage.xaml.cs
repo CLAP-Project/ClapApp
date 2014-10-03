@@ -20,7 +20,7 @@ namespace ClapApp.Pages
         {
             InitializeComponent();
 
-            deleteButton = PanoramaBar.MakeButton("delete.png", "remover");
+            deleteButton = PivotBar.MakeButton("delete.png", "remover");
             deleteButton.IsEnabled = false;
 
             ApplicationBar.Buttons.Add(deleteButton);
@@ -88,14 +88,14 @@ namespace ClapApp.Pages
             if (deleteButton.IsEnabled = selected != null)
             {
                 prevBrush = selected.Foreground;
-                selected.Foreground = new SolidColorBrush(Colors.Blue);
+                selected.Foreground = new SolidColorBrush(App.ThemeColor);
             }
         }
 
         private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
         {
             Editing.SaveUsuario();
-            NavigationService.Navigate(PerfilAnimaisPage.GetUri());
+            NavigationService.Navigate(PerfilPivot.GetUri());
         }
     }
 }

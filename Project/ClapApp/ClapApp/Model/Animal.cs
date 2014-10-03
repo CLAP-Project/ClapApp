@@ -32,7 +32,25 @@ namespace ClapApp.Model
 
         public string Descricao { get; set; }
 
+        public string EspecieFormatted
+        {
+            get { return Especie; }
+            set { Especie = ParseEspecie(value); }
+        }
+
         // ---
+
+        public static string ParseEspecie(string str)
+        {
+            if (str.Length != 0)
+            {
+                var strArray = str.ToLowerInvariant().ToCharArray();
+                strArray[0] = char.ToUpperInvariant(strArray[0]);
+                str = new string(strArray);
+            }
+
+            return str;
+        }
 
         public static Sexo ParseSexo(ListPicker lst)
         {
@@ -51,19 +69,23 @@ namespace ClapApp.Model
             }
         }
 
+        public Animal Assimilate(Animal that)
+        {
+            Nome=that.Nome;
+            Status=that.Status;
+            Especie=that.Especie;
+            Sexo=that.Sexo;
+            Descricao = that.Descricao;
+
+            return this;
+        }
+
         public static Animal Copy(Animal that)
         {
             if (that == null)
                 return null;
 
-            return new Animal()
-            {
-                Nome=that.Nome,
-                Status=that.Status,
-                Especie=that.Especie,
-                Sexo=that.Sexo,
-                Descricao = that.Descricao
-            };
+            return new Animal().Assimilate(that);
         }
 
         // ---
@@ -76,6 +98,11 @@ namespace ClapApp.Model
         public string StatusString
         {
             get { return "Status: " + (IsPerdido ? "Perdido!" : "Ok"); }
+        }
+
+        public string StatusStringSimple
+        {
+            get { return IsPerdido? "Perdido" : "Ok" ;}
         }
 
         public SolidColorBrush StatusBrush

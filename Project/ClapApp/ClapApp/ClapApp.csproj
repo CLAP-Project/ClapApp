@@ -94,30 +94,42 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BlocksPan.cs" />
+    <Compile Include="Helpers\KeyedList.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Animal.cs" />
+    <Compile Include="Model\CordinateConverter.cs" />
     <Compile Include="Model\Editing.cs" />
     <Compile Include="Model\Perfil.cs" />
+    <Compile Include="Model\Photo.cs" />
     <Compile Include="Pages\AddAnimalPage.xaml.cs">
       <DependentUpon>AddAnimalPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AnimalDados.xaml.cs">
-      <DependentUpon>AnimalDados.xaml</DependentUpon>
+    <Compile Include="Pages\AnimalEditPage.xaml.cs">
+      <DependentUpon>AnimalEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AnimalGaleriaPage.xaml.cs">
+      <DependentUpon>AnimalGaleriaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AnimalPage.xaml.cs">
       <DependentUpon>AnimalPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AnimalPivot.xaml.cs">
+      <DependentUpon>AnimalPivot.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EmailsEditPage.xaml.cs">
       <DependentUpon>EmailsEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FotoQRCodePage2.xaml.cs">
+      <DependentUpon>FotoQRCodePage2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\FotoQRCodePage.xaml.cs">
       <DependentUpon>FotoQRCodePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PerfilAnimaisPage.xaml.cs">
-      <DependentUpon>PerfilAnimaisPage.xaml</DependentUpon>
+    <Compile Include="Pages\PerfilPivot.xaml.cs">
+      <DependentUpon>PerfilPivot.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TelefonesEditPage.xaml.cs">
       <DependentUpon>TelefonesEditPage.xaml</DependentUpon>
@@ -131,13 +143,15 @@
     <Compile Include="Pages\UserEditPage.xaml.cs">
       <DependentUpon>UserEditPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PanoramaBar.cs" />
+    <Compile Include="PivotBar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="ViewModel\PhotosModelView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -152,7 +166,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AnimalDados.xaml">
+    <Page Include="Pages\AnimalEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AnimalGaleriaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,7 +178,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AnimalPivot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EmailsEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FotoQRCodePage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,7 +194,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PerfilAnimaisPage.xaml">
+    <Page Include="Pages\PerfilPivot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -201,14 +227,168 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Content\1.jpg" />
+    <Content Include="Assets\Content\10.jpg" />
+    <Content Include="Assets\Content\100.jpg" />
+    <Content Include="Assets\Content\101.jpg" />
+    <Content Include="Assets\Content\102.jpg" />
+    <Content Include="Assets\Content\103.jpg" />
+    <Content Include="Assets\Content\104.jpg" />
+    <Content Include="Assets\Content\105.jpg" />
+    <Content Include="Assets\Content\106.jpg" />
+    <Content Include="Assets\Content\107.jpg" />
+    <Content Include="Assets\Content\108.jpg" />
+    <Content Include="Assets\Content\109.jpg" />
+    <Content Include="Assets\Content\11.jpg" />
+    <Content Include="Assets\Content\110.jpg" />
+    <Content Include="Assets\Content\111.jpg" />
+    <Content Include="Assets\Content\112.jpg" />
+    <Content Include="Assets\Content\113.jpg" />
+    <Content Include="Assets\Content\114.jpg" />
+    <Content Include="Assets\Content\115.jpg" />
+    <Content Include="Assets\Content\116.jpg" />
+    <Content Include="Assets\Content\117.jpg" />
+    <Content Include="Assets\Content\118.jpg" />
+    <Content Include="Assets\Content\119.jpg" />
+    <Content Include="Assets\Content\12.jpg" />
+    <Content Include="Assets\Content\120.jpg" />
+    <Content Include="Assets\Content\121.jpg" />
+    <Content Include="Assets\Content\122.jpg" />
+    <Content Include="Assets\Content\123.jpg" />
+    <Content Include="Assets\Content\124.jpg" />
+    <Content Include="Assets\Content\125.jpg" />
+    <Content Include="Assets\Content\126.jpg" />
+    <Content Include="Assets\Content\127.jpg" />
+    <Content Include="Assets\Content\128.jpg" />
+    <Content Include="Assets\Content\129.jpg" />
+    <Content Include="Assets\Content\13.jpg" />
+    <Content Include="Assets\Content\130.jpg" />
+    <Content Include="Assets\Content\131.jpg" />
+    <Content Include="Assets\Content\132.jpg" />
+    <Content Include="Assets\Content\133.jpg" />
+    <Content Include="Assets\Content\134.jpg" />
+    <Content Include="Assets\Content\135.jpg" />
+    <Content Include="Assets\Content\136.jpg" />
+    <Content Include="Assets\Content\137.jpg" />
+    <Content Include="Assets\Content\138.jpg" />
+    <Content Include="Assets\Content\139.jpg" />
+    <Content Include="Assets\Content\14.jpg" />
+    <Content Include="Assets\Content\140.jpg" />
+    <Content Include="Assets\Content\141.jpg" />
+    <Content Include="Assets\Content\142.jpg" />
+    <Content Include="Assets\Content\143.jpg" />
+    <Content Include="Assets\Content\144.jpg" />
+    <Content Include="Assets\Content\145.jpg" />
+    <Content Include="Assets\Content\146.jpg" />
+    <Content Include="Assets\Content\147.jpg" />
+    <Content Include="Assets\Content\148.jpg" />
+    <Content Include="Assets\Content\15.jpg" />
+    <Content Include="Assets\Content\16.jpg" />
+    <Content Include="Assets\Content\17.jpg" />
+    <Content Include="Assets\Content\18.jpg" />
+    <Content Include="Assets\Content\19.jpg" />
+    <Content Include="Assets\Content\2.jpg" />
+    <Content Include="Assets\Content\20.jpg" />
+    <Content Include="Assets\Content\21.jpg" />
+    <Content Include="Assets\Content\22.jpg" />
+    <Content Include="Assets\Content\23.jpg" />
+    <Content Include="Assets\Content\24.jpg" />
+    <Content Include="Assets\Content\25.jpg" />
+    <Content Include="Assets\Content\26.jpg" />
+    <Content Include="Assets\Content\27.jpg" />
+    <Content Include="Assets\Content\28.jpg" />
+    <Content Include="Assets\Content\29.jpg" />
+    <Content Include="Assets\Content\3.jpg" />
+    <Content Include="Assets\Content\30.jpg" />
+    <Content Include="Assets\Content\31.jpg" />
+    <Content Include="Assets\Content\32.jpg" />
+    <Content Include="Assets\Content\33.jpg" />
+    <Content Include="Assets\Content\34.jpg" />
+    <Content Include="Assets\Content\35.jpg" />
+    <Content Include="Assets\Content\36.jpg" />
+    <Content Include="Assets\Content\37.jpg" />
+    <Content Include="Assets\Content\38.jpg" />
+    <Content Include="Assets\Content\39.jpg" />
+    <Content Include="Assets\Content\4.jpg" />
+    <Content Include="Assets\Content\40.jpg" />
+    <Content Include="Assets\Content\41.jpg" />
+    <Content Include="Assets\Content\42.jpg" />
+    <Content Include="Assets\Content\43.jpg" />
+    <Content Include="Assets\Content\44.jpg" />
+    <Content Include="Assets\Content\45.jpg" />
+    <Content Include="Assets\Content\46.jpg" />
+    <Content Include="Assets\Content\47.jpg" />
+    <Content Include="Assets\Content\48.jpg" />
+    <Content Include="Assets\Content\49.jpg" />
+    <Content Include="Assets\Content\5.jpg" />
+    <Content Include="Assets\Content\50.jpg" />
+    <Content Include="Assets\Content\51.jpg" />
+    <Content Include="Assets\Content\52.jpg" />
+    <Content Include="Assets\Content\53.jpg" />
+    <Content Include="Assets\Content\54.jpg" />
+    <Content Include="Assets\Content\55.jpg" />
+    <Content Include="Assets\Content\56.jpg" />
+    <Content Include="Assets\Content\57.jpg" />
+    <Content Include="Assets\Content\58.jpg" />
+    <Content Include="Assets\Content\59.jpg" />
+    <Content Include="Assets\Content\6.jpg" />
+    <Content Include="Assets\Content\60.jpg" />
+    <Content Include="Assets\Content\61.jpg" />
+    <Content Include="Assets\Content\62.jpg" />
+    <Content Include="Assets\Content\63.jpg" />
+    <Content Include="Assets\Content\64.jpg" />
+    <Content Include="Assets\Content\65.jpg" />
+    <Content Include="Assets\Content\66.jpg" />
+    <Content Include="Assets\Content\67.jpg" />
+    <Content Include="Assets\Content\68.jpg" />
+    <Content Include="Assets\Content\69.jpg" />
+    <Content Include="Assets\Content\7.jpg" />
+    <Content Include="Assets\Content\70.jpg" />
+    <Content Include="Assets\Content\71.jpg" />
+    <Content Include="Assets\Content\72.jpg" />
+    <Content Include="Assets\Content\73.jpg" />
+    <Content Include="Assets\Content\74.jpg" />
+    <Content Include="Assets\Content\75.jpg" />
+    <Content Include="Assets\Content\76.jpg" />
+    <Content Include="Assets\Content\77.jpg" />
+    <Content Include="Assets\Content\78.jpg" />
+    <Content Include="Assets\Content\79.jpg" />
+    <Content Include="Assets\Content\8.jpg" />
+    <Content Include="Assets\Content\80.jpg" />
+    <Content Include="Assets\Content\81.jpg" />
+    <Content Include="Assets\Content\82.jpg" />
+    <Content Include="Assets\Content\83.jpg" />
+    <Content Include="Assets\Content\84.jpg" />
+    <Content Include="Assets\Content\85.jpg" />
+    <Content Include="Assets\Content\86.jpg" />
+    <Content Include="Assets\Content\87.jpg" />
+    <Content Include="Assets\Content\88.jpg" />
+    <Content Include="Assets\Content\89.jpg" />
+    <Content Include="Assets\Content\9.jpg" />
+    <Content Include="Assets\Content\90.jpg" />
+    <Content Include="Assets\Content\91.jpg" />
+    <Content Include="Assets\Content\92.jpg" />
+    <Content Include="Assets\Content\93.jpg" />
+    <Content Include="Assets\Content\94.jpg" />
+    <Content Include="Assets\Content\95.jpg" />
+    <Content Include="Assets\Content\96.jpg" />
+    <Content Include="Assets\Content\97.jpg" />
+    <Content Include="Assets\Content\98.jpg" />
+    <Content Include="Assets\Content\99.jpg" />
     <Content Include="Images\add.png" />
     <Content Include="Images\back.png" />
+    <Content Include="Images\cagado.jpg" />
     <Content Include="Images\cancel.png" />
+    <Content Include="Images\clapdoggy.png" />
+    <Content Include="Images\clapdoggy2.png" />
+    <Content Include="Images\clapdoggy3.png" />
+    <Content Include="Images\clapp_icon.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\cog.png" />
     <Content Include="Images\favs.png" />
     <Content Include="Images\email.png" />
+    <Content Include="Images\Max.PNG" />
     <Content Include="Images\phone.png" />
     <Content Include="Images\gúgui_méps.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
@@ -229,6 +409,7 @@
     <Content Include="Images\minus.png" />
     <Content Include="Images\save.png" />
     <Content Include="Images\status.png" />
+    <Content Include="Images\sync.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
@@ -243,10 +424,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="MessagingToolkit.Barcode">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\MessagingToolkit\MessagingToolkit-Barcode\Binaries\Windows Phone 8.0\MessagingToolkit.Barcode.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

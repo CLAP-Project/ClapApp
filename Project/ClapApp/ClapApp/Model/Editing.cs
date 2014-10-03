@@ -49,7 +49,8 @@ namespace ClapApp.Model
 
         public static void SaveAnimal()
         {
-            Animal = Animal.Copy(TempAnimal);
+            //Animal = Animal.Copy(TempAnimal);
+            Animal.Assimilate(TempAnimal);
             TempAnimal = Animal.Copy(Animal);
         }
 
