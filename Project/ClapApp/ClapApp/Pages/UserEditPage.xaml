@@ -62,9 +62,9 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel Margin="0,15,0,0">
-                        <Button Name="btnEditarEmails" Visibility="Collapsed" Content="Editar e-mails" Click="btnEditarEmails_Click"/>
-                        <Button Name="btnEditarTelefones" Visibility="Collapsed" Content="Editar telefones" Click="btnEditarTelefones_Click"/>
+                    <StackPanel Margin="0,15,0,0" Visibility="Collapsed">
+                        <Button Name="btnEditarEmails" Content="Editar e-mails" Click="btnEditarEmails_Click"/>
+                        <Button Name="btnEditarTelefones" Content="Editar telefones" Click="btnEditarTelefones_Click"/>
                     </StackPanel>
 
                     <StackPanel Margin="0,80,0,0"/>

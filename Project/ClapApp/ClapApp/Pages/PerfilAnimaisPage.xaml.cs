@@ -114,7 +114,7 @@ namespace ClapApp.Pages
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
-            Editing.Usuario.Emails.Add(Email.GetExemplo());
+            //Editing.Usuario.Emails.Add(Email.GetExemplo());
             Editing.Usuario.Numeros.Add(NumeroTelefonico.GetExemplo());
 
             Editing.Usuario.Animais.Add(new Animal()

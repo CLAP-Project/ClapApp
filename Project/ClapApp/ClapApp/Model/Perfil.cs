@@ -195,7 +195,7 @@ namespace ClapApp.Model
                 Estado = "Amazonas"
             };
 
-            mox._emails.Add(Email.GetExemplo());
+            //mox._emails.Add(Email.GetExemplo());
             mox._numeros.Add(NumeroTelefonico.GetExemplo());
 
             mox._animais.Add(new Animal()

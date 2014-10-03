@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Media;
 using ClapApp.Model;
+using Microsoft.Phone.Tasks;
 
 namespace ClapApp.Pages
 {
@@ -20,7 +21,17 @@ namespace ClapApp.Pages
         {
             InitializeComponent();
 
-            phoneButton = PanoramaBar.MakeButton("phone.png", "telefonar");
+            phoneButton = PanoramaBar.MakeButton("phone.png", "telefonar", (object sender, EventArgs e) =>
+            {
+                (new PhoneCallTask()
+                {
+                    PhoneNumber = selected.Text,
+                    DisplayName = Editing.Usuario.NomeSobrenome
+                }).Show();
+
+                selected = null;
+                phoneButton.IsEnabled = false;
+            });
             phoneButton.IsEnabled = false;
 
             editButton = PanoramaBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
