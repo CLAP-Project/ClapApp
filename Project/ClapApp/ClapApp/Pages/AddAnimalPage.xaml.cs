@@ -22,6 +22,7 @@ namespace ClapApp.Pages
         public static Uri GetUri()
         {
             return new Uri("/Pages/AddAnimalPage.xaml", UriKind.Relative);
+            
         }
 
         private static Sexo ParseSexo(ListPicker lst)
