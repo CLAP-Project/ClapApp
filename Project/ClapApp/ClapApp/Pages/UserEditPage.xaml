@@ -51,9 +51,9 @@
                     <TextBox Text="{Binding Sobrenome, Mode=TwoWay}"/>
 
                     <StackPanel Margin="0,15,0,0" Visibility="Visible">
-                        <TextBlock Text="Cidade" Style="{StaticResource PhoneTextNormalStyle}"/>
+                        <TextBlock Text="Cidade" Style="{StaticResource PhoneTextSmallStyle}"/>
                         <TextBox Text="{Binding Cidade, Mode=TwoWay}"/>
-                        <TextBlock Text="Estado" Style="{StaticResource PhoneTextNormalStyle}"/>
+                        <TextBlock Text="Estado" Style="{StaticResource PhoneTextSmallStyle}"/>
                         <TextBox Text="{Binding Estado, Mode=TwoWay}"/>
 
                         <StackPanel Orientation="Horizontal">

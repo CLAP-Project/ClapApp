@@ -79,13 +79,16 @@ namespace ClapApp.Pages
                 prevBrush = temp;
             }
 
-            selected = sender as TextBlock;
+            var tempSelected = sender as TextBlock;
 
-            if (phoneButton.IsEnabled = selected != null)
+            if (phoneButton.IsEnabled = (tempSelected != null && tempSelected != selected))
             {
+                selected = tempSelected;
+
                 prevBrush = selected.Foreground;
                 selected.Foreground = new SolidColorBrush(App.ThemeColor);
             }
+            else selected = null;
         }
     }
 }

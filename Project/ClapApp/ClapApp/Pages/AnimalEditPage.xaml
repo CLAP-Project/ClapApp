@@ -32,20 +32,20 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel>
                 <StackPanel Visibility="Visible">
-                    <TextBlock Text="Nome" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Text="Nome" Style="{StaticResource PhoneTextSmallStyle}"/>
                     <TextBox Text="{Binding Nome, Mode=TwoWay}"/>
 
-                    <TextBlock Text="Espécie" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Text="Espécie" Style="{StaticResource PhoneTextSmallStyle}"/>
                     <TextBox Text="{Binding EspecieFormatted, Mode=TwoWay}"/>
 
-                    <TextBlock Text="Sexo" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Text="Sexo" Style="{StaticResource PhoneTextSmallStyle}"/>
                     <toolkit:ListPicker Name="pkrSexo" SelectionChanged="pkrSexo_SelectionChanged">
                         <toolkit:ListPickerItem Content="Macho"/>
                         <toolkit:ListPickerItem Content="Fêmea"/>
                         <toolkit:ListPickerItem Content="Indefinido"/>
                     </toolkit:ListPicker>
 
-                    <TextBlock Text="Descrição" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Text="Descrição" Style="{StaticResource PhoneTextSmallStyle}"/>
                 </StackPanel>
 
                 <TextBox Name="txtDescricao" Text="{Binding Descricao, Mode=TwoWay}" AcceptsReturn="True" Grid.Row="1"

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace ClapApp.Model
 {
@@ -23,6 +24,14 @@ namespace ClapApp.Model
         public static NumeroTelefonico GetExemplo()
         {
             return new NumeroTelefonico() { DDD = "92", Numero = "8266-6492" };
+        }
+
+        public SolidColorBrush TextBrush
+        {
+            get
+            {
+                return new SolidColorBrush(App.ThemeColor);
+            }
         }
     }
 
