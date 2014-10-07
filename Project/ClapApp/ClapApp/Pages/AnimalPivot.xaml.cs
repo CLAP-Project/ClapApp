@@ -90,9 +90,8 @@ namespace ClapApp.Pages
         // ---
         //Código para o dia 26/09/2014
 
-        private async void LocateMe(object sender, EventArgs e)
+        /*private async void LocateMe(object sender, EventArgs e)
         {
-            MessageBox.Show("HEEEEEEEEEEEEEEY");
 
             Geolocator simulatedLocation = new Geolocator();
             Geoposition myGeoPosition = null;
@@ -109,7 +108,7 @@ namespace ClapApp.Pages
 
             this.mapaLocalizacao.Center = new GeoCoordinate(myGeoPosition.Coordinate.Latitude, myGeoPosition.Coordinate.Longitude);
             this.mapaLocalizacao.ZoomLevel = 15;
-        }
+        }*/
 
         private Ellipse createMarker()
         {

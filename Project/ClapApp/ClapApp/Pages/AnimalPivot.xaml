@@ -97,17 +97,6 @@
                 </StackPanel>
             </phone:PivotItem>
 
-            <phone:PivotItem Header="galeria" d:DataContext="{d:DesignInstance Type=ViewModels:PhotosViewModel, IsDesignTimeCreatable=true}">
-                <phone:LongListSelector Name="PhotoHubLLS" Margin="13,-30,0,0"
-                                        ItemsSource="{Binding GroupedPhotos}"
-                                        ItemTemplate="{StaticResource ItemTemplate}"                     
-                                        GroupHeaderTemplate="{StaticResource GroupHeader}"
-                                        JumpListStyle="{StaticResource JumpListStyle}" 
-                                        IsGroupingEnabled="True"
-                                        LayoutMode="Grid" 
-                                        GridCellSize="108,108"/>
-            </phone:PivotItem>
-
             <phone:PivotItem Header="localização" Width="444">
                 <Grid>
                     <StackPanel>

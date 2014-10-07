@@ -361,6 +361,8 @@
     <Content Include="Assets\Content\97.jpg" />
     <Content Include="Assets\Content\98.jpg" />
     <Content Include="Assets\Content\99.jpg" />
+    <Content Include="IconeMedio.png" />
+    <Content Include="IconeMedioThumbnail.png" />
     <Content Include="Images\add.png" />
     <Content Include="Images\back.png" />
     <Content Include="Images\cagado.jpg" />
