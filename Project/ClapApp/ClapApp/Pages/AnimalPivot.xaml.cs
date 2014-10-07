@@ -18,6 +18,7 @@ using Windows.Devices.Geolocation; //Provides the Geocoordinate class.
 using System.Windows.Media;
 using System.Windows.Shapes;
 using ShowMyLocationOnMap;
+using PhotoHubSample.ViewModels;
 
 namespace ClapApp.Pages
 {
@@ -28,6 +29,8 @@ namespace ClapApp.Pages
         public AnimalPivot()
         {
             InitializeComponent();
+
+            this.Loaded += new RoutedEventHandler(AnimalGaleriaPage_Loaded);
 
             _perfilButtons = new ApplicationBarIconButton[] {
                 PivotBar.MakeButton("status.png", "dono", (object sender, EventArgs e) =>
@@ -66,6 +69,14 @@ namespace ClapApp.Pages
             //_updateButtons();
 
             ShowMyLocationOnTheMap(null, null);
+        }
+
+        // ---
+
+        private void AnimalGaleriaPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            var viewModel = new PhotosViewModel();
+            DataContext = viewModel;
         }
 
         // ---

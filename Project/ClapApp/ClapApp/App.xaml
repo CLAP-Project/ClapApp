@@ -19,6 +19,7 @@
         <System:String x:Key="ApplicationName">CLAP</System:String>
 
         <SolidColorBrush x:Key="BackgroundColor" Color="#182E41" />
+        <SolidColorBrush x:Key="PerdidoColor" Color="#FFD200" />
         
     </Application.Resources>
 

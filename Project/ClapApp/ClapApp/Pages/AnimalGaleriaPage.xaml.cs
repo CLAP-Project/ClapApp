@@ -17,12 +17,12 @@ namespace ClapApp.Pages
         public AnimalGaleriaPage()
         {
             InitializeComponent();
-            this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+            this.Loaded += new RoutedEventHandler(AnimalGaleriaPage_Loaded);
 
             this.LayoutRoot.Background = new SolidColorBrush(App.BackgroundColor);
         }
 
-        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        private void AnimalGaleriaPage_Loaded(object sender, RoutedEventArgs e)
         {
             var viewModel = new PhotosViewModel();
             DataContext = viewModel;

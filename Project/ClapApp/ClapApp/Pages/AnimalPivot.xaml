@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:ViewModels="clr-namespace:PhotoHubSample.ViewModels" 
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
     xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -14,6 +15,61 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+
+        <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
+        <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>
+
+        <Style x:Key="JumpListStyle" TargetType="phone:LongListSelector">
+            <Setter Property="LayoutMode" Value="List" />
+            <Setter Property="Margin" Value="12,12,0,0"/>
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border Background="{Binding Converter={StaticResource BackgroundConverter}}" 
+                                Width="470" 
+                                Height="70" 
+                                Margin="6">
+                            <TextBlock Text="{Binding Key}"
+                                       Foreground="{Binding Converter={StaticResource ForegroundConverter}}"                                       
+                                       FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                       FontSize="28"  
+                                       Padding="2"
+                                       VerticalAlignment="Bottom"/>
+                        </Border>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <DataTemplate x:Key="GroupHeader">
+            <Border Background="Transparent">
+                <Border Background="Transparent" BorderBrush="Transparent" BorderThickness="1"	
+                        Width="400" Height="90" 				 
+                        HorizontalAlignment="Left">
+                    <TextBlock Text="{Binding Key}" 
+                               Foreground="{StaticResource PhoneAccentBrush}" 
+                               FontSize="28"
+                               Padding="2"                                
+                               FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"/>
+                </Border>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ItemTemplate">
+            <StackPanel Height="108" Width="108" Margin="6,6">
+                <Image Width="108" Height="108" Stretch="UniformToFill">
+                    <Image.Source>
+                        <BitmapImage UriSource="{Binding ImageSource}" CreateOptions="BackgroundCreation"/>
+                    </Image.Source>
+                </Image>
+            </StackPanel>
+        </DataTemplate>
+
+    </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundColor}">
@@ -23,7 +79,12 @@
             <phone:PivotItem Header="animal">
                 <StackPanel Name="stkAnimal">
                     <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                    <TextBlock Text="Status: Perdido!" Style="{StaticResource PhoneTextTitle2Style}" Foreground="Red"/>
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Status:" Style="{StaticResource PhoneTextTitle2Style}"/>
+                        <TextBlock Text="Perdido!" Style="{StaticResource PhoneTextTitle2Style}" Foreground="{StaticResource PerdidoColor}"/>
+                    </StackPanel>
+                    
                     <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
                     
                     <StackPanel Margin="0,15,0,0"/>
@@ -35,7 +96,18 @@
                     <Button Margin="-8,0,0,0" Name="btnGaleria" Content="Galeria" Width="200" HorizontalAlignment="Left" Click="btnGaleria_Click"></Button>
                 </StackPanel>
             </phone:PivotItem>
-            
+
+            <phone:PivotItem Header="galeria" d:DataContext="{d:DesignInstance Type=ViewModels:PhotosViewModel, IsDesignTimeCreatable=true}">
+                <phone:LongListSelector Name="PhotoHubLLS" Margin="13,-30,0,0"
+                                        ItemsSource="{Binding GroupedPhotos}"
+                                        ItemTemplate="{StaticResource ItemTemplate}"                     
+                                        GroupHeaderTemplate="{StaticResource GroupHeader}"
+                                        JumpListStyle="{StaticResource JumpListStyle}" 
+                                        IsGroupingEnabled="True"
+                                        LayoutMode="Grid" 
+                                        GridCellSize="108,108"/>
+            </phone:PivotItem>
+
             <phone:PivotItem Header="localização" Width="444">
                 <Grid>
                     <StackPanel>
