@@ -33,17 +33,17 @@ namespace ClapApp.Pages
             base.OnNavigatedTo(e);
 
             LayoutRoot.DataContext = null;
-            LayoutRoot.DataContext = Editing.TempAnimal;
+            LayoutRoot.DataContext = Current.Animal;
 
             // Previne que, ao resetar da página, o sexo do animal seja revertido para Macho (o valor padrão do ListPicker).
             canChangeSexo = true;
-            pkrSexo.SelectedIndex = (int)Editing.TempAnimal.Sexo;
+            pkrSexo.SelectedIndex = (int)Current.Animal.Sexo;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            Editing.CancelTempAnimal();
+            Current.FinishEditingAnimal();
             canChangeSexo = false;
         }
 
@@ -59,14 +59,14 @@ namespace ClapApp.Pages
 
         private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
         {
-            Editing.SaveAnimal();
+            Current.SaveEditingAnimal();
             NavigationService.GoBack();
         }
 
         private void pkrSexo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (canChangeSexo)
-                Editing.TempAnimal.Sexo = Animal.ParseSexo(sender as ListPicker);
+                Current.Animal.Sexo = Animal.ParseSexo(sender as ListPicker);
         }
     }
 }

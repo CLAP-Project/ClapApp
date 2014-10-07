@@ -213,7 +213,7 @@ namespace ClapApp.Model
                 Sexo = Sexo.Macho,
                 Especie = "Cágado",
                 Status = Status.Perdido,
-                Descricao = "A tartaruguinha mais sapeca do pedaço está pronta pra levar uma família à loucura! Ah, e ela come alface pra caramba..."
+                Descricao = "A tartaruguinha mais sapeca do Brasil está pronta para levar mais uma família à loucura! Ah, ela come alface, alfafa e tudo mais que começa com alfa pra caramba..."
             });
 
             return mox;

@@ -78,22 +78,26 @@
             <!--Pivot item one-->
             <phone:PivotItem Header="animal">
                 <StackPanel Name="stkAnimal">
-                    <TextBlock Text="{Binding Nome}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                    
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Status:" Style="{StaticResource PhoneTextTitle2Style}"/>
-                        <TextBlock Text="Perdido!" Style="{StaticResource PhoneTextTitle2Style}" Foreground="{StaticResource PerdidoColor}"/>
+                    <StackPanel Name="stkStatus" Orientation="Horizontal" HorizontalAlignment="Center" Tap="stkStatus_Tap">
+                        <TextBlock Text="Status:" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                        <TextBlock Text="{Binding StatusStringSimple}" Margin="-5,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="{Binding StatusBrush}"/>
                     </StackPanel>
-                    
-                    <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
                     
                     <StackPanel Margin="0,15,0,0"/>
                     
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="180" Width="180" Source="/Images/cagado.jpg" Stretch="Fill"/>
-                        <TextBlock Text="{Binding Descricao}" Width="230" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
+                        <StackPanel>
+                            <Image Height="180" Width="180" Source="/Images/cagado.jpg" Stretch="Fill"/>
+                            <Button Name="btnGaleria" Content="Galeria" Click="btnGaleria_Click"></Button>
+                        </StackPanel>
+                        
+                        <StackPanel Margin="0,-10,0,0">
+                            <TextBlock Text="{Binding Nome}" Width="260" HorizontalAlignment="Left" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                            <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <StackPanel Margin="0,15,0,0"/>
+                            <TextBlock Text="{Binding Descricao}" Width="260" HorizontalAlignment="Left" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
+                        </StackPanel>
                     </StackPanel>
-                    <Button Margin="-8,0,0,0" Name="btnGaleria" Content="Galeria" Width="200" HorizontalAlignment="Left" Click="btnGaleria_Click"></Button>
                 </StackPanel>
             </phone:PivotItem>
 

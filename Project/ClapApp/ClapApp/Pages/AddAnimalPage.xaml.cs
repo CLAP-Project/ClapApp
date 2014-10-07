@@ -73,8 +73,8 @@ namespace ClapApp.Pages
                 Status = Status.Ok
             };
 
-            Editing.TempUsuario.AddAnimal(cargo);
-            Editing.SaveUsuario();
+            Current.Usuario.AddAnimal(cargo);
+            Current.FinishEditingUsuario();
 
             NavigationService.GoBack();
         }

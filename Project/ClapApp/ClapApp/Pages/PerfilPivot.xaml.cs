@@ -37,10 +37,9 @@ namespace ClapApp.Pages
             // ---
 
             _perfilButtons = new ApplicationBarIconButton[] {
-                emailButton, phoneButton,
                 PivotBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
                 {
-                    Editing.SetTempUsuario();
+                    Current.PushUsuarioForEdit();
                     NavigationService.Navigate(UserEditPage.GetUri());
                 }),
                 PivotBar.MakeButton("cog.png", "configurar", (object sender, EventArgs e) =>
@@ -52,7 +51,7 @@ namespace ClapApp.Pages
             _animaisButtons = new ApplicationBarIconButton[] {
                 PivotBar.MakeButton("add.png", "adicionar", (object sender, EventArgs e) =>
                 {
-                    Editing.SetTempUsuario();
+                    Current.PushUsuarioForEdit();
                     NavigationService.Navigate(AddAnimalPage.GetUri());
                 })
             };
@@ -103,7 +102,7 @@ namespace ClapApp.Pages
         void updateComponents()
         {
             Pivot.DataContext = null;
-            Pivot.DataContext = Editing.Usuario;
+            Pivot.DataContext = Current.Usuario;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -115,9 +114,9 @@ namespace ClapApp.Pages
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
             //Editing.Usuario.Emails.Add(Email.GetExemplo());
-            Editing.Usuario.Numeros.Add(NumeroTelefonico.GetExemplo());
+            Current.Usuario.Numeros.Add(NumeroTelefonico.GetExemplo());
 
-            Editing.Usuario.Animais.Add(new Animal()
+            Current.Usuario.Animais.Add(new Animal()
             {
                 Nome = "Guido",
                 Status = Status.Ok
@@ -164,7 +163,7 @@ namespace ClapApp.Pages
 
             if (animalCast != null)
             {
-                Editing.Animal = animalCast;
+                Current.SetAnimal(animalCast);
                 NavigationService.Navigate(AnimalPivot.GetUri());
             }
             else MessageBox.Show("Isso não deveria aparecer... [animalCast == null; " + selected + ']', "Erro", MessageBoxButton.OK);

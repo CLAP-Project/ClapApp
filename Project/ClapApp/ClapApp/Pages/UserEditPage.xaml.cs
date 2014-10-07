@@ -32,7 +32,7 @@ namespace ClapApp.Pages
         private void updateDataContext()
         {
             LayoutRoot.DataContext = null;
-            LayoutRoot.DataContext = Editing.TempUsuario;
+            LayoutRoot.DataContext = Current.Usuario;
         }
 
         // ---
@@ -46,7 +46,7 @@ namespace ClapApp.Pages
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            Editing.CancelTempUsuario();
+            Current.FinishEditingUsuario();
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
@@ -71,23 +71,23 @@ namespace ClapApp.Pages
 
         private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
         {
-            Editing.SaveUsuario();
+            Current.SaveEditingUsuario();
             NavigationService.GoBack();
         }
 
         private void tglSobrenome_Checked(object sender, RoutedEventArgs e)
         {
-            Editing.TempUsuario.SobrenomePublico = (sender as ToggleButton).IsChecked ?? false;
+            Current.Usuario.SobrenomePublico = (sender as ToggleButton).IsChecked ?? false;
         }
 
         private void tglNome_Checked(object sender, RoutedEventArgs e)
         {
-            Editing.TempUsuario.NomePublico = (sender as ToggleButton).IsChecked ?? false;
+            Current.Usuario.NomePublico = (sender as ToggleButton).IsChecked ?? false;
         }
 
         private void tglCidadeEstado_Checked(object sender, RoutedEventArgs e)
         {
-            Editing.TempUsuario.CidadeEstadoPublico = (sender as ToggleButton).IsChecked ?? false;
+            Current.Usuario.CidadeEstadoPublico = (sender as ToggleButton).IsChecked ?? false;
         }
     }
 }

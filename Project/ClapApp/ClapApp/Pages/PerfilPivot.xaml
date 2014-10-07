@@ -50,17 +50,17 @@
 
                                 <StackPanel Name="stkTelefones"  Margin="0, 10, 0, 0" Visibility="{Binding NumerosVisible}" Tap="stkTelefones_Tap">
                                     <TextBlock Text="Telefones" Style="{StaticResource PhoneTextTitle2Style}"/>
-                                    <ScrollViewer local:BlocksPan.IsEnabled="True" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
+                                    
                                         <ListBox ItemsSource="{Binding Numeros}" Margin="15, 0, 0, 0">
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal">
-                                                        <TextBlock Text="{Binding DDDNumero}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{Binding TextBrush}"/>
+                                                        <TextBlock Text="{Binding DDDNumero}" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </ListBox.ItemTemplate>
                                         </ListBox>
-                                    </ScrollViewer>
+                                    
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>

@@ -25,7 +25,6 @@ namespace ClapApp.Pages
             {
                 (new PhoneCallTask()
                 {
-                    DisplayName = Editing.Usuario.NomeSobrenomeRaw,
                     PhoneNumber = selected.Text
                 }).Show();
 
@@ -37,7 +36,7 @@ namespace ClapApp.Pages
 
             editButton = PivotBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
             {
-                Editing.SetTempUsuario();
+                Current.PushUsuarioForEdit();
                 NavigationService.Navigate(TelefonesEditPage.GetUri());
             });
 
@@ -54,7 +53,7 @@ namespace ClapApp.Pages
             base.OnNavigatedTo(e);
 
             LayoutRoot.DataContext = null;
-            LayoutRoot.DataContext = Editing.Usuario;
+            LayoutRoot.DataContext = Current.Usuario;
         }
 
         TextBlock selected = null;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace ClapApp.Model
@@ -97,7 +98,7 @@ namespace ClapApp.Model
 
         public string StatusString
         {
-            get { return "Status: " + (IsPerdido ? "Perdido!" : "Ok"); }
+            get { return "Status: " + StatusStringSimple; }
         }
 
         public string StatusStringSimple
@@ -107,7 +108,16 @@ namespace ClapApp.Model
 
         public SolidColorBrush StatusBrush
         {
-            get { return new SolidColorBrush(IsPerdido ? Colors.Red : new Color() { R = 0, G = 255, B = 0, A = 255 }); }
+            get
+            {
+                return IsPerdido ? App.Current.Resources["PerdidoColor"] as SolidColorBrush :
+                    new SolidColorBrush(new Color() { R = 0, G = 255, B = 0, A = 255 });
+            }
+        }
+
+        public void ToggleStatus()
+        {
+            this.Status = IsPerdido ? Status.Ok : Status.Perdido;
         }
 
         // ---

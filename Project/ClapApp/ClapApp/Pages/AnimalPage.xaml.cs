@@ -39,7 +39,7 @@ namespace ClapApp.Pages
                 }),
                 PivotBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
                 {
-                    Editing.SetTempAnimal();
+                    Current.PushAnimalForEdit();
                     NavigationService.Navigate(AnimalEditPage.GetUri());
                 }),
                 PivotBar.MakeButton("delete.png", "deletar")
@@ -75,10 +75,10 @@ namespace ClapApp.Pages
 
         private void updateDataContext()
         {
-            MessageBox.Show(Editing.Animal.Especie);
+            MessageBox.Show(Current.Animal.Especie);
 
             LayoutRoot.DataContext = null;
-            LayoutRoot.DataContext = Editing.Animal;
+            LayoutRoot.DataContext = Current.Animal;
         }
 
         // ---

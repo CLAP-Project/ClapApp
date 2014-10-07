@@ -34,7 +34,7 @@ namespace ClapApp.Pages
         private void updateDataContext()
         {
             LayoutRoot.DataContext = null;
-            LayoutRoot.DataContext = Editing.TempUsuario;
+            LayoutRoot.DataContext = Current.Usuario;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -46,7 +46,7 @@ namespace ClapApp.Pages
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);
-            Editing.CancelTempUsuario();
+            Current.FinishEditingUsuario();
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
@@ -63,9 +63,9 @@ namespace ClapApp.Pages
         {
             try
             {
-                Editing.TempUsuario.NumerosPublico = !Editing.TempUsuario.NumerosPublico;
+                Current.Usuario.NumerosPublico = !Current.Usuario.NumerosPublico;
             }
-            catch (OcultandoNumerosEEmailsException ex)
+            catch (OcultandoNumerosEEmailsException)
             {
                 MessageBox.Show("Você não pode ocultar seus números e e-mails ao mesmo tempo.", "Bloqueado", MessageBoxButton.OK);
             }
@@ -94,7 +94,7 @@ namespace ClapApp.Pages
 
         private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
         {
-            Editing.SaveUsuario();
+            Current.SaveEditingUsuario();
             NavigationService.Navigate(PerfilPivot.GetUri());
         }
     }

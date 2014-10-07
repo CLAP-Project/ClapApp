@@ -101,7 +101,7 @@
     </Compile>
     <Compile Include="Model\Animal.cs" />
     <Compile Include="Model\CordinateConverter.cs" />
-    <Compile Include="Model\Editing.cs" />
+    <Compile Include="Model\Current.cs" />
     <Compile Include="Model\Perfil.cs" />
     <Compile Include="Model\Photo.cs" />
     <Compile Include="Pages\AddAnimalPage.xaml.cs">

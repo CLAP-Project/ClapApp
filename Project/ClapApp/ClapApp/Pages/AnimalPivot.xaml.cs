@@ -39,7 +39,7 @@ namespace ClapApp.Pages
                 }),
                 PivotBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
                 {
-                    Editing.SetTempAnimal();
+                    Current.PushAnimalForEdit();
                     NavigationService.Navigate(AnimalEditPage.GetUri());
                 }),
                 PivotBar.MakeButton("delete.png", "deletar")
@@ -84,7 +84,7 @@ namespace ClapApp.Pages
         private void updateDataContext()
         {
             LayoutRoot.DataContext = null;
-            LayoutRoot.DataContext = Editing.Animal;
+            LayoutRoot.DataContext = Current.Animal;
         }
 
         // ---
@@ -252,6 +252,12 @@ namespace ClapApp.Pages
         private void btnGaleria_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(AnimalGaleriaPage.GetUri());
+        }
+
+        private void stkStatus_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            Current.Animal.ToggleStatus();
+            updateDataContext();
         }
     }
 }
