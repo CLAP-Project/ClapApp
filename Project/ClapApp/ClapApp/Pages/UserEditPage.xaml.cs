@@ -10,14 +10,35 @@ using Microsoft.Phone.Shell;
 using ClapApp.Model;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using Windows.Foundation;
+using Windows.Storage;
+using Microsoft.Phone.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace ClapApp.Pages
 {
     public partial class UserEditPage : PhoneApplicationPage
     {
+        PhotoChooserTask photoPicker;
+        bool canFinish = true;
         public UserEditPage()
         {
             InitializeComponent();
+            photoPicker = new PhotoChooserTask();
+            photoPicker.Completed += new EventHandler<PhotoResult>(PhotoChooserTask_Completed);
+        }
+
+        // ---
+
+        private void PhotoChooserTask_Completed(object sender, PhotoResult e)
+        {
+            if (e.TaskResult == TaskResult.OK)
+            {
+                BitmapImage img = new BitmapImage();
+                img.SetSource(e.ChosenPhoto);
+                this.imgPerfil.Source = img;
+                canFinish = true;
+            }
         }
 
         // ---
@@ -46,7 +67,9 @@ namespace ClapApp.Pages
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            Current.FinishEditingUsuario();
+
+            if (canFinish)
+                Current.FinishEditingUsuario();
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
@@ -89,5 +112,12 @@ namespace ClapApp.Pages
         {
             Current.Usuario.CidadeEstadoPublico = (sender as ToggleButton).IsChecked ?? false;
         }
+
+        private void Image_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            canFinish = false;
+            this.photoPicker.Show();
+        }
+
     }
 }

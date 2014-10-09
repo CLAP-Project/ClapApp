@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{f5f39aa5-2bc8-472e-b98d-f888e6077e94}" Title="Clap" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="ClapApp author" Description="Sample description" Publisher="ClapApp" PublisherID="{9c0ec274-65f7-4ce2-a37c-e0b5d1630d07}">
+  <App xmlns="" ProductID="{f5f39aa5-2bc8-472e-b98d-f888e6077e94}" Title="CLAP" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="ClapApp author" Description="Sample description" Publisher="ClapApp" PublisherID="{9c0ec274-65f7-4ce2-a37c-e0b5d1630d07}">
     <IconPath IsRelative="true" IsResource="false">IconeMedioThumbnail.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
@@ -14,6 +14,7 @@
       <Capability Name="ID_CAP_CONTACTS" />
       <Capability Name="ID_CAP_ISV_CAMERA" />
       <Capability Name="ID_CAP_PHONEDIALER" />
+      <Capability Name="ID_CAP_MEDIALIB_PHOTO" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
@@ -24,7 +25,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">IconeMedio.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">IconeMedioThumbnail.png</BackgroundImageURI>
-          <Title>ClapApp</Title>
+          <Title>CLAP</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>

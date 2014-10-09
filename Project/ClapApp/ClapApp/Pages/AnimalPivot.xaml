@@ -78,7 +78,7 @@
             <!--Pivot item one-->
             <phone:PivotItem Header="animal">
                 <StackPanel Name="stkAnimal">
-                    <StackPanel Name="stkStatus" Orientation="Horizontal" HorizontalAlignment="Center" Tap="stkStatus_Tap">
+                    <StackPanel HorizontalAlignment="Left" Name="stkStatus" Orientation="Horizontal" Tap="stkStatus_Tap">
                         <TextBlock Text="Status:" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                         <TextBlock Text="{Binding StatusStringSimple}" Margin="-5,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="{Binding StatusBrush}"/>
                     </StackPanel>

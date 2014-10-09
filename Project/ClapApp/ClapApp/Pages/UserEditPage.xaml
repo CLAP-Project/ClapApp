@@ -26,16 +26,16 @@
             <TextBlock Text="EDITANDO USUÁRIO" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock Text="{Binding NomeSobrenomeRaw}" Style="{StaticResource PhoneTextSmallStyle}"/>
             <!--TextBlock Text="editando" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/-->
+            <TextBlock Text="Marque as caixas para tornar visíveis os campos." Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock Text="Marque as caixas para tornar visíveis os campos." Style="{StaticResource PhoneTextNormalStyle}"/>
+            
             <ScrollViewer Height="570" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
                 <StackPanel>
-                    <StackPanel Margin="0,15,0,0">
-                        <Image Height="180" Width="180" Source="/Images/Max.png"/>
-                        <Button Width="210" VerticalAlignment="Center" Content="Alterar avatar"/>
+                    <StackPanel Margin="0,15,0,20" HorizontalAlignment="Left">
+                        <Image Name="imgPerfil" Height="180" Width="180" Source="/Images/Max.png" Tap="Image_Tap"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
