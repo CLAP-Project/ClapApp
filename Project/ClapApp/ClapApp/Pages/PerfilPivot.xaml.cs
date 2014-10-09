@@ -39,7 +39,7 @@ namespace ClapApp.Pages
             _perfilButtons = new ApplicationBarIconButton[] {
                 PivotBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
                 {
-                    Current.PushUsuarioForEdit();
+                    Current.BeginEditingUsuario();
                     NavigationService.Navigate(UserEditPage.GetUri());
                 }),
                 PivotBar.MakeButton("cog.png", "configurar", (object sender, EventArgs e) =>
@@ -51,7 +51,7 @@ namespace ClapApp.Pages
             _animaisButtons = new ApplicationBarIconButton[] {
                 PivotBar.MakeButton("add.png", "adicionar", (object sender, EventArgs e) =>
                 {
-                    Current.PushUsuarioForEdit();
+                    Current.BeginEditingUsuario();
                     NavigationService.Navigate(AddAnimalPage.GetUri());
                 })
             };

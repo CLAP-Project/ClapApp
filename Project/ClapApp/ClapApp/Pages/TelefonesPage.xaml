@@ -34,7 +34,7 @@
                     <ListBox MaxHeight="480" Name="lstNumeros" ItemsSource="{Binding Numeros}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding DDDNumero}" Style="{StaticResource PhoneTextLargeStyle}" Tap="TextBlock_Tap"/>
+                                <TextBlock Text="{Binding DDDNumero}" Style="{StaticResource PhoneTextLargeStyle}" Tap="TextBlock_Tap" DoubleTap="TextBlock_DoubleTap"/>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>

@@ -187,7 +187,11 @@ namespace ClapApp.Model
 
             copy.Numeros.AddRange(that.Numeros);
             copy.Emails.AddRange(that.Emails);
-            copy.Animais.AddRange(that.Animais);
+
+            foreach (var animal in that.Animais)
+            {
+                copy.Animais.Add(Animal.Copy(animal));
+            }
 
             copy.NumerosPublico = that.NumerosPublico;
             copy.EmailsPublico = that.EmailsPublico;

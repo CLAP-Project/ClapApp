@@ -39,7 +39,7 @@ namespace ClapApp.Pages
                 }),
                 PivotBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
                 {
-                    Current.PushAnimalForEdit();
+                    Current.BeginEditingAnimal();
                     NavigationService.Navigate(AnimalEditPage.GetUri());
                 }),
                 PivotBar.MakeButton("delete.png", "deletar")

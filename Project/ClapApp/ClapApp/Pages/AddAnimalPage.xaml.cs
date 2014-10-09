@@ -25,6 +25,12 @@ namespace ClapApp.Pages
             
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            Current.FinishEditingUsuario();
+        }
+
         private static Sexo ParseSexo(ListPicker lst)
         {
             return Animal.ParseSexo(lst);
@@ -74,7 +80,7 @@ namespace ClapApp.Pages
             };
 
             Current.Usuario.AddAnimal(cargo);
-            Current.FinishEditingUsuario();
+            Current.SaveEditingUsuario();
 
             NavigationService.GoBack();
         }

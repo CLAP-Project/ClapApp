@@ -88,7 +88,7 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel>
                             <Image Height="180" Width="180" Source="/Images/cagado.jpg" Stretch="Fill"/>
-                            <Button Name="btnGaleria" Content="Galeria" Click="btnGaleria_Click"></Button>
+                            <Button Content="Galeria" Click="btnGaleria_Click" Name="btnGaleria"/>
                         </StackPanel>
                         
                         <StackPanel Margin="0,-10,0,0">
@@ -106,7 +106,7 @@
                     <StackPanel>
                         <TextBlock Text="Toque para visualizar melhor o mapa" Style="{StaticResource PhoneTextSmallStyle}"/>
                     </StackPanel>
-                    <maps:Map Name="mapaLocalizacao"></maps:Map>
+                    <maps:Map Name="mapaLocalizacao"/>
                 </Grid>
 
             </phone:PivotItem>

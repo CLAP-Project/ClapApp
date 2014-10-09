@@ -32,7 +32,7 @@ namespace ClapApp.Model
             _usuarioStack.Add(usuario);
         }
 
-        public static void PushUsuarioForEdit()
+        public static void BeginEditingUsuario()
         {
             _usuarioStack.Add(Perfil.Copy(Current.Usuario));
         }
@@ -64,7 +64,7 @@ namespace ClapApp.Model
             _animalStack.Add(animal);
         }
 
-        public static void PushAnimalForEdit()
+        public static void BeginEditingAnimal()
         {
             _animalStack.Add(Animal.Copy(Current.Animal));
         }

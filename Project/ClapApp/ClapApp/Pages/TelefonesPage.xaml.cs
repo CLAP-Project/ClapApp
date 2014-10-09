@@ -17,26 +17,28 @@ namespace ClapApp.Pages
     {
         ApplicationBarIconButton phoneButton, editButton;
 
+        private void callTelephone(object sender, EventArgs e)
+        {
+            (new PhoneCallTask()
+            {
+                PhoneNumber = selected.Text
+            }).Show();
+
+            selected = null;
+            phoneButton.IsEnabled = false;
+        }
+
         public TelefonesPage()
         {
             InitializeComponent();
 			
-            phoneButton = PivotBar.MakeButton("phone.png", "telefonar", (object sender, EventArgs e) =>
-            {
-                (new PhoneCallTask()
-                {
-                    PhoneNumber = selected.Text
-                }).Show();
-
-                selected = null;
-                phoneButton.IsEnabled = false;
-            });
+            phoneButton = PivotBar.MakeButton("phone.png", "telefonar", callTelephone);
 			
             phoneButton.IsEnabled = false;
 
             editButton = PivotBar.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
             {
-                Current.PushUsuarioForEdit();
+                Current.BeginEditingUsuario();
                 NavigationService.Navigate(TelefonesEditPage.GetUri());
             });
 
@@ -88,6 +90,11 @@ namespace ClapApp.Pages
                 selected.Foreground = new SolidColorBrush(App.ThemeColor);
             }
             else selected = null;
+        }
+
+        private void TextBlock_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            callTelephone(sender, e);
         }
     }
 }
