@@ -104,6 +104,7 @@
     <Compile Include="Model\Current.cs" />
     <Compile Include="Model\Perfil.cs" />
     <Compile Include="Model\Photo.cs" />
+    <Compile Include="Model\StaticMethods.cs" />
     <Compile Include="Pages\AddAnimalPage.xaml.cs">
       <DependentUpon>AddAnimalPage.xaml</DependentUpon>
     </Compile>
@@ -112,9 +113,6 @@
     </Compile>
     <Compile Include="Pages\AnimalGaleriaPage.xaml.cs">
       <DependentUpon>AnimalGaleriaPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\AnimalPage.xaml.cs">
-      <DependentUpon>AnimalPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AnimalPivot.xaml.cs">
       <DependentUpon>AnimalPivot.xaml</DependentUpon>
@@ -165,10 +163,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AnimalGaleriaPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\AnimalPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

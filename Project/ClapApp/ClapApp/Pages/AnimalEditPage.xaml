@@ -33,10 +33,10 @@
             <StackPanel>
                 <StackPanel Visibility="Visible">
                     <TextBlock Text="Nome" Style="{StaticResource PhoneTextSmallStyle}"/>
-                    <TextBox Text="{Binding Nome, Mode=TwoWay}"/>
+                    <TextBox TextChanged="TextBox_TextChanged" Name="hue" Text="{Binding Nome, Mode=TwoWay, UpdateSourceTrigger=Explicit}"/>
 
                     <TextBlock Text="Espécie" Style="{StaticResource PhoneTextSmallStyle}"/>
-                    <TextBox Text="{Binding EspecieFormatted, Mode=TwoWay}"/>
+                    <TextBox TextChanged="TextBox_TextChanged" Text="{Binding EspecieFormatted, Mode=TwoWay}"/>
 
                     <TextBlock Text="Sexo" Style="{StaticResource PhoneTextSmallStyle}"/>
                     <toolkit:ListPicker Name="pkrSexo" SelectionChanged="pkrSexo_SelectionChanged">
@@ -48,7 +48,7 @@
                     <TextBlock Text="Descrição" Style="{StaticResource PhoneTextSmallStyle}"/>
                 </StackPanel>
 
-                <TextBox Name="txtDescricao" Text="{Binding Descricao, Mode=TwoWay}" AcceptsReturn="True" Grid.Row="1"
+                <TextBox TextChanged="TextBox_TextChanged" Name="txtDescricao" Text="{Binding Descricao, Mode=TwoWay}" AcceptsReturn="True" Grid.Row="1"
                                 Height="175" TextWrapping="Wrap"/>
             </StackPanel>
         </Grid>

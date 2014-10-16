@@ -25,6 +25,7 @@ namespace ClapApp.Pages
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
         {
+            this.Focus();
             NavigationService.GoBack();
         }
 

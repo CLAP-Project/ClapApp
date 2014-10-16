@@ -94,6 +94,7 @@ namespace ClapApp.Pages
 
         private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
         {
+            this.Focus();
             Current.SaveEditingUsuario();
             NavigationService.Navigate(PerfilPivot.GetUri());
         }

@@ -9,6 +9,8 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClapApp.Model;
 using System.Windows.Media;
+using System.Windows.Data;
+using System.Windows.Input;
 
 namespace ClapApp.Pages
 {
@@ -40,6 +42,11 @@ namespace ClapApp.Pages
             pkrSexo.SelectedIndex = (int)Current.Animal.Sexo;
         }
 
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            StaticMethods.TextBox_TextChanged(sender, e);
+        }
+
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
@@ -56,7 +63,7 @@ namespace ClapApp.Pages
         {
             Editing.TempAnimal.Sexo = Animal.ParseSexo(sender as ListPicker);
         }*/
-
+        
         private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
         {
             Current.SaveEditingAnimal();
