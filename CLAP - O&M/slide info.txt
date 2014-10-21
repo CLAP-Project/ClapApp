@@ -1,0 +1,127 @@
+Coleira de localização de animais perdidos - codenome CLAP
+
+
+
+// ---
+// --- Identificar problemas e oportunidades --------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------
+
+
+// --- Causas, e causas de causas ---
+
+* Problema: animais se perdem facilmente e dificilmente (ou arduosamente) retornam aos seus donos.
+
+> Por que se perdem facilmente? Por que há dificuldade em retornarem?
+
+* Cachorros muitas vezes se perdem porque escapam pelas grades ou por buracos nos muros de seus donos,
+  e não têm muito senso de localização principalmente quando nunca saíram à rua anteriormente.
+  
+	* Por mais que se procure manter o cachorro dentro de casa e o mais seguro possível, sempre há
+	  frestas e falhas ignoráveis no perímetro da casa que podem não ser indentificáveis por um ser
+	  humano, mas facilmente achadas pelos cachorros, que são curiosos e não hesitarão em se aventu-
+	  rar por elas para fora de casa.
+	
+	* "Acredita-se que a poluição possa interferir nos odores que facilitam o reconhecimento do ter-
+	  ritório onde o animal vive e assim, dificulta a volta dos cães para a casa. Nessas horas, a
+	  audição do animal deve estar apuradíssima para que as chances dele conseguir retornar sejam
+	  maiores."
+		http://petmag.com.br/88/numero-de-animais-perdidos-durante-o-verao-aumenta/
+ 
+* Gatos criados em casa frequentemente são deixados que andem pela rua à vontade, mas às vezes sofrem
+  acidentes ou realmente se perdem e acabam não voltando mais para casa.
+  
+	* Gatos frequentemente se envolvem em brigas com outros gatos de rua. Algumas brigas podem ser
+	  letais, ou debilitantes o suficiente para que o gato não tenha mais condições de andar.
+	
+	* Gatos estão sob constante ameaça de atropelamento ou acidentes.
+	
+	* Há um preconceito na população contra gatos. Algumas pessoas chegam a agredi-los propositalmente.
+
+* Há dificuldade em retornarem porque, sendo animais, não têm a capacidade de se virarem e buscarem
+  informações pela cidade em busca de seu destino de volta.
+
+* Além disso, são muito mais indefesos do que seres humanos. Há enormes chances de que carros os
+  atropelem ou pessoas e outros animais os maltratem. Dependendo das injúrias, acabam fisicamente
+  incapazes de percorrerem o trajeto de volta.
+  
+	* Motoristas não prestam tanta atenção com animais enquanto dirigem.
+
+* Muitos animais não andam com indentificação em coleiras, por exemplo, o que dificulta ainda mais a
+  sua identificação em buscas ou por transeuntes.
+  
+	* Não há muito incentivo aos donos de animais de identificarem seus animais, principalmente porque
+	  não se vê tanto por Manaus coleiras com identificadores; e nem costuma se passar pela cabeça dos
+	  donos que seu animal tem chances de sumir, acha-se que nunca vão fugir.
+
+* Mesmo com identificações, às vezes não se sabe se o animal está perdido ou não. Gatos, por exemplo,
+  passam a maior parte do seu tempo fora da casa do seu dono, e portanto é difícil distinguir se ele
+  está apenas passeando ou 
+
+
+// --- Quebrar o problema ---
+
+* É inevitável que animais de estimação podem se perder pelas ruas.
+
+* Mesmo com identificação, é difícil distinguir um animal perdido de um animal que está simplesmente
+  passeando.
+
+* Ainda que possua identificação, é difícil saber a localização exata de um animal perdido, que pode
+  estar ferido e recolhido em um local de difícil visualização ou além do local em que imagina-se
+  encontrar.
+
+* É preciso tornar mais eficiente a busca por animais perdidos.
+
+
+
+// ---
+// --- Definir alternativas objetivas ---------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------
+
+* Já se foi provado pela vida cotidiana que dispositivos de localização têm enormes potencial de tornar
+  certas situações muito mais simples. Saber a localização exata ou aproximada do animal, por meio de
+  ajuda tecnológica, diminuiria consideravelmente o esforço que seria gasto procurando-o.
+
+* O dispositivo seria uma coleira com localizador, dados do animal e um mecanismo de sinalização que possa
+  ser acionado remotamente pelo dono - um LED que pisca, por exemplo.
+
+* O dispositivo seria auxiliado por uma rede social online onde dados extras do animal poderia ser acessados
+  e o dono e grupos de busca mantidos atualizados a respeito de sua situação - atualizados tanto por sua
+  localização quanto por dados trocados entre os usuários.
+
+* Transeuntes identificariam o sinalizador na coleira do animal e saberia que ele está perdindo. O transe-
+  unte poderia então utilizar a rede para identificar o animal pelos dados na coleira e também informar
+  seu dono ou os grupos de busca que encontram-se ativos em sua procura.
+
+* Organizações como canis poderiam empregar pessoas com o específico objetivo de agirem como grupos de
+  busca profissionais, ou que buscariam o animal ao ser encontrado por um transeunte que não pode acolhê-lo
+  e levá-lo ao dono pessoalmente.
+
+
+
+// ---
+// --- Explorar possíveis estratégias ---------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------
+
+* Sites como o cachorroperdido.com.br e procurasecachorro.uol.com.br/ já oferecem redes sociais para a in-
+  teração de donos e a formação de grupos de busca.
+
+* Já existem microchips subcutâneos que podem ser implantados sob a pele dos animais, o que os ajuda na co-
+  leta de dados e podem também fornecer sua localização, mas não são capazes de informar a transeuntes o
+  estado do animal.
+
+* Procuramos criar uma relação entre registro de dados e interação social, enfatizando o potencial de
+  colaboração em grupo e facilidade de acesso a dados do animal.
+ 
+* Existe também um serviço de identificação de animais de estimação bem similar: o TagPet. Utilizando-se
+  um QRCode, é possível que qualquer um acesse os dados do animal nos bancos de dados do site, e quem
+  tiver acesso a esse QRCode pode tirar uma foto dele ecomunicar-se com a TagPet que esta informará o
+  dono a respeito da localização do animal.
+
+	* Procuraremos inovar no aspecto de facilidade de acesso aos dados do animal, principalmente de sua
+	  localização. Ainda assim, surge o problema de que é difícil distinguir um animal perdido de um
+	  animal em passeio - ainda mais gatos, que demoram mais a se demonstrar doentes se deixados nas ruas.
+	 
+	* Além disso, a geolocalização é baseada na localização da pessoa que tirou a foto do QRCode. Não há
+	  dispositivos acoplados à própria coleira do animal. Se o animal perdido não for encontrado por
+	  ninguém, ou ninguém conseguir se aproximar dele para tirar a foto da identificação, ainda não
+	  poderia ser facilmente localizado.

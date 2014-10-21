@@ -1,0 +1,73 @@
+!> Coisas em comum.
+-> Pontos negativos.
++> Diferenciais do produto com nossa ideia.
+ > Detalhes
+
+#Coleiras:
+
+	@Tagg
+	http://www.techtudo.com.br/artigos/noticia/2013/01/acessorio-monitora-localizacao-do-seu-cachorro-e-analisa-sua-atividade-fisica.html
+	
+		-> É caro.
+		-> Não guarda os dados do animal na coleira.
+		-> Não tem integração com rede social.
+		-> Não tem luzinha.
+		
+		+> Monitora a atividade física do animal.
+		
+		!> Começa a enviar sinais sempre que o animal estiver a certa distância do
+		   "Ponto de casa".
+		!> Manda mensagens avisando que a bateria está baixa.
+		!> Guarda dados do dono e seus animais.
+		!> Aplicativo mobile e web.
+
+	@Tagg @SpotLite @The Pet Locator
+	http://www.agendapet.com.br/2013/02/acabou-o-pesadelo-com-o-gps-para-animais-voce-nunca-perdera-seu-pet.html
+	
+	@TagPet
+	https://www.tagpet.com.br/
+		
+		!> Utiliza um QR Code para identificar o animal.
+		!> Guarda dados do dono e seus animais nos servidores.
+		!> Permite saber a localização exata do animal.
+		
+		+> Para se saber a localização do animal, é necessário que alguém fotografe
+		   seu QR Code e mande uma notificação para os servidores centrais.
+		   !> O animal está completamente perdido até que alguém o encontre.
+		
+		-> Não tem integração com rede social.
+		-> Não tem luzinha.
+
+
+#Redes sociais:
+
+	@Cachorro Perdido
+	http://www.cachorroperdido.com.br/
+	http://petmag.com.br/88/numero-de-animais-perdidos-durante-o-verao-aumenta/
+
+		-> Não mantém dados constantes de animais, apenas dos donos.
+		   > Os dados de um animal estão presos a um "anúncio".
+		   > O anúncio é uma postagem descrevendo os detalhes do animal e do seu
+			 desaparecimento, ou se foi encontrado.
+
+		-> Não agrupa os anúncios de animais por regiões (estado, cidade, bairro).
+
+		-> Permite saber no máximo a última rua em que o cachorro foi visto.
+		   > Não se sabe então a localização exata do animal, que pode ter ido
+			 para muito mais longe do que onde foi encontrado pela última vez.
+
+		-> Focado apenas em cachorros.
+		
+		!> Permite a publicização de perdas ou o encontro de cachorros.
+		!> Permite a interação entre diferentes pessoas na busca e resgate de
+		   animais.
+
+	@Procura-se Cachorro
+	http://procurasecachorro.uol.com.br/
+
+		?> ???
+
+
+#Luzinha:
+
+	@Ninguém!
