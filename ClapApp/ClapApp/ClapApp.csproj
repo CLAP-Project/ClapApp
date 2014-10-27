@@ -106,6 +106,12 @@
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Model\Perfil.cs" />
+    <Compile Include="Pages\AnimalEditPage.xaml.cs">
+      <DependentUpon>AnimalEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AnimalPivot.xaml.cs">
+      <DependentUpon>AnimalPivot.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoginPivot.xaml.cs">
       <DependentUpon>LoginPivot.xaml</DependentUpon>
     </Compile>
@@ -135,6 +141,14 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AnimalEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AnimalPivot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

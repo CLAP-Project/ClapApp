@@ -27,7 +27,7 @@ namespace ClapApp.View
         {
             return MakeButton("minus.png", "minimizar", (object sender, EventArgs e) =>
             {
-                self.Mode = self.Mode == ApplicationBarMode.Default ?
+                self.Mode = (self.Mode == ApplicationBarMode.Default) ?
                     ApplicationBarMode.Minimized : ApplicationBarMode.Default;
             });
         }

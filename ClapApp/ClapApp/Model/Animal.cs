@@ -1,8 +1,10 @@
-﻿using System;
+﻿using ClapApp.Control;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ClapApp.Model
 {
@@ -57,6 +59,30 @@ namespace ClapApp.Model
             set;
         }
 
+        public Perfil Dono
+        {
+            get
+            {
+                return PerfisControl.GetPerfilById(this.DonoId);
+            }
+        }
+
+        public string DonoNomeSobrenome
+        {
+            get
+            {
+                return Dono.NomeSobrenome;
+            }
+        }
+
+        public Visibility IsDonoCurrentUsuarioVisibility
+        {
+            get
+            {
+                return Dono.IsCurrentUsuarioVisiblity;
+            }
+        }
+
         public bool IsPerdido
         {
             get
@@ -97,6 +123,12 @@ namespace ClapApp.Model
                         return "";
                 }
             }
+        }
+
+        public string Descricao
+        {
+            get;
+            set;
         }
 
         private static Random rand = new Random();

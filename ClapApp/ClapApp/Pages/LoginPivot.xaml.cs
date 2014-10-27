@@ -35,7 +35,7 @@ namespace ClapApp.Pages
 
         private void AnimalButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            AnimalButtonEvent.OnClick(sender, e);
+            AnimalButtonEvent.OnClick(this, sender, e);
         }
 
         private void login(string email, string senha)

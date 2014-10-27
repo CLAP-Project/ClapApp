@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ClapApp.Control;
+using ClapApp.Model;
+using ClapApp.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +13,12 @@ namespace ClapApp.View
 {
     public static class AnimalButtonEvent
     {
-        public static void OnClick(object sender, System.Windows.Input.GestureEventArgs e)
+        public static void OnClick(Page page, object sender, System.Windows.Input.GestureEventArgs e)
         {
-            object test = (sender as StackPanel).DataContext;
+            var animal = (sender as StackPanel).DataContext as Animal;
 
-            if (test != null)
-                MessageBox.Show(test.ToString());
+            AnimaisControl.SetCurrentAnimal(animal.Id);
+            page.NavigationService.Navigate(AnimalPivot.GetUri());
         }
     }
 }

@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using ClapApp.Control;
 using ClapApp.View;
 using ClapApp.Model;
+using Microsoft.Phone.Tasks;
 
 namespace ClapApp.Pages
 {
@@ -106,7 +107,7 @@ namespace ClapApp.Pages
 
         private void AnimalButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            AnimalButtonEvent.OnClick(sender, e);
+            AnimalButtonEvent.OnClick(this, sender, e);
         }
 
         private void updateButtons()
@@ -164,7 +165,10 @@ namespace ClapApp.Pages
 
         private void TelefoneText_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-
+            (new PhoneCallTask()
+            {
+                PhoneNumber = _selectedTextBlock.Text
+            }).Show();
         }
 
         private void TelefoneText_Loaded(object sender, RoutedEventArgs e)

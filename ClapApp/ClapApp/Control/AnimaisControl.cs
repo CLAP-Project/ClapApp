@@ -13,54 +13,6 @@ namespace ClapApp.Control
         private static int _inserted = 0;
         private static Dictionary<int, Animal> _animais = new Dictionary<int,Animal>();
 
-        static AnimaisControl()
-        {
-            return;
-
-            for (int i = 0; i < 20; ++i)
-            {
-                Status status = (i % 2 == 0)? Status.Perdido : Status.OK;
-
-                switch (i % 3) {
-                    case 0:
-                        _animais.Add(i, new Animal()
-                        {
-                            Id = i,
-                            Nome = "Guido",
-                            Especie = "Gato",
-                            Sexo = Sexo.Macho,
-                            Status = status
-                        });
-                        break;
-
-                    case 1:
-                        _animais.Add(i, new Animal()
-                        {
-                            Id = i,
-                            Nome = "Jack Tartaruga",
-                            Especie = "Tartaruga",
-                            Sexo = Sexo.Femea,
-                            Status = status
-                        });
-                        break;
-
-                    case 2:
-                        _animais.Add(i, new Animal()
-                        {
-                            Id = i,
-                            Nome = "Ligeirinho",
-                            Especie = "Caracol",
-                            Sexo = Sexo.Indefinido,
-                            Status = status
-                        });
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-        }
-
         public static int InsertAnimal(Animal animal)
         {
             animal.Id = _inserted++;
@@ -108,6 +60,18 @@ namespace ClapApp.Control
             }
 
             return result;
+        }
+
+        private static int _current = -1;
+
+        public static void SetCurrentAnimal(int id)
+        {
+            _current = id;
+        }
+
+        public static Animal GetCurrentAnimal()
+        {
+            return _animais[_current];
         }
     }
 }

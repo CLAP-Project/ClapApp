@@ -58,21 +58,24 @@ namespace ClapApp.Control
                 Nome = "Ligeirinho",
                 Especie = "Caramujo",
                 Sexo = Sexo.Indefinido,
-                Status = Status.Perdido
+                Status = Status.Perdido,
+                Descricao = "O caramujo mais ligeiro na face da Terra. Ele consegue te passar esquistossomose e você nem vê a cor de quem foi!"
             },
             new Animal()
             {
                 Nome = "Felpuda",
                 Especie = "Gato",
                 Sexo = Sexo.Femea,
-                Status = Status.OK
+                Status = Status.OK,
+                Descricao = "Gata velha e careca, tem só alguns fiapinhos de pelo. Vai morrer já já."
             },
             new Animal()
             {
                 Nome = "Magalhães",
                 Especie = "Barata",
                 Sexo = Sexo.Indefinido,
-                Status = Status.OK
+                Status = Status.OK,
+                Descricao = "A barata mais preta que você já viu na sua vida. Ela tem só cinco pernas e meia antena."
             });
 
             make(new Perfil()
@@ -92,28 +95,32 @@ namespace ClapApp.Control
                 Nome = "Guido",
                 Especie = "Gato",
                 Sexo = Sexo.Macho,
-                Status = Status.OK
+                Status = Status.OK,
+                Descricao = "Gato com pelagem de \"tuxedo\", costas pretas, \"máscara\" preta no rosto, mancha preta no queixo que lembra uma barbicha. Olhos amarelos. Muito gordo. Sua cauda tem a ponta torta."
             },
             new Animal()
             {
                 Nome = "Dory",
                 Especie = "Cachorro",
                 Sexo = Sexo.Femea,
-                Status = Status.Perdido
+                Status = Status.Perdido,
+                Descricao = "Cadela schnauzer de pelo preto e patas brancas. Tem a cauda cortada. Responde pelo nome."
             },
             new Animal()
             {
                 Nome = "Cosmo",
                 Especie = "Peixe beta",
                 Sexo = Sexo.Macho,
-                Status = Status.Perdido
+                Status = Status.Perdido,
+                Descricao = "É um peixe multicolorido que sabe fazer malabarismo e responde pelo nome."
             },
             new Animal()
             {
                 Nome = "Jack Tartaruga",
                 Especie = "Cágado",
                 Sexo = Sexo.Macho,
-                Status = Status.Perdido
+                Status = Status.Perdido,
+                Descricao = "Essa é tartaruguinha mais louca do pedaço. Ela vai aprontar altas confusões que deixarão de pernas para o ar uma turma muito doida!"
             });
 
             make(new Perfil()
@@ -133,14 +140,16 @@ namespace ClapApp.Control
                 Nome = "Didu",
                 Especie = "Cachorro",
                 Sexo = Sexo.Macho,
-                Status = Status.Perdido
+                Status = Status.Perdido,
+                Descricao = "Vira-lata que sabe voar com as orelhas. Ele traz o jornal sempre que mandado e adora Doritos, assim como o dono."
             },
             new Animal()
             {
                 Nome = "Amanito",
                 Especie = "Cogumelo",
                 Sexo = Sexo.Macho,
-                Status = Status.Perdido
+                Status = Status.Perdido,
+                Descricao = "Cultivado desde que era um esporinho no meu pescoço, não é agressivo com estranhos, mas pode liberar esporos venenosos se provocado. Odeia luz."
             });
 
             make(new Perfil()
@@ -160,14 +169,16 @@ namespace ClapApp.Control
                 Nome = "Pulguinha 1",
                 Especie = "Pulga",
                 Sexo = Sexo.Femea,
-                Status = Status.Perdido
+                Status = Status.Perdido,
+                Descricao = "Ela gosta muito de cabelo, estou começando a achar que talvez ela seja um piolho!"
             },
             new Animal()
             {
                 Nome = "Pulguinha 2",
                 Especie = "Pulga",
                 Sexo = Sexo.Femea,
-                Status = Status.Perdido
+                Status = Status.Perdido,
+                Descricao = "Sabe muitos truques, como pular por dentro de aros e assobiar enquanto chupa cana. Seu tipo de sangue favorito é O+."
             });
         }
 

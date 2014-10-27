@@ -1,0 +1,74 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ClapApp.Pages.AnimalPivot"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <phone:Pivot Title="MY APPLICATION">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="animal">
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel>
+                        <Image Source="/Assets/ApplicationIcon.png" Width="180" Height="180" HorizontalAlignment="Left"/>
+
+                        <StackPanel Margin="0,15,0,0" Tap="DonoButton_Tap">
+                            <TextBlock Text="Toque para ir ao dono" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <TextBlock Text="{Binding DonoNomeSobrenome}" Style="{StaticResource PhoneTextLargeStyle}"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,15,0,0" Name="StatusButton" Tap="StatusButton_Tap">
+                            <TextBlock Text="Toque para alterar" Visibility="{Binding IsDonoCurrentUsuarioVisibility}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <TextBlock Text="{Binding StatusToStringFull}" Style="{StaticResource PhoneTextLargeStyle}"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,30,0,0"/>
+                        <TextBlock Text="nome" Style="{StaticResource PhoneTextLargeStyle}"/>
+                        <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                        
+                        <StackPanel Margin="0,15,0,0"/>
+                        <TextBlock Text="espécie" Style="{StaticResource PhoneTextLargeStyle}"/>
+                        <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+
+                        <StackPanel Margin="0,15,0,0"/>
+                        <TextBlock Text="descrição" Style="{StaticResource PhoneTextLargeStyle}"/>
+                        <TextBlock Text="{Binding Descricao}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}"/>
+
+                        <StackPanel Margin="0,80,0,0"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="localização">
+                <StackPanel>
+
+                </StackPanel>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="histórico">
+                <StackPanel>
+
+                </StackPanel>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="coleira">
+                <StackPanel>
+
+                </StackPanel>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>
