@@ -1,0 +1,78 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="ClapApp.Pages.PerfilEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Name="txtTitle" Text="{Binding PerfilEditTitle}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding NomeSobrenomeTitle}" Style="{StaticResource PhoneTextSmallStyle}"/>
+            <!--TextBlock Text="editando" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/-->
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer Height="600" HorizontalScrollBarVisibility="Disabled">
+                <StackPanel>
+                    <TextBlock Text="E-mail" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <toolkit:PhoneTextBox Name="TxtEmail" Text="{Binding Email, Mode=TwoWay}"/>
+
+                    <StackPanel Visibility="{Binding EditingStuffVisibility}">
+                        <TextBlock Text="Nova senha" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                        <PasswordBox Name="TxtNovaSenha"/>
+                        <Button Name="BtnEsqueci" Content="Esqueci minha senha" Click="BtnEsqueci_Click" HorizontalAlignment="Right"/>
+                    </StackPanel>
+
+                    <StackPanel Visibility="{Binding CreatingStuffVisibility}">
+                        <TextBlock Text="Senha" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                        <PasswordBox Name="TxtSenha" Password="{Binding Senha, Mode=TwoWay}"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,15,0,0"/>
+
+                    <TextBlock Text="Nome" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <toolkit:PhoneTextBox Name="TxtNome" Text="{Binding Nome, Mode=TwoWay}"/>
+
+                    <TextBlock Text="Sobrenome" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <toolkit:PhoneTextBox Name="TxtSobrenome" Text="{Binding Sobrenome, Mode=TwoWay}"/>
+
+                    <StackPanel Margin="0,15,0,0"/>
+
+                    <TextBlock Text="Cidade" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <toolkit:PhoneTextBox Name="TxtCidade" Text="{Binding Cidade, Mode=TwoWay}"/>
+
+                    <TextBlock Text="Estado" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <toolkit:PhoneTextBox Name="TxtEstado" Text="{Binding Estado, Mode=TwoWay}"/>
+
+                    <StackPanel Margin="0,80,0,0"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True">
+            <shell:ApplicationBarIconButton Text="salvar" IconUri="/Images/save.png" Click="SaveButton_Click"/>
+            <shell:ApplicationBarIconButton Text="cancelar" IconUri="/Images/cancel.png" Click="CancelButton_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
