@@ -19,6 +19,8 @@ namespace ClapApp.Pages
         private ApplicationBarIconButton[] _telefonesButtons, _animaisButtons, _perfilButtons;
         private ApplicationBarIconButton _editarTelefoneButton, _excluirTelefoneButton, _excluirAnimalButton;
 
+        private int _selectedAnimalId = -1;
+
         public PerfilPivot()
         {
             InitializeComponent();
@@ -57,6 +59,12 @@ namespace ClapApp.Pages
 
             _excluirAnimalButton = BarButtons.MakeButton("delete.png", "excluir", (object sender, EventArgs e) =>
             {
+                AnimaisControl.EraseAnimalById(_selectedAnimalId);
+
+                _excluirAnimalButton.IsEnabled = false;
+                _selectedAnimalId = -1;
+
+                updateLayoutRoot();
             });
 
             _excluirAnimalButton.IsEnabled = false;
@@ -95,6 +103,9 @@ namespace ClapApp.Pages
             updateLayoutRoot();
 
             ApplicationBar.IsVisible = PerfisControl.IsCurrentUsuarioLoggedIn();
+
+            _excluirAnimalButton.IsEnabled = false;
+            _selectedAnimalId = -1;
         }
 
         private void updateLayoutRoot()
@@ -103,11 +114,6 @@ namespace ClapApp.Pages
 
             LayoutRoot.DataContext = null;
             LayoutRoot.DataContext = PerfisControl.GetCurrentUsuarioPerfil();
-        }
-
-        private void AnimalButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            AnimalButtonEvent.OnClick(this, sender, e);
         }
 
         private void updateButtons()
@@ -181,6 +187,27 @@ namespace ClapApp.Pages
                 _selectedTextBlock = textBlock;
             }
             else textBlock.Foreground = NormalBlock.Foreground;
+        }
+
+        private void AnimalButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            var id = ((sender as StackPanel).DataContext as Animal).Id;
+
+            if (id == _selectedAnimalId)
+            {
+                _excluirAnimalButton.IsEnabled = false;
+                _selectedAnimalId = -1;
+            }
+            else
+            {
+                _excluirAnimalButton.IsEnabled = true;
+                _selectedAnimalId = id;
+            }
+        }
+
+        private void AnimalButton_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            AnimalButtonEvent.OnClick(this, sender, e);
         }
     }
 }

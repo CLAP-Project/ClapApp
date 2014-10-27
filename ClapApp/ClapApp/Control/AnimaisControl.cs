@@ -21,6 +21,11 @@ namespace ClapApp.Control
             return animal.Id;
         }
 
+        public static void EraseAnimalById(int id)
+        {
+            _animais.Remove(id);
+        }
+
         public static List<Animal> GetAllAnimaisPerdidos()
         {
             List<Animal> result = new List<Animal>();
