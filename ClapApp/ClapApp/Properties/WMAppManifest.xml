@@ -2,7 +2,7 @@
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
   <App xmlns="" ProductID="{63e75c90-ccfd-4de9-9c17-71dbba2a7930}" Title="CLAP Mobile" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="ClapApp author" Description="Sample description" Publisher="ClapApp" PublisherID="{47b38feb-3459-4728-80b0-c87ad962a871}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+    <IconPath IsRelative="true" IsResource="false">IconeMedioThumbnail.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
@@ -17,10 +17,10 @@
     <Tokens>
       <PrimaryToken TokenID="ClapAppToken" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
+          <SmallImageURI IsRelative="true" IsResource="false">clap doggy2.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>ProjectForTemplates.WP8</Title>
+          <BackgroundImageURI IsRelative="true" IsResource="false">IconeMedioThumbnail.png</BackgroundImageURI>
+          <Title>CLAP Mobile</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>

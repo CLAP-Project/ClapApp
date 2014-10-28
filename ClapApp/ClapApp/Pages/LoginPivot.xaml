@@ -15,12 +15,13 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundColor}">
         <!--Pivot Control-->
-        <phone:Pivot Name="Pivot" Title="MY APPLICATION">
+        <phone:Pivot Name="Pivot" Title="{StaticResource ApplicationName}">
             <!--Pivot item one-->
             <phone:PivotItem Header="login">
                 <StackPanel>
+                    <Image Width="220" Margin="0, 0, 0, 20" Source="/Assets/clapdoggy.png"></Image>
                     <TextBlock Text="E-mail" Style="{StaticResource PhoneTextSubtleStyle}"/>
                     <toolkit:PhoneTextBox Name="TxtEmail"/>
                     <TextBlock Text="Senha" Style="{StaticResource PhoneTextSubtleStyle}"/>

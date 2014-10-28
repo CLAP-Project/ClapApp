@@ -15,9 +15,9 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundColor}">
         <!--Pivot Control-->
-        <phone:Pivot Title="MY APPLICATION" SelectionChanged="Pivot_SelectionChanged" Name="Pivot">
+        <phone:Pivot Title="{StaticResource ApplicationName}" SelectionChanged="Pivot_SelectionChanged" Name="Pivot">
             <!--Pivot item one-->
             <phone:PivotItem Header="animais">
                 <StackPanel>
