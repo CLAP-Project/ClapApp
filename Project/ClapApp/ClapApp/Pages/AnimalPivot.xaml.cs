@@ -49,7 +49,7 @@ namespace ClapApp.Pages
 
             _localButtons = new ApplicationBarIconButton[] {
                 PivotBar.MakeButton("cog.png", "configurar"),
-                PivotBar.MakeButton("sync.png", "atualizar", ShowMyLocationOnTheMap)
+                PivotBar.MakeButton("sync.png", "atualizar", ShowAnimalLocationOnTheMap)
             };
 
             // ---
@@ -68,7 +68,7 @@ namespace ClapApp.Pages
 
             //_updateButtons();
 
-            ShowMyLocationOnTheMap(null, null);
+            ShowAnimalLocationOnTheMap(null, null);
         }
 
         // ---
@@ -123,7 +123,7 @@ namespace ClapApp.Pages
 
         // --- 
         //Código a ser usado futuramente...
-        private async void ShowMyLocationOnTheMap(object sender, EventArgs e)
+        private async void ShowAnimalLocationOnTheMap(object sender, EventArgs e)
         {
             Geolocator myGeolocator = new Geolocator();
             Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();

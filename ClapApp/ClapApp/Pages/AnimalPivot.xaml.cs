@@ -10,6 +10,12 @@ using Microsoft.Phone.Shell;
 using ClapApp.Control;
 using ClapApp.Model;
 using ClapApp.View;
+using Windows.Devices.Geolocation;
+using System.Device.Location;
+using ShowMyLocationOnMap;
+using Microsoft.Phone.Maps.Controls;
+using System.Windows.Shapes;
+using System.Windows.Media;
 
 namespace ClapApp.Pages
 {
@@ -52,6 +58,47 @@ namespace ClapApp.Pages
                 _localizacaoButtons,
                 _historicoButtons,
                 _coleiraButtons
+            };
+
+            ShowAnimalLocationOnTheMap(null, null);
+        }
+
+        private async void ShowAnimalLocationOnTheMap(object sender, EventArgs e)
+        {
+            Geolocator myGeolocator = new Geolocator();
+            Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
+            Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
+            GeoCoordinate myGeoCoordinate =
+            CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
+
+            this.mapaLocalizacao.Center = myGeoCoordinate;
+            this.mapaLocalizacao.ZoomLevel = 13;
+
+            //Círculo de marcação no mapa
+
+
+            //Criando camada para conter a marcação
+            MapOverlay myLocationOverlay = new MapOverlay();
+            myLocationOverlay.Content = createMarker();
+            myLocationOverlay.PositionOrigin = new Point(0.5, 0.5);
+            myLocationOverlay.GeoCoordinate = myGeoCoordinate;
+
+            //Atribuição para localização
+            MapLayer myLocationLayer = new MapLayer();
+            myLocationLayer.Add(myLocationOverlay);
+
+            //Adição da camada no mapa
+            this.mapaLocalizacao.Layers.Add(myLocationLayer);
+        }
+
+        private Ellipse createMarker()
+        {
+            return new Ellipse()
+            {
+                Fill = new SolidColorBrush(Colors.Blue),
+                Height = 20,
+                Width = 20,
+                Opacity = 50
             };
         }
 

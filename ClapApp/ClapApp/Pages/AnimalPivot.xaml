@@ -10,6 +10,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
@@ -55,9 +56,12 @@
 
             <!--Pivot item two-->
             <phone:PivotItem Header="localização">
-                <StackPanel>
-
-                </StackPanel>
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="Toque para visualizar melhor o mapa" Style="{StaticResource PhoneTextSmallStyle}"/>
+                    </StackPanel>
+                    <maps:Map Name="mapaLocalizacao"/>
+                </Grid>
             </phone:PivotItem>
 
             <phone:PivotItem Header="histórico">
