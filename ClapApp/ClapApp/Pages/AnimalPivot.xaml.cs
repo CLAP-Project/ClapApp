@@ -102,5 +102,10 @@ namespace ClapApp.Pages
             ApplicationBar.AddButtons(_buttons[(sender as Pivot).SelectedIndex]);
         }
 
+        private void GaleriaButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+
+        }
+
     }
 }
