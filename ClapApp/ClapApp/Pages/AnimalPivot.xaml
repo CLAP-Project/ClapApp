@@ -16,12 +16,15 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
-        <phone:Pivot Title="MY APPLICATION">
+        <phone:Pivot Title="MY APPLICATION" Name="Pivot" SelectionChanged="Pivot_SelectionChanged">
             <!--Pivot item one-->
             <phone:PivotItem Header="animal">
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled">
                     <StackPanel>
-                        <Image Source="/Assets/ApplicationIcon.png" Width="180" Height="180" HorizontalAlignment="Left"/>
+                        <StackPanel>
+                            <Image Source="/Assets/ApplicationIcon.png" Width="180" Height="180" HorizontalAlignment="Left"/>
+                            <TextBlock Text="Ver galeria" Style="{StaticResource PhoneTextNormalStyle}"/>
+                        </StackPanel>
 
                         <StackPanel Margin="0,15,0,0" Tap="DonoButton_Tap">
                             <TextBlock Text="Toque para ir ao dono" Style="{StaticResource PhoneTextSubtleStyle}"/>
@@ -70,5 +73,9 @@
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>
-    
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar/>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
 </phone:PhoneApplicationPage>

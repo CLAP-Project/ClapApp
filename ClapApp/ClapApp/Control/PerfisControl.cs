@@ -59,7 +59,7 @@ namespace ClapApp.Control
                 Especie = "Caramujo",
                 Sexo = Sexo.Indefinido,
                 Status = Status.Perdido,
-                Descricao = "O caramujo mais ligeiro na face da Terra. Ele consegue te passar esquistossomose e você nem vê a cor de quem foi!"
+                Descricao = "O caramujo mais ligeiro na face da Terra. Ele consegue te passar esquistossomose sem que você veja quem foi!"
             },
             new Animal()
             {

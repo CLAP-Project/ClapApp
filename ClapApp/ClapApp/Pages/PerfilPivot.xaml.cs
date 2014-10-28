@@ -73,7 +73,8 @@ namespace ClapApp.Pages
             {
                 BarButtons.MakeButton("add.png", "novo", (object sender, EventArgs e) =>
                 {
-                    // ...
+                    AnimaisControl.BeginCreating(new Animal(), PerfisControl.GetLoggedUsuarioId());
+                    NavigationService.Navigate(AnimalEditPage.GetUri());
                 }),
                 _excluirAnimalButton
             };

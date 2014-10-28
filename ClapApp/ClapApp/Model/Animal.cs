@@ -41,6 +41,14 @@ namespace ClapApp.Model
             set;
         }
 
+        public string NomeEdit
+        {
+            get
+            {
+                return AnimaisControl.IsCreating() ? "Qual seu nome?" : this.Nome;
+            }
+        }
+
         public string Especie
         {
             get;
@@ -80,6 +88,14 @@ namespace ClapApp.Model
             get
             {
                 return Dono.IsCurrentUsuarioVisiblity;
+            }
+        }
+
+        public string EditPageTitle
+        {
+            get
+            {
+                return AnimaisControl.IsCreating() ? "NOVO ANIMAL" : "EDITANDO ANIMAL";
             }
         }
 
@@ -155,6 +171,15 @@ namespace ClapApp.Model
         }
 
         // ---
+
+        public Animal()
+        {
+            this.Descricao = "";
+            this.Especie = "";
+            this.Nome = "";
+            this.Sexo = Sexo.Macho;
+            this.Status = Status.OK;
+        }
 
         public Animal Assimilate(Animal that)
         {

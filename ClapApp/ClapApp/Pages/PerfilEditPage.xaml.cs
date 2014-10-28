@@ -62,7 +62,7 @@ namespace ClapApp.Pages
             PerfisControl.SaveEditing();
 
             if (PerfisControl.IsCreating())
-                MessageBox.Show("Conta cadastrada com sucesso.", TxtEmail.Text, MessageBoxButton.OK);
+                MessageBox.Show("Conta cadastrada.", "Sucesso", MessageBoxButton.OK);
 
             NavigationService.GoBack();
         }

@@ -21,6 +21,11 @@ namespace ClapApp.Control
             return animal.Id;
         }
 
+        public static void UpdateAnimal(Animal animal)
+        {
+            _animais[animal.Id].Assimilate(animal);
+        }
+
         public static void EraseAnimalById(int id)
         {
             _animais.Remove(id);
@@ -77,6 +82,49 @@ namespace ClapApp.Control
         public static Animal GetCurrentAnimal()
         {
             return _animais[_current];
+        }
+
+        // ---
+
+        private static Animal _editing = null;
+        private static int _creatingDono = -1;
+
+        public static void BeginEditing(Animal animal)
+        {
+            _editing = animal;
+            _creatingDono = -1;
+        }
+
+        public static void BeginCreating(Animal animal, int donoId)
+        {
+            _editing = animal;
+            _creatingDono = donoId;
+        }
+
+        public static bool IsCreating()
+        {
+            return _creatingDono != -1;
+        }
+
+        public static Animal GetEditingAnimal()
+        {
+            return _editing;
+        }
+
+        public static void SaveEditing()
+        {
+            if (IsCreating())
+            {
+                _editing.Id = _creatingDono;
+                InsertAnimal(_editing);
+            }
+            else UpdateAnimal(_editing);
+        }
+
+        public static void FinishEditing()
+        {
+            _editing = null;
+            _creatingDono = -1;
         }
     }
 }
