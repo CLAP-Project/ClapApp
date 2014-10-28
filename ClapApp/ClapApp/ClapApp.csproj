@@ -113,6 +113,9 @@
     <Compile Include="Pages\AnimalPivot.xaml.cs">
       <DependentUpon>AnimalPivot.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\QrCodeScanPage.xaml.cs">
+      <DependentUpon>QrCodeScanPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoginPivot.xaml.cs">
       <DependentUpon>LoginPivot.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AnimalPivot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\QrCodeScanPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -241,8 +248,23 @@
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="Silverlight_ZXing_Core">
+      <HintPath>..\packages\ZXing.WP7.1.3\lib\sl3-wp\Silverlight_ZXing_Core.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.0.2.0\lib\wp8\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="WP7_Barcode_Library">
+      <HintPath>..\packages\ZXing.WP7.1.3\lib\sl3-wp\WP7_Barcode_Library.dll</HintPath>
+    </Reference>
+    <Reference Include="WriteableBitmapExWinPhone">
+      <HintPath>..\packages\ZXing.Net.Mobile.1.4.6\lib\wp8\WriteableBitmapExWinPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.wp8.0">
+      <HintPath>..\packages\ZXing.Net.Mobile.1.4.6\lib\wp8\zxing.wp8.0.dll</HintPath>
+    </Reference>
+    <Reference Include="ZXingNetMobile">
+      <HintPath>..\packages\ZXing.Net.Mobile.1.4.6\lib\wp8\ZXingNetMobile.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
