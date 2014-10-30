@@ -15,9 +15,12 @@ namespace ClapApp.View
     {
         public static void OnClick(Page page, object sender, System.Windows.Input.GestureEventArgs e)
         {
-            var animal = (sender as StackPanel).DataContext as Animal;
+            ViewAnimalProfile(page, ((sender as StackPanel).DataContext as Animal).Id);
+        }
 
-            AnimaisControl.SetCurrentAnimal(animal.Id);
+        public static void ViewAnimalProfile(Page page, int id)
+        {
+            AnimaisControl.SetCurrentAnimal(id);
             page.NavigationService.Navigate(AnimalPivot.GetUri());
         }
     }

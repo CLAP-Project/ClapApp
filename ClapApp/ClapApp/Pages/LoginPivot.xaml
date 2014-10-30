@@ -58,7 +58,7 @@
             </phone:PivotItem>
 
             <phone:PivotItem Header="QR Code">
-                <Grid>
+                <StackPanel>
                     <!-- rectangle which acts as the 'camera window' -->
                     <Rectangle Height="340" HorizontalAlignment="Center" Margin="0,21,0,0"
                 Name="videoRectangle" Stroke="White" StrokeThickness="5"
@@ -72,11 +72,36 @@
                     </Rectangle>
 
                     <!-- Textblock which will hold the output of the QR Code -->
-                    <TextBlock Height="200" HorizontalAlignment="Left" Margin="31,380,0,0"
-                Name="resultText" Text="Aponte a câmera para o código QR na coleira do animal."
-                VerticalAlignment="Top" Width="399" TextWrapping="Wrap"
-                TextAlignment="Center" />
-                </Grid>
+                    <!--TextBlock Height="200" HorizontalAlignment="Left" Margin="31,380,0,0"
+                               Name="resultText"
+                               Text="Aponte a câmera para o código QR na coleira do animal."
+                               VerticalAlignment="Top"
+                               Width="399"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center" /-->
+                    
+                    <StackPanel Visibility="Collapsed">
+                        <TextBlock Text="animal" Style="{StaticResource PhoneTextLargeStyle}"/>
+                        <TextBlock Text="Milou" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                        
+                        <StackPanel Margin="0,15,0,0"/>
+                        <TextBlock Text="número do dono" Style="{StaticResource PhoneTextLargeStyle}"/>
+                        <TextBlock Text="559282666492" Style="{StaticResource PhoneTextSubtleStyle}"/>
+
+                        <StackPanel Margin="0,15,0,0"/>
+                        <Button Content="Ver perfil do animal"/>
+                    </StackPanel>
+                    
+                    <StackPanel>
+                        <TextBlock Height="200" HorizontalAlignment="Left" Margin="31,15,0,0"
+                               Name="resultText"
+                               Text="Aponte a câmera para o código QR na coleira do animal."
+                               VerticalAlignment="Top"
+                               Width="399"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>

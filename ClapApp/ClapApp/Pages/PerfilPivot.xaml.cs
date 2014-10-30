@@ -21,6 +21,13 @@ namespace ClapApp.Pages
 
         private int _selectedAnimalId = -1;
 
+        private static bool _focusOnProfile = false;
+
+        public static void FocusOnProfile()
+        {
+            _focusOnProfile = true;
+        }
+
         public PerfilPivot()
         {
             InitializeComponent();
@@ -104,6 +111,12 @@ namespace ClapApp.Pages
             updateLayoutRoot();
 
             ApplicationBar.IsVisible = PerfisControl.IsCurrentUsuarioLoggedIn();
+
+            if (_focusOnProfile)
+            {
+                _focusOnProfile = false;
+                Pivot.SelectedIndex = 1;
+            }
 
             _excluirAnimalButton.IsEnabled = false;
             _selectedAnimalId = -1;

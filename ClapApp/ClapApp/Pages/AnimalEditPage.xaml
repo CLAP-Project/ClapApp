@@ -30,27 +30,29 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel>
-                <StackPanel Visibility="Visible">
-                    <TextBlock Text="Nome" Style="{StaticResource PhoneTextSmallStyle}"/>
-                    <toolkit:PhoneTextBox Text="{Binding Nome, Mode=TwoWay}"/>
+            <ScrollViewer>
+                <StackPanel>
+                    <StackPanel Visibility="Visible">
+                        <TextBlock Text="Nome" Style="{StaticResource PhoneTextSmallStyle}"/>
+                        <toolkit:PhoneTextBox Text="{Binding Nome, Mode=TwoWay}"/>
 
-                    <TextBlock Text="Espécie" Style="{StaticResource PhoneTextSmallStyle}"/>
-                    <toolkit:PhoneTextBox Text="{Binding Especie, Mode=TwoWay}"/>
+                        <TextBlock Text="Espécie" Style="{StaticResource PhoneTextSmallStyle}"/>
+                        <toolkit:PhoneTextBox Text="{Binding Especie, Mode=TwoWay}"/>
 
-                    <TextBlock Text="Sexo" Style="{StaticResource PhoneTextSmallStyle}"/>
-                    <toolkit:ListPicker Name="SexoPicker" SelectionChanged="SexoPicker_SelectionChanged">
-                        <toolkit:ListPickerItem Content="Macho"/>
-                        <toolkit:ListPickerItem Content="Fêmea"/>
-                        <toolkit:ListPickerItem Content="Indefinido"/>
-                    </toolkit:ListPicker>
+                        <TextBlock Text="Sexo" Style="{StaticResource PhoneTextSmallStyle}"/>
+                        <toolkit:ListPicker Name="SexoPicker" SelectionChanged="SexoPicker_SelectionChanged">
+                            <toolkit:ListPickerItem Content="Macho"/>
+                            <toolkit:ListPickerItem Content="Fêmea"/>
+                            <toolkit:ListPickerItem Content="Indefinido"/>
+                        </toolkit:ListPicker>
 
-                    <TextBlock Text="Descrição" Style="{StaticResource PhoneTextSmallStyle}"/>
+                        <TextBlock Text="Descrição" Style="{StaticResource PhoneTextSmallStyle}"/>
+                    </StackPanel>
+
+                    <toolkit:PhoneTextBox Name="txtDescricao" Text="{Binding Descricao, Mode=TwoWay}" AcceptsReturn="True" Grid.Row="1"
+                                    Height="175" TextWrapping="Wrap"/>
                 </StackPanel>
-
-                <toolkit:PhoneTextBox Name="txtDescricao" Text="{Binding Descricao, Mode=TwoWay}" AcceptsReturn="True" Grid.Row="1"
-                                Height="175" TextWrapping="Wrap"/>
-            </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 

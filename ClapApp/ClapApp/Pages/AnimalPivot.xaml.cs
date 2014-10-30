@@ -124,12 +124,17 @@ namespace ClapApp.Pages
         private void DonoButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             PerfisControl.SetCurrentUsuario((LayoutRoot.DataContext as Animal).DonoId);
+            
+            PerfilPivot.FocusOnProfile();
             NavigationService.Navigate(PerfilPivot.GetUri());
         }
 
         private void StatusButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             var animal = LayoutRoot.DataContext as Animal;
+
+            if (PerfisControl.IsLoggedInPerfil(animal.DonoId))
+                return;
 
             string message = (animal.Status == Status.OK) ?
                 "Seu animal será considerado perdido e ficará visível para outros usuários em sua proximidade." :
