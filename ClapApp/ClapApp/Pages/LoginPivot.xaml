@@ -58,7 +58,25 @@
             </phone:PivotItem>
 
             <phone:PivotItem Header="QR Code">
-                <Grid/>
+                <Grid>
+                    <!-- rectangle which acts as the 'camera window' -->
+                    <Rectangle Height="340" HorizontalAlignment="Center" Margin="0,21,0,0"
+                Name="videoRectangle" Stroke="White" StrokeThickness="5"
+                VerticalAlignment="Top" Width="340">
+                        <Rectangle.RenderTransform>
+                            <RotateTransform x:Name="videoRotateTransform"/>
+                        </Rectangle.RenderTransform>
+                        <Rectangle.Fill>
+                            <VideoBrush x:Name="viewfinderBrush"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+
+                    <!-- Textblock which will hold the output of the QR Code -->
+                    <TextBlock Height="200" HorizontalAlignment="Left" Margin="31,380,0,0"
+                Name="resultText" Text="Aponte a câmera para o código QR na coleira do animal."
+                VerticalAlignment="Top" Width="399" TextWrapping="Wrap"
+                TextAlignment="Center" />
+                </Grid>
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>
