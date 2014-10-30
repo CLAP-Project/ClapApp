@@ -17,6 +17,40 @@ using System.Windows.Media.Imaging;
 
 namespace ClapApp.Pages
 {
+    class QRInfo
+    {
+        private Animal _animal;
+
+        public QRInfo(int animalId)
+        {
+            _animal = AnimaisControl.GetAnimalById(animalId);
+        }
+
+        public string Nome
+        {
+            get
+            {
+                return _animal.Nome;
+            }
+        }
+
+        public string NumeroDoDono
+        {
+            get
+            {
+                return _animal.Dono.Numeros[0].DDDNumero;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return _animal.Id;
+            }
+        }
+    }
+
     public partial class LoginPivot : PhoneApplicationPage
     {
         private PhotoCamera camera;
@@ -85,20 +119,25 @@ namespace ClapApp.Pages
                     {
                         result = barcodeDecoder.Decode(qrImage, decodingOptions);
 
-                        resultText.Text = result.Text;
+                        //resultText.Text = result.Text;
+
+                        resultText.Text = "Animal identificado.";
+
+                        StkQRInfo.Visibility = Visibility.Visible;
+                        StkQRInfo.DataContext = new QRInfo(0);
                     }
                     catch (NotFoundException)
                     {
                         // this is expected if the image does not contain a valid
                         // code, Or is too distorted to read
-                        resultText.Text = "<nothing to display>";
+                        resultText.Text = "Imagem não identificada. Aponte a câmera para o código QR na coleira do animal.";
                     }
                     catch (Exception ex)
                     {
                         // something else went wrong, so alert the user
                         MessageBox.Show(
                             ex.Message,
-                            "Error Decoding Image",
+                            "Erro ao decodificar a imagem",
                             MessageBoxButton.OK);
                     }
                 }
@@ -188,6 +227,12 @@ namespace ClapApp.Pages
         {
             PerfisControl.BeginCreating(new Perfil());
             NavigationService.Navigate(PerfilEditPage.GetUri());
+        }
+
+        private void BtnAnimal_Click(object sender, RoutedEventArgs e)
+        {
+            var qrInfo = StkQRInfo.DataContext as QRInfo;
+            AnimalButtonEvent.ViewAnimalProfile(this, qrInfo.Id);
         }
     }
 }
