@@ -148,6 +148,8 @@ namespace ClapApp.Pages
         protected override void OnNavigatedFrom(
                    System.Windows.Navigation.NavigationEventArgs e)
         {
+            base.OnNavigatedFrom(e);
+
             if (camera != null)
             {
                 // unhook the event handlers
@@ -157,15 +159,17 @@ namespace ClapApp.Pages
 
                 // dispose of the camera object
                 camera.Dispose();
+                camera = null;
             }
-
-            base.OnNavigatedFrom(e);
         }
 
         //-----------------------------
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            base.OnNavigatedTo(e);
+            updateDataContext();
+
             if (null == camera)
             {
                 camera = new PhotoCamera();
@@ -186,9 +190,6 @@ namespace ClapApp.Pages
 
                 viewfinderBrush.SetSource(camera);
             }
-
-            base.OnNavigatedTo(e);
-            updateDataContext();
         }
 
         private void updateDataContext()
