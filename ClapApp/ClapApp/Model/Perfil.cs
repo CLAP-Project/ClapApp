@@ -38,7 +38,7 @@ namespace ClapApp.Model
         {
             get
             {
-                return '(' + DDD + ") " + Numero;
+                return NumerosControl.IsCreating()? "Qual o novo número?" : '(' + DDD + ") " + Numero;
             }
         }
 
@@ -251,9 +251,7 @@ namespace ClapApp.Model
 
         public bool AddNumero(NumeroTelefonico numero)
         {
-            var found = NumerosControl.GetNumeroByValue(this.Id, numero.DDD, numero.Numero);
-
-            if (found == null)
+            if (NumerosControl.GetNumeroByValue(this.Id, numero.DDD, numero.Numero) == null)
             {
                 numero.DonoId = this.Id;
                 NumerosControl.InsertNumero(numero);

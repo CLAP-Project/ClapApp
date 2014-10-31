@@ -43,25 +43,25 @@ namespace ClapApp.Pages
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            bool failed = false;
+
+            if (TxtDDD.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("DDD", "Campo não preenchido", MessageBoxButton.OK);
+                failed = true;
+            }
+
+            if (TxtNumero.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Número", "Campo não preenchido", MessageBoxButton.OK);
+                failed = true;
+            }
+
+            if (failed)
+                return;
+
             try
             {
-                bool failed = false;
-
-                if (TxtDDD.Text.Trim().Equals(""))
-                {
-                    MessageBox.Show("DDD", "Campo não preenchido", MessageBoxButton.OK);
-                    failed = true;
-                }
-
-                if (TxtNumero.Text.Trim().Equals(""))
-                {
-                    MessageBox.Show("Número", "Campo não preenchido", MessageBoxButton.OK);
-                    failed = true;
-                }
-
-                if (failed)
-                    return;
-
                 NumerosControl.SaveEditing();
                 NavigationService.GoBack();
             }
