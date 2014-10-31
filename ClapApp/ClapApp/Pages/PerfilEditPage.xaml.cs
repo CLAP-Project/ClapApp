@@ -29,10 +29,16 @@ namespace ClapApp.Pages
             LayoutRoot.DataContext = PerfisControl.GetEditingPerfil();
         }
 
+        private bool _loaded = false, _navigated = false;
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            updateLayoutRoot();
+
+            if (_loaded)
+                updateLayoutRoot();
+
+            _navigated = true;
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -78,7 +84,15 @@ namespace ClapApp.Pages
                 "Sua senha será enviada para " + PerfisControl.GetLoggedUsuarioPerfil().Email, "Confirmação", MessageBoxButton.OKCancel);
 
             if (result == MessageBoxResult.OK)
-                MessageBox.Show("Senha enviada.", "Sucesso", MessageBoxButton.OK);
+                MessageBox.Show("Senha enviada.");
+        }
+
+        private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
+        {
+            _loaded = true;
+
+            if (_navigated)
+                updateLayoutRoot();
         }
     }
 }

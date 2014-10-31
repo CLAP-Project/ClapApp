@@ -16,6 +16,7 @@ namespace ClapApp.Pages
 {
     public partial class PerfilPivot : PhoneApplicationPage
     {
+        private ApplicationBarIconButton[][] _barButtons;
         private ApplicationBarIconButton[] _telefonesButtons, _animaisButtons, _perfilButtons;
         private ApplicationBarIconButton _editarTelefoneButton, _excluirTelefoneButton, _excluirAnimalButton;
 
@@ -31,71 +32,6 @@ namespace ClapApp.Pages
         public PerfilPivot()
         {
             InitializeComponent();
-
-            // ---
-
-            _editarTelefoneButton = BarButtons.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
-            {
-                NumerosControl.BeginEditing(NumerosControl.GetNumeroById(_selectedTelefone));
-                NavigationService.Navigate(TelefoneEditPage.GetUri());
-            });
-
-            _editarTelefoneButton.IsEnabled = false;
-
-            _excluirTelefoneButton = BarButtons.MakeButton("delete.png", "excluir", (object sender, EventArgs e) =>
-            {
-                NumerosControl.EraseNumeroById(_selectedTelefone);
-                _excluirTelefoneButton.IsEnabled = _editarTelefoneButton.IsEnabled = false;
-                updateLayoutRoot();
-            });
-
-            _excluirTelefoneButton.IsEnabled = false;
-
-            _telefonesButtons = new ApplicationBarIconButton[]
-            {
-                BarButtons.MakeButton("add.png", "novo", (object sender, EventArgs e) =>
-                {
-                    NumerosControl.BeginCreating(new NumeroTelefonico(), (LayoutRoot.DataContext as Perfil).Id);
-                    NavigationService.Navigate(TelefoneEditPage.GetUri());
-                }),
-                _editarTelefoneButton,
-                _excluirTelefoneButton
-            };
-
-            // ---
-
-            _excluirAnimalButton = BarButtons.MakeButton("delete.png", "excluir", (object sender, EventArgs e) =>
-            {
-                AnimaisControl.EraseAnimalById(_selectedAnimalId);
-
-                _excluirAnimalButton.IsEnabled = false;
-                _selectedAnimalId = -1;
-
-                updateLayoutRoot();
-            });
-
-            _excluirAnimalButton.IsEnabled = false;
-
-            _animaisButtons = new ApplicationBarIconButton[]
-            {
-                BarButtons.MakeButton("add.png", "novo", (object sender, EventArgs e) =>
-                {
-                    AnimaisControl.BeginCreating(new Animal(), PerfisControl.GetLoggedUsuarioId());
-                    NavigationService.Navigate(AnimalEditPage.GetUri());
-                }),
-                _excluirAnimalButton
-            };
-
-            // ---
-
-            _perfilButtons = new ApplicationBarIconButton[]
-            {
-                BarButtons.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
-                {
-                    PerfisControl.BeginEditing();
-                    NavigationService.Navigate(PerfilEditPage.GetUri());
-                })
-            };
         }
 
         public static Uri GetUri()
@@ -105,11 +41,23 @@ namespace ClapApp.Pages
 
         // ---
 
+        private bool _loaded = false, _navigated = false, _indexSelected = false;
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            updateLayoutRoot();
 
+            if (_loaded)
+            {
+                updateLayoutRoot();
+                updateAppBar();
+            }
+
+            _navigated = true;
+        }
+
+        private void updateAppBar()
+        {
             ApplicationBar.IsVisible = PerfisControl.IsCurrentUsuarioLoggedIn();
 
             if (_focusOnProfile)
@@ -132,28 +80,15 @@ namespace ClapApp.Pages
 
         private void updateButtons()
         {
-            switch (Pivot.SelectedIndex)
-            {
-                case 0:
-                    ApplicationBar.AddButtons(_animaisButtons);
-                    break;
-
-                case 1:
-                    ApplicationBar.AddButtons(_perfilButtons);
-                    break;
-
-                case 2:
-                    ApplicationBar.AddButtons(_telefonesButtons);
-                    break;
-
-                default:
-                    break;
-            }
+            ApplicationBar.AddButtons(_barButtons[Pivot.SelectedIndex]);
         }
 
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            updateButtons();
+            if (_loaded)
+                updateButtons();
+
+            _indexSelected = true;
         }
 
         private int _selectedTelefone = -1;
@@ -222,6 +157,100 @@ namespace ClapApp.Pages
         private void AnimalButton_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             AnimalButtonEvent.OnClick(this, sender, e);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            updateLayoutRoot();
+            updateAppBar();
+        }
+
+        private void LayoutRoot_Loaded(object o, RoutedEventArgs _)
+        {
+            _editarTelefoneButton = BarButtons.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
+            {
+                NumerosControl.BeginEditing(NumerosControl.GetNumeroById(_selectedTelefone));
+                NavigationService.Navigate(TelefoneEditPage.GetUri());
+            });
+
+            _editarTelefoneButton.IsEnabled = false;
+
+            _excluirTelefoneButton = BarButtons.MakeButton("delete.png", "excluir", (object sender, EventArgs e) =>
+            {
+                NumerosControl.EraseNumeroById(_selectedTelefone);
+                _excluirTelefoneButton.IsEnabled = _editarTelefoneButton.IsEnabled = false;
+                updateLayoutRoot();
+            });
+
+            _excluirTelefoneButton.IsEnabled = false;
+
+            _telefonesButtons = new ApplicationBarIconButton[]
+            {
+                BarButtons.MakeButton("add.png", "novo", (object sender, EventArgs e) =>
+                {
+                    NumerosControl.BeginCreating(new NumeroTelefonico(), (LayoutRoot.DataContext as Perfil).Id);
+                    NavigationService.Navigate(TelefoneEditPage.GetUri());
+                }),
+                _editarTelefoneButton,
+                _excluirTelefoneButton
+            };
+
+            // ---
+
+            _excluirAnimalButton = BarButtons.MakeButton("delete.png", "excluir", (object sender, EventArgs e) =>
+            {
+                AnimaisControl.EraseAnimalById(_selectedAnimalId);
+
+                _excluirAnimalButton.IsEnabled = false;
+                _selectedAnimalId = -1;
+
+                updateLayoutRoot();
+            });
+
+            _excluirAnimalButton.IsEnabled = false;
+
+            _animaisButtons = new ApplicationBarIconButton[]
+            {
+                BarButtons.MakeButton("add.png", "novo", (object sender, EventArgs e) =>
+                {
+                    AnimaisControl.BeginCreating(new Animal(), PerfisControl.GetLoggedUsuarioId());
+                    NavigationService.Navigate(AnimalEditPage.GetUri());
+                }),
+                _excluirAnimalButton
+            };
+
+            // ---
+
+            _perfilButtons = new ApplicationBarIconButton[]
+            {
+                BarButtons.MakeButton("edit.png", "editar", (object sender, EventArgs e) =>
+                {
+                    PerfisControl.BeginEditing();
+                    NavigationService.Navigate(PerfilEditPage.GetUri());
+                })
+            };
+
+            // ===
+
+            _barButtons = new ApplicationBarIconButton[][]
+            {
+                _animaisButtons,
+                _perfilButtons,
+                _telefonesButtons
+            };
+
+            // ===
+
+            _loaded = true;
+
+            if (_navigated)
+            {
+                updateLayoutRoot();
+                updateAppBar();
+            }
+
+            if (_indexSelected)
+                updateButtons();
         }
     }
 }
