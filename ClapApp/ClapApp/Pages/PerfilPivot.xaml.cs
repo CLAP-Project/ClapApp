@@ -152,6 +152,13 @@ namespace ClapApp.Pages
                 _excluirAnimalButton.IsEnabled = true;
                 _selectedAnimalId = id;
             }
+
+            StackPanel stackpanel = sender as StackPanel;
+            ContextMenu contextMenu = ContextMenuService.GetContextMenu(stackpanel);
+            if (contextMenu.Parent == null)
+            {
+                contextMenu.IsOpen = true;
+            }
         }
 
         private void AnimalButton_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -163,6 +170,16 @@ namespace ClapApp.Pages
         {
             updateLayoutRoot();
             updateAppBar();
+        }
+
+        private void ExcluirAnimal_Action(object sender, EventArgs e)
+        {
+            AnimaisControl.EraseAnimalById(_selectedAnimalId);
+
+            _excluirAnimalButton.IsEnabled = false;
+            _selectedAnimalId = -1;
+
+            updateLayoutRoot();
         }
 
         private void LayoutRoot_Loaded(object o, RoutedEventArgs _)
@@ -197,15 +214,7 @@ namespace ClapApp.Pages
 
             // ---
 
-            _excluirAnimalButton = BarButtons.MakeButton("delete.png", "excluir", (object sender, EventArgs e) =>
-            {
-                AnimaisControl.EraseAnimalById(_selectedAnimalId);
-
-                _excluirAnimalButton.IsEnabled = false;
-                _selectedAnimalId = -1;
-
-                updateLayoutRoot();
-            });
+            _excluirAnimalButton = BarButtons.MakeButton("delete.png", "excluir", ExcluirAnimal_Action);
 
             _excluirAnimalButton.IsEnabled = false;
 
@@ -251,6 +260,26 @@ namespace ClapApp.Pages
 
             if (_indexSelected)
                 updateButtons();
+        }
+
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void GestureListener_Tap(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void StackPanel_Loaded(object sender, RoutedEventArgs e)
+        {
+            StackPanel stackpanel = sender as StackPanel;
+            ContextMenu contextMenu = ContextMenuService.GetContextMenu(stackpanel);
+
+            (contextMenu.Items.ElementAt(0) as MenuItem).Tap += ExcluirAnimal_Action;
+            (contextMenu.Items.ElementAt(1) as MenuItem).Tap += AnimalButton_DoubleTap;
+            
         }
     }
 }
