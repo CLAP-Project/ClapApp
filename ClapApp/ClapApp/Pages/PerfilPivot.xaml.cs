@@ -278,7 +278,10 @@ namespace ClapApp.Pages
             ContextMenu contextMenu = ContextMenuService.GetContextMenu(stackpanel);
 
             (contextMenu.Items.ElementAt(0) as MenuItem).Tap += ExcluirAnimal_Action;
-            (contextMenu.Items.ElementAt(1) as MenuItem).Tap += AnimalButton_DoubleTap;
+            (contextMenu.Items.ElementAt(1) as MenuItem).Tap += (object sender2, System.Windows.Input.GestureEventArgs ge) =>
+            {
+                AnimalButtonEvent.OnClick(this, sender, ge);
+            };
             
         }
     }
