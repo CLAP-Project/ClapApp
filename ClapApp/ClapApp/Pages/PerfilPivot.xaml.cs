@@ -280,7 +280,7 @@ namespace ClapApp.Pages
             (contextMenu.Items.ElementAt(0) as MenuItem).Tap += ExcluirAnimal_Action;
             (contextMenu.Items.ElementAt(1) as MenuItem).Tap += (object sender2, System.Windows.Input.GestureEventArgs ge) =>
             {
-                AnimalButtonEvent.OnClick(this, sender, ge);
+                AnimalButtonEvent.OnClick(this, sender, ge); //Aqui é utilizado o sender e não o sender2, pois o sender2 não virá como um Stackpanel.
             };
             
         }
