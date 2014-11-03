@@ -118,7 +118,7 @@ namespace ClapApp.Pages
             base.OnNavigatedTo(e);
             updateLayoutRoot();
 
-            ApplicationBar.IsVisible = PerfisControl.IsCurrentUsuarioLoggedIn();
+            ApplicationBar.IsVisible = (LayoutRoot.DataContext as Animal).Dono.IsCurrentUsuario;
         }
 
         private void DonoButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -133,7 +133,7 @@ namespace ClapApp.Pages
         {
             var animal = LayoutRoot.DataContext as Animal;
 
-            if (PerfisControl.IsLoggedInPerfil(animal.DonoId))
+            if (!PerfisControl.IsLoggedInPerfil(animal.DonoId))
                 return;
 
             string message = (animal.Status == Status.OK) ?

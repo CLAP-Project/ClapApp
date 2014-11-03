@@ -115,7 +115,7 @@ namespace ClapApp.Control
         {
             if (IsCreating())
             {
-                _editing.Id = _creatingDono;
+                _editing.DonoId = _creatingDono;
                 InsertAnimal(_editing);
             }
             else UpdateAnimal(_editing);

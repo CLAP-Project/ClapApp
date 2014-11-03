@@ -36,8 +36,8 @@
                                             </StackPanel>
                                             <toolkit:ContextMenuService.ContextMenu>
                                                 <toolkit:ContextMenu>
-                                                    <toolkit:MenuItem Header="Excluir"  Click="MenuItem_Click"/>
-                                                    <toolkit:MenuItem Header="Editar"  Click="MenuItem_Click"/>
+                                                    <toolkit:MenuItem Header="visualizar"  Click="MenuItem_Click"/>
+                                                    <toolkit:MenuItem Header="excluir"  Click="MenuItem_Click"/>
                                                 </toolkit:ContextMenu>
                                             </toolkit:ContextMenuService.ContextMenu>
 
@@ -47,7 +47,6 @@
                             </ListBox>
                         </StackPanel>
                     </ScrollViewer>
-                    <Button Content="Update" Click="Button_Click"/>
                 </StackPanel>
             </phone:PivotItem>
 
@@ -75,8 +74,8 @@
 
             <phone:PivotItem Header="telefones">
                 <StackPanel>
-                    <ScrollViewer Height="525" HorizontalScrollBarVisibility="Disabled">
-                        <ListBox Name="LstNumeros" ItemsSource="{Binding Numeros}" MaxHeight="525">
+                    <ScrollViewer MaxHeight="525" HorizontalScrollBarVisibility="Disabled">
+                        <ListBox Name="LstNumeros" ItemsSource="{Binding Numeros}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Margin="0,0,0,15">

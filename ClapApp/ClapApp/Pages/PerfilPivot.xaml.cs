@@ -120,6 +120,9 @@ namespace ClapApp.Pages
 
         private void TelefoneText_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)
         {
+            if (_selectedTextBlock == null)
+                return;
+
             (new PhoneCallTask()
             {
                 PhoneNumber = _selectedTextBlock.Text
@@ -140,6 +143,12 @@ namespace ClapApp.Pages
 
         private void AnimalButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
+            if (!(LayoutRoot.DataContext as Perfil).IsCurrentUsuario)
+            {
+                AnimalButtonEvent.OnClick(this, sender, e);
+                return;
+            }
+
             var id = ((sender as StackPanel).DataContext as Animal).Id;
 
             if (id == _selectedAnimalId)
@@ -174,7 +183,15 @@ namespace ClapApp.Pages
 
         private void ExcluirAnimal_Action(object sender, EventArgs e)
         {
-            AnimaisControl.EraseAnimalById(_selectedAnimalId);
+            var animal = (sender as StackPanel).DataContext as Animal;
+
+            var result = MessageBox.Show("Excluir o animal " + AnimaisControl.GetAnimalById(animal.Id).Nome + '?',
+                "Confirmar" , MessageBoxButton.OKCancel);
+
+            if (result == MessageBoxResult.Cancel)
+                return;
+
+            AnimaisControl.EraseAnimalById(animal.Id);
 
             _excluirAnimalButton.IsEnabled = false;
             _selectedAnimalId = -1;
@@ -205,6 +222,9 @@ namespace ClapApp.Pages
             {
                 BarButtons.MakeButton("add.png", "novo", (object sender, EventArgs e) =>
                 {
+                    _selectedTelefone = -1;
+                    _selectedTextBlock = null;
+
                     NumerosControl.BeginCreating(new NumeroTelefonico(), (LayoutRoot.DataContext as Perfil).Id);
                     NavigationService.Navigate(TelefoneEditPage.GetUri());
                 }),
@@ -224,8 +244,8 @@ namespace ClapApp.Pages
                 {
                     AnimaisControl.BeginCreating(new Animal(), PerfisControl.GetLoggedUsuarioId());
                     NavigationService.Navigate(AnimalEditPage.GetUri());
-                }),
-                _excluirAnimalButton
+                })//,
+                //_excluirAnimalButton
             };
 
             // ---
@@ -277,8 +297,12 @@ namespace ClapApp.Pages
             StackPanel stackpanel = sender as StackPanel;
             ContextMenu contextMenu = ContextMenuService.GetContextMenu(stackpanel);
 
-            (contextMenu.Items.ElementAt(0) as MenuItem).Tap += ExcluirAnimal_Action;
             (contextMenu.Items.ElementAt(1) as MenuItem).Tap += (object sender2, System.Windows.Input.GestureEventArgs ge) =>
+            {
+                ExcluirAnimal_Action(sender, ge);
+            };
+
+            (contextMenu.Items.ElementAt(0) as MenuItem).Tap += (object sender2, System.Windows.Input.GestureEventArgs ge) =>
             {
                 AnimalButtonEvent.OnClick(this, sender, ge); //Aqui é utilizado o sender e não o sender2, pois o sender2 não virá como um Stackpanel.
             };

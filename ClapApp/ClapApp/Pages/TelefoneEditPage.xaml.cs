@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClapApp.Control;
+using ClapApp.Model;
 
 namespace ClapApp.Pages
 {
@@ -23,10 +24,16 @@ namespace ClapApp.Pages
             return new Uri("/Pages/TelefoneEditPage.xaml", UriKind.Relative);
         }
 
+        private NumeroTelefonico _original;
+
         private void updateLayoutRoot()
         {
+            var numero = NumerosControl.GetEditingNumero();
+            
             LayoutRoot.DataContext = null;
-            LayoutRoot.DataContext = NumerosControl.GetEditingNumero();
+            LayoutRoot.DataContext = numero;
+
+            _original = numero.Copy();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -67,7 +74,14 @@ namespace ClapApp.Pages
             }
             catch (NumeroJaCadastradoException)
             {
-                MessageBox.Show("Este número já está cadastrado.", NumerosControl.GetEditingNumero().DDDNumero, MessageBoxButton.OK);
+                var editing = NumerosControl.GetEditingNumero();
+
+                if (editing.DDD.Equals(_original.DDD) &&
+                    editing.Numero.Equals(_original.Numero))
+                {
+                    NavigationService.GoBack();
+                }
+                else MessageBox.Show("Este número já está cadastrado.", NumerosControl.GetEditingNumero().DDDNumero, MessageBoxButton.OK);
             }
         }
 

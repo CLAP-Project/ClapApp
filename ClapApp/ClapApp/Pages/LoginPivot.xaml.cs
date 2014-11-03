@@ -219,7 +219,7 @@ namespace ClapApp.Pages
 
             if (email.Equals(""))
             {
-                login("mox@a.com", "mox");
+                login("tim@a.com", "tim");
             }
             else login(email, TxtSenha.Password);
         }

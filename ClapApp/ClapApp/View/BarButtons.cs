@@ -45,6 +45,8 @@ namespace ClapApp.View
 
             if (addMinimizar)
                 self.Buttons.Add(GetMinimizarButton(self));
+
+            self.Mode = self.Buttons.Count == 0 ? ApplicationBarMode.Minimized : ApplicationBarMode.Default;
         }
     }
 }
