@@ -94,6 +94,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Control\AnimaisControl.cs" />
+    <Compile Include="Control\LocalizacoesControl.cs" />
     <Compile Include="Control\NumerosControl.cs" />
     <Compile Include="Control\PerfisControl.cs" />
     <Compile Include="Design\DesignDataService.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
+    <Compile Include="Model\Localizacao.cs" />
     <Compile Include="Model\Perfil.cs" />
     <Compile Include="Pages\AnimalEditPage.xaml.cs">
       <DependentUpon>AnimalEditPage.xaml</DependentUpon>

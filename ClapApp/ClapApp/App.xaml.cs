@@ -15,7 +15,7 @@ namespace ClapApp
 {
     public partial class App : Application
     {
-        public static App Current
+        public new static App Current
         {
             get
             {
