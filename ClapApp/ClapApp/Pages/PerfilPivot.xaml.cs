@@ -149,9 +149,11 @@ namespace ClapApp.Pages
                 return;
             }
 
+            AnimalButtonEvent.OnClick(this, sender, e);
+
             var id = ((sender as StackPanel).DataContext as Animal).Id;
 
-            if (id == _selectedAnimalId)
+            /*if (id == _selectedAnimalId)
             {
                 _excluirAnimalButton.IsEnabled = false;
                 _selectedAnimalId = -1;
@@ -167,7 +169,7 @@ namespace ClapApp.Pages
             if (contextMenu.Parent == null)
             {
                 contextMenu.IsOpen = true;
-            }
+            }*/
         }
 
         private void AnimalButton_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)

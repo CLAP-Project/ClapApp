@@ -30,6 +30,7 @@ namespace ClapApp.Pages
             var phoneButton = PivotBar.MakeButton("phone.png", "telefones", (object sender, EventArgs e) =>
             {
                 navigateTelefones();
+                
             });
 
             var emailButton = PivotBar.MakeButton("email.png", "e-mails");

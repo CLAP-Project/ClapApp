@@ -23,8 +23,8 @@
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled">
                     <StackPanel>
                         <StackPanel Margin="0,15,0,0" Tap="DonoButton_Tap">
-                            <TextBlock Text="{Binding DonoNomeSobrenome}" Style="{StaticResource PhoneTextLargeStyle}"/>
-                            <TextBlock Text="Toque para ir ao dono" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <TextBlock Text="Toque para ir ao dono" Style="{StaticResource PhoneTextLargeStyle}"/>
+                            <TextBlock  Text="{Binding DonoNomeSobrenome}" Style="{StaticResource PhoneTextSubtleStyle}"/>
                         </StackPanel>
                         <StackPanel Margin="0,15,0,0" Name="StatusButton" Tap="StatusButton_Tap">
                             <TextBlock Text="{Binding StatusToStringFull}" Style="{StaticResource PhoneTextLargeStyle}"/>

@@ -53,7 +53,6 @@ namespace ClapApp.Model
             IsFotoQRCode = false;
             DataHora = new DateTime();
             Descricao = "";
-            
         }
 
         private static GeoCoordinate cloneCoordenada(GeoCoordinate that)

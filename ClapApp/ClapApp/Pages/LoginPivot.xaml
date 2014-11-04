@@ -30,11 +30,37 @@
                     <Button Name="BtnCriarPerfil" Content="Criar um perfil" Click="BtnCriarPerfil_Click"/>
                 </StackPanel>
             </phone:PivotItem>
+            
+            <!--Pivot item two-->
+            <phone:PivotItem Header="proximidades" Name="Adabo">
+                <StackPanel>
+                    <TextBlock Text="Aqui estão listados alguns dos animais perdidos próximos de você." TextWrapping="Wrap"/>
+                    
+                    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+                        <StackPanel Margin="0,15,0,0">
+                            <ListBox Name="AnimaisListBox" MaxHeight="530">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="0,0,0,15" Orientation="Horizontal" Tap="AnimalButton_Tap">
+                                            <Image Source="/Assets/ApplicationIcon.png" Width="100" Height="100"/>
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextLargeStyle}"/>
+                                                <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                                <TextBlock Text="{Binding LocalizacaoMaisRecente}" Style="{StaticResource PhoneTextNormalStyle}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </phone:PivotItem>
 
             <phone:PivotItem Header="QR Code">
                 <StackPanel>
                     <!-- rectangle which acts as the 'camera window' -->
-                    <Rectangle Height="340" HorizontalAlignment="Center" Margin="0,21,0,0"
+                    <Rectangle Height="340" HorizontalAlignment="Center" Margin="0,01,0,0"
                     Name="videoRectangle" Stroke="White" StrokeThickness="5"
                     VerticalAlignment="Top" Width="340">
                         <Rectangle.RenderTransform>
@@ -65,9 +91,10 @@
                                        Width="399"
                                        TextWrapping="Wrap"
                                        TextAlignment="Center" />
-                            
+
                             <StackPanel Name="StkQRInfo" Visibility="Collapsed">
                                 <StackPanel Margin="0,15,0,0"/>
+                                <Button Content="Ver perfil do animal" Name="BtnAnimal" Click="BtnAnimal_Click"/>
                                 <TextBlock Text="animal" Style="{StaticResource PhoneTextLargeStyle}"/>
                                 <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextSubtleStyle}"/>
 
@@ -76,34 +103,8 @@
                                 <TextBlock Text="{Binding NumeroDoDono}" Style="{StaticResource PhoneTextSubtleStyle}"/>
 
                                 <StackPanel Margin="0,15,0,0"/>
-                                <Button Content="Ver perfil do animal" Name="BtnAnimal" Click="BtnAnimal_Click"/>
+                                
                             </StackPanel>
-                        </StackPanel>
-                    </ScrollViewer>
-                </StackPanel>
-            </phone:PivotItem>
-
-            <!--Pivot item two-->
-            <phone:PivotItem Header="proximidades" Name="Adabo">
-                <StackPanel>
-                    <TextBlock Text="Aqui estão listados alguns dos animais perdidos próximos de você." TextWrapping="Wrap"/>
-                    
-                    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
-                        <StackPanel Margin="0,15,0,0">
-                            <ListBox Name="AnimaisListBox" MaxHeight="530">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Margin="0,0,0,15" Orientation="Horizontal" Tap="AnimalButton_Tap">
-                                            <Image Source="/Assets/ApplicationIcon.png" Width="100" Height="100"/>
-                                            <StackPanel Orientation="Vertical">
-                                                <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextLargeStyle}"/>
-                                                <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                                <TextBlock Text="{Binding LocalizacaoMaisRecente}" Style="{StaticResource PhoneTextNormalStyle}"/>
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
                         </StackPanel>
                     </ScrollViewer>
                 </StackPanel>
