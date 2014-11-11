@@ -32,7 +32,7 @@
                                             <StackPanel Orientation="Vertical">
                                                 <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextLargeStyle}"/>
                                                 <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                                <TextBlock Text="{Binding StatusToStringFull}" Style="{StaticResource PhoneTextNormalStyle}"/>
+                                                <TextBlock Text="{Binding StatusToStringFull}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{Binding StatusColor}"/>
                                             </StackPanel>
                                             <toolkit:ContextMenuService.ContextMenu>
                                                 <toolkit:ContextMenu>

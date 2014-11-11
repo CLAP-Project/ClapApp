@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace ClapApp.Model
 {
@@ -146,6 +147,15 @@ namespace ClapApp.Model
         {
             get;
             set;
+        }
+
+        public SolidColorBrush StatusColor
+        {
+            get
+            {
+                return IsPerdido ? App.Current.Resources["PerdidoColor"] as SolidColorBrush :
+                    new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
+            }
         }
 
         private static Random rand = new Random();
