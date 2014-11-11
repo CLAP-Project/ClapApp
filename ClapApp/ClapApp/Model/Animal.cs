@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace ClapApp.Model
 {
@@ -25,6 +27,7 @@ namespace ClapApp.Model
 
     public class Animal
     {
+        private ImageSource m_image;
         public int Id
         {
             get;
@@ -61,6 +64,26 @@ namespace ClapApp.Model
         {
             get;
             set;
+        }
+
+        public void setImage(string path) {
+            if (m_image == null)
+            {
+                var img = new BitmapImage(new Uri(path, UriKind.Relative));
+                m_image = img;
+            }
+        }
+
+        public ImageSource Imagem
+        {
+            get
+            {
+                return m_image;
+            }
+            set
+            {
+                m_image = value;
+            }
         }
 
         public Status Status
@@ -185,6 +208,7 @@ namespace ClapApp.Model
 
         public Animal()
         {
+            this.m_image = null;
             this.Descricao = "";
             this.Especie = "";
             this.Nome = "";

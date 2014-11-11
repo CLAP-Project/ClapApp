@@ -42,7 +42,7 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Margin="0,0,0,15" Orientation="Horizontal" Tap="AnimalButton_Tap">
-                                            <Image Source="/Assets/ApplicationIcon.png" Width="100" Height="100"/>
+                                            <Image Source="{Binding Imagem}" Width="100" Height="100"/>
                                             <StackPanel Orientation="Vertical">
                                                 <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextLargeStyle}"/>
                                                 <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
