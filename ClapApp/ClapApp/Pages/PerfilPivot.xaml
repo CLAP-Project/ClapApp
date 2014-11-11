@@ -32,11 +32,11 @@
                                             <StackPanel Orientation="Vertical">
                                                 <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextLargeStyle}"/>
                                                 <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                                <TextBlock Text="{Binding StatusToStringFull}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{Binding StatusColor}"/>
+                                                <TextBlock Text="{Binding StatusToStringFull}" Foreground="{Binding StatusColor}" Style="{StaticResource PhoneTextNormalStyle}"/>
                                             </StackPanel>
                                             <toolkit:ContextMenuService.ContextMenu>
                                                 <toolkit:ContextMenu>
-                                                    <toolkit:MenuItem Header="visualizar"  Click="MenuItem_Click"/>
+                                                    <toolkit:MenuItem Header="visualizar"  Click="MenuItem_Click" Visibility="Collapsed"/>
                                                     <toolkit:MenuItem Header="excluir"  Click="MenuItem_Click"/>
                                                 </toolkit:ContextMenu>
                                             </toolkit:ContextMenuService.ContextMenu>
