@@ -32,20 +32,31 @@
                     
                     <ScrollViewer Height="435" HorizontalScrollBarVisibility="Disabled">
                         <StackPanel>
-                            <StackPanel Margin="0,15,0,0" Name="StatusButton" Tap="StatusButton_Tap">
-                                <TextBlock Text="{Binding StatusToStringFull}" Style="{StaticResource PhoneTextLargeStyle}" Foreground="{Binding StatusColor}"/>
-                                <TextBlock Text="Toque para alterar" Visibility="{Binding IsDonoCurrentUsuarioVisibility}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+
+                            <StackPanel Margin="0, 15, 0, 0" Orientation="Horizontal">
+
+                                <Grid Name="GaleriaButton" Tap="GaleriaButton_Tap" Width="180" HorizontalAlignment="Left">
+                                    <Image Source="{Binding Imagem}" Stretch="Fill" Width="180" Height="180" HorizontalAlignment="Left"/>
+                                    <TextBlock Margin="10, 0, 0, 0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="Ver galeria" Style="{StaticResource PhoneTextNormalStyle}"/>
+                                </Grid>
+
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Margin="0,0,0,0" Name="StatusButton" Tap="StatusButton_Tap">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Status:" Style="{StaticResource PhoneTextLargeStyle}"/>
+                                            <TextBlock Text="{Binding StatusToString}" Margin="-7,0,0,0" Style="{StaticResource PhoneTextLargeStyle}" Foreground="{Binding StatusColor}"/>
+                                        </StackPanel>
+
+                                        <TextBlock Text="Toque para alterar" Visibility="{Binding IsDonoCurrentUsuarioVisibility}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Margin="0,15,0,0">
+                                        <TextBlock Text="nome" Style="{StaticResource PhoneTextLargeStyle}"/>
+                                        <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    </StackPanel>
+                                </StackPanel>
                             </StackPanel>
-
-                            <Grid Name="GaleriaButton" Tap="GaleriaButton_Tap" Width="180" HorizontalAlignment="Left">
-                                <Image Source="/Assets/ApplicationIcon.png" Width="180" Height="180" HorizontalAlignment="Left"/>
-                                <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="Ver galeria" Style="{StaticResource PhoneTextNormalStyle}"/>
-                            </Grid>
-
-                            <StackPanel Margin="0,15,0,0"/>
-                            <TextBlock Text="nome" Style="{StaticResource PhoneTextLargeStyle}"/>
-                            <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                        
+                            
                             <StackPanel Margin="0,15,0,0"/>
                             <TextBlock Text="espécie" Style="{StaticResource PhoneTextLargeStyle}"/>
                             <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>

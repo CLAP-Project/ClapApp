@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace ClapApp.Model
 {
@@ -25,6 +27,7 @@ namespace ClapApp.Model
 
     public class Animal
     {
+        private BitmapImage m_image;
         public int Id
         {
             get;
@@ -61,6 +64,31 @@ namespace ClapApp.Model
         {
             get;
             set;
+        }
+
+        public void setImage(string path) {
+            var img = new BitmapImage(new Uri(path, UriKind.Relative));
+            m_image = img;
+        }
+
+        public string SetImageGambs
+        {
+            set
+            {
+                setImage(value);
+            }
+        }
+
+        public BitmapImage Imagem
+        {
+            get
+            {
+                return m_image;
+            }
+            set
+            {
+                m_image = value;
+            }
         }
 
         public Status Status
@@ -172,7 +200,7 @@ namespace ClapApp.Model
                 return IsPerdido ? new SolidColorBrush(new Color() { R = 224, G = 57, B = 57, A = 255 }) :
                     //App.Current.Resources["PerdidoColor"] as SolidColorBrush :
                     //new SolidColorBrush(new Color() { R = 255, G = 89, B = 60, A = 255 })
-                    new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
+                    new SolidColorBrush(new Color() { R = 000, G = 255, B = 000, A = 255 });
             }
         }
 
@@ -219,7 +247,7 @@ namespace ClapApp.Model
             this.Nome = that.Nome.Substring(0);
             this.Sexo = that.Sexo;
             this.Status = that.Status;
-
+            this.m_image = that.m_image;
             return this;
         }
 
