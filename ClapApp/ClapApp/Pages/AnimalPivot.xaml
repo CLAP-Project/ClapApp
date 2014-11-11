@@ -20,45 +20,44 @@
         <phone:Pivot Title="{StaticResource ApplicationName}" Name="Pivot" SelectionChanged="Pivot_SelectionChanged">
             <!--Pivot item one-->
             <phone:PivotItem Header="animal">
-                <ScrollViewer HorizontalScrollBarVisibility="Disabled">
-                    <StackPanel>
-                        <StackPanel Margin="0,15,0,0" Tap="DonoButton_Tap">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0" Tap="DonoButton_Tap">
+                        <Image Source="/Assets/ApplicationIcon.png" Width="80" Height="80" HorizontalAlignment="Left"/>
+
+                        <StackPanel>
                             <TextBlock Text="Toque para ir ao dono" Style="{StaticResource PhoneTextLargeStyle}"/>
                             <TextBlock  Text="{Binding DonoNomeSobrenome}" Style="{StaticResource PhoneTextSubtleStyle}"/>
                         </StackPanel>
-                        
-                        <StackPanel Orientation="Horizontal">
+                    </StackPanel>
+                    
+                    <ScrollViewer Height="435" HorizontalScrollBarVisibility="Disabled">
+                        <StackPanel>
+                            <StackPanel Margin="0,15,0,0" Name="StatusButton" Tap="StatusButton_Tap">
+                                <TextBlock Text="{Binding StatusToStringFull}" Style="{StaticResource PhoneTextLargeStyle}" Foreground="{Binding StatusColor}"/>
+                                <TextBlock Text="Toque para alterar" Visibility="{Binding IsDonoCurrentUsuarioVisibility}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            </StackPanel>
+
                             <Grid Name="GaleriaButton" Tap="GaleriaButton_Tap" Width="180" HorizontalAlignment="Left">
                                 <Image Source="/Assets/ApplicationIcon.png" Width="180" Height="180" HorizontalAlignment="Left"/>
                                 <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="Ver galeria" Style="{StaticResource PhoneTextNormalStyle}"/>
                             </Grid>
-                            <StackPanel Orientation="Vertical">
-                                <StackPanel Margin="0,10,0,0">
-                                    <TextBlock Text="nome" Style="{StaticResource PhoneTextLargeStyle}"/>
-                                    <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                </StackPanel>
-                                <StackPanel Margin="0,0,0,0" Name="StatusButton" Tap="StatusButton_Tap">
-                                    <TextBlock Text="{Binding StatusToStringFull}" Style="{StaticResource PhoneTextLargeStyle}"/>
-                                    <TextBlock Text="Toque para alterar" Visibility="{Binding IsDonoCurrentUsuarioVisibility}" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                </StackPanel>
-                            </StackPanel>
+
+                            <StackPanel Margin="0,15,0,0"/>
+                            <TextBlock Text="nome" Style="{StaticResource PhoneTextLargeStyle}"/>
+                            <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                        
+                            <StackPanel Margin="0,15,0,0"/>
+                            <TextBlock Text="espécie" Style="{StaticResource PhoneTextLargeStyle}"/>
+                            <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+
+                            <StackPanel Margin="0,15,0,0"/>
+                            <TextBlock Text="descrição" Style="{StaticResource PhoneTextLargeStyle}"/>
+                            <TextBlock Text="{Binding Descricao}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}"/>
+
+                            <StackPanel Margin="0,80,0,0"/>
                         </StackPanel>
-
-                        
-
-                        
-                        
-                        <StackPanel Margin="0,15,0,0"/>
-                        <TextBlock Text="espécie" Style="{StaticResource PhoneTextLargeStyle}"/>
-                        <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
-
-                        <StackPanel Margin="0,15,0,0"/>
-                        <TextBlock Text="descrição" Style="{StaticResource PhoneTextLargeStyle}"/>
-                        <TextBlock Text="{Binding Descricao}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}"/>
-
-                        <StackPanel Margin="0,80,0,0"/>
-                    </StackPanel>
-                </ScrollViewer>
+                    </ScrollViewer>
+                </StackPanel>
             </phone:PivotItem>
 
             <!--Pivot item two-->
