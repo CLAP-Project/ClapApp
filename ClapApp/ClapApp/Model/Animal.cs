@@ -27,7 +27,7 @@ namespace ClapApp.Model
 
     public class Animal
     {
-        private ImageSource m_image;
+        private BitmapImage m_image;
         public int Id
         {
             get;
@@ -67,14 +67,19 @@ namespace ClapApp.Model
         }
 
         public void setImage(string path) {
-            if (m_image == null)
+            var img = new BitmapImage(new Uri(path, UriKind.Relative));
+            m_image = img;
+        }
+
+        public string SetImageGambs
+        {
+            set
             {
-                var img = new BitmapImage(new Uri(path, UriKind.Relative));
-                m_image = img;
+                setImage(value);
             }
         }
 
-        public ImageSource Imagem
+        public BitmapImage Imagem
         {
             get
             {
@@ -208,7 +213,6 @@ namespace ClapApp.Model
 
         public Animal()
         {
-            this.m_image = null;
             this.Descricao = "";
             this.Especie = "";
             this.Nome = "";
@@ -225,7 +229,7 @@ namespace ClapApp.Model
             this.Nome = that.Nome.Substring(0);
             this.Sexo = that.Sexo;
             this.Status = that.Status;
-
+            this.m_image = that.m_image;
             return this;
         }
 

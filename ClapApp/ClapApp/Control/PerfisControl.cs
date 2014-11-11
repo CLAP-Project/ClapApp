@@ -57,6 +57,7 @@ namespace ClapApp.Control
             {
                 Nome = "Ligeirinho",
                 Especie = "Caramujo",
+                SetImageGambs = "../Images/caramujo.jpg",
                 Sexo = Sexo.Indefinido,
                 Status = Status.Perdido,
                 Descricao = "O caramujo mais ligeiro na face da Terra. Ele consegue te passar esquistossomose sem que você veja quem foi!"
@@ -102,6 +103,7 @@ namespace ClapApp.Control
             {
                 Nome = "Dory",
                 Especie = "Cachorro",
+                SetImageGambs = "../Images/dory.jpg",
                 Sexo = Sexo.Femea,
                 Status = Status.Perdido,
                 Descricao = "Cadela schnauzer de pelo preto e patas brancas. Tem a cauda cortada. Responde pelo nome."
@@ -110,6 +112,7 @@ namespace ClapApp.Control
             {
                 Nome = "Cosmo",
                 Especie = "Peixe beta",
+                SetImageGambs = "../Images/peixebeta.jpg",
                 Sexo = Sexo.Macho,
                 Status = Status.Perdido,
                 Descricao = "É um peixe multicolorido que sabe fazer malabarismo e responde pelo nome."
@@ -119,6 +122,7 @@ namespace ClapApp.Control
                 Nome = "Jack Tartaruga",
                 Especie = "Cágado",
                 Sexo = Sexo.Macho,
+                SetImageGambs = "../Images/cagado.jpg",
                 Status = Status.Perdido,
                 Descricao = "Essa é tartaruguinha mais louca do pedaço. Ela vai aprontar altas confusões que deixarão de pernas para o ar uma turma muito doida!"
             });
@@ -141,6 +145,7 @@ namespace ClapApp.Control
                 Especie = "Cachorro",
                 Sexo = Sexo.Macho,
                 Status = Status.Perdido,
+                SetImageGambs = "../Images/didu.jpg",
                 Descricao = "Vira-lata que sabe voar com as orelhas. Ele traz o jornal sempre que mandado e adora Doritos, assim como o dono."
             },
             new Animal()
@@ -149,6 +154,7 @@ namespace ClapApp.Control
                 Especie = "Cogumelo",
                 Sexo = Sexo.Macho,
                 Status = Status.Perdido,
+                SetImageGambs = "../Images/amanita.jpg",
                 Descricao = "Cultivado desde que era um esporinho no meu pescoço, não é agressivo com estranhos, mas pode liberar esporos venenosos se provocado. Odeia luz."
             });
 
@@ -169,6 +175,7 @@ namespace ClapApp.Control
                 Nome = "Pulguinha 1",
                 Especie = "Pulga",
                 Sexo = Sexo.Femea,
+                SetImageGambs = "../Images/pulgafemea.jpg",
                 Status = Status.Perdido,
                 Descricao = "Ela gosta muito de cabelo, estou começando a achar que talvez ela seja um piolho!"
             },
@@ -177,6 +184,7 @@ namespace ClapApp.Control
                 Nome = "Pulguinha 2",
                 Especie = "Pulga",
                 Sexo = Sexo.Femea,
+                SetImageGambs = "../Images/pulgamacho.jpg",
                 Status = Status.Perdido,
                 Descricao = "Sabe muitos truques, como pular por dentro de aros e assobiar enquanto chupa cana. Seu tipo de sangue favorito é O+."
             });

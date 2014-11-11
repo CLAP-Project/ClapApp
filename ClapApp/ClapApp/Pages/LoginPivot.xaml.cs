@@ -233,7 +233,7 @@ namespace ClapApp.Pages
         private void BtnAnimal_Click(object sender, RoutedEventArgs e)
         {
             var qrInfo = StkQRInfo.DataContext as QRInfo;
-            AnimalButtonEvent.ViewAnimalProfile(this, qrInfo.Id);
+            AnimalButtonEvent.ViewAnimalProfile(this, qrInfo.Id); 
         }
     }
 }
