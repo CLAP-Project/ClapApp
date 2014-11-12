@@ -137,6 +137,22 @@ namespace ClapApp.Model
             }
         }
 
+        public Visibility IsPerdidoVisibility
+        {
+            get
+            {
+                return IsPerdido ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
+        public Visibility IsOkVisibility
+        {
+            get
+            {
+                return !IsPerdido ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
         public string StatusToString
         {
             get
@@ -181,8 +197,10 @@ namespace ClapApp.Model
         {
             get
             {
-                return IsPerdido ? App.Current.Resources["PerdidoColor"] as SolidColorBrush :
-                    new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
+                return IsPerdido ? new SolidColorBrush(new Color() { R = 224, G = 57, B = 57, A = 255 }) :
+                    //App.Current.Resources["PerdidoColor"] as SolidColorBrush :
+                    //new SolidColorBrush(new Color() { R = 255, G = 89, B = 60, A = 255 })
+                    new SolidColorBrush(new Color() { R = 000, G = 255, B = 000, A = 255 });
             }
         }
 
