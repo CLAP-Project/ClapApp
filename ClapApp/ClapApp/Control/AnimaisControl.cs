@@ -59,6 +59,11 @@ namespace ClapApp.Control
             return _animais[id];
         }
 
+        public static Status GetAnimalStatusById(int id)
+        {
+            return _animais[id].Status;
+        }
+
         public static List<Animal> GetAnimaisByDono(int donoId)
         {
             List<Animal> result = new List<Animal>();

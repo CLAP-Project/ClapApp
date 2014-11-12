@@ -224,11 +224,14 @@
     <Content Include="Images\dory.jpg" />
     <Content Include="Images\edit.png" />
     <Content Include="Images\guido.jpg" />
+    <Content Include="Images\max.jpg" />
     <Content Include="Images\peixebeta.jpg" />
     <Content Include="Images\pulgafemea.jpg" />
     <Content Include="Images\pulgamacho.jpg" />
+    <Content Include="Images\ruben.jpg" />
     <Content Include="Images\save.png" />
     <Content Include="Images\syncDark.png" />
+    <Content Include="Images\timoteo2.jpg" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />

@@ -27,16 +27,20 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Margin="0,0,0,15" Loaded="StackPanel_Loaded"  Orientation="Horizontal" Tap="AnimalButton_Tap" DoubleTap="AnimalButton_DoubleTap">
-                                            
+
                                             <Image Source="{Binding Imagem}" Width="100" Height="100"/>
                                             <StackPanel Orientation="Vertical">
                                                 <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextLargeStyle}"/>
                                                 <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                                <TextBlock Text="{Binding StatusToStringFull}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{Binding StatusColor}"/>
+
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Status: " Style="{StaticResource PhoneTextNormalStyle}"/>
+                                                    <TextBlock Text="{Binding StatusToString}" Margin="-12,0,0,0" Foreground="{Binding StatusColor}" Style="{StaticResource PhoneTextNormalStyle}"/>
+                                                </StackPanel>
                                             </StackPanel>
                                             <toolkit:ContextMenuService.ContextMenu>
                                                 <toolkit:ContextMenu>
-                                                    <toolkit:MenuItem Header="visualizar"  Click="MenuItem_Click"/>
+                                                    <toolkit:MenuItem Header="visualizar"  Click="MenuItem_Click" Visibility="Collapsed"/>
                                                     <toolkit:MenuItem Header="excluir"  Click="MenuItem_Click"/>
                                                 </toolkit:ContextMenu>
                                             </toolkit:ContextMenuService.ContextMenu>

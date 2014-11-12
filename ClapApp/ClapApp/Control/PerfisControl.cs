@@ -38,7 +38,8 @@ namespace ClapApp.Control
                 Cidade = "Manaus",
                 Estado = "Amazonas",
                 Email = "mox@a.com",
-                Senha = "mox"
+                Senha = "mox",
+                SetImageByPath = "../Images/max.jpg"
             },
             new NumeroTelefonico[] {
                 new NumeroTelefonico() { DDD = "92", Numero = "81009100" },
@@ -86,7 +87,8 @@ namespace ClapApp.Control
                 Cidade = "Manaus",
                 Estado = "Amazonas",
                 Email = "tim@a.com",
-                Senha = "tim"
+                Senha = "tim",
+                SetImageByPath = "../Images/timoteo2.jpg"
             },
             new NumeroTelefonico[] {
                 new NumeroTelefonico() { DDD = "92", Numero = "83009300" }
@@ -97,7 +99,8 @@ namespace ClapApp.Control
                 Especie = "Gato",
                 Sexo = Sexo.Macho,
                 Status = Status.OK,
-                Descricao = "Gato com pelagem de \"tuxedo\", costas pretas, \"máscara\" preta no rosto, mancha preta no queixo que lembra uma barbicha. Olhos amarelos. Muito gordo. Sua cauda tem a ponta torta."
+                Descricao = "Gato com pelagem de \"tuxedo\", costas pretas, \"máscara\" preta no rosto, mancha preta no queixo que lembra uma barbicha. Olhos amarelos. Muito gordo. Sua cauda tem a ponta torta.",
+                SetImageGambs = "../Images/guido.jpg"
             },
             new Animal()
             {
@@ -129,12 +132,13 @@ namespace ClapApp.Control
 
             make(new Perfil()
             {
-                Nome = "Rubêm",
-                Sobrenome = "Belêm",
+                Nome = "Rúben",
+                Sobrenome = "Belém",
                 Cidade = "Manaus",
                 Estado = "Amazonas",
                 Email = "rub@a.com",
-                Senha = "rub"
+                Senha = "rub",
+                SetImageByPath = "../Images/ruben.jpg"
             },
             new NumeroTelefonico[] {
                 new NumeroTelefonico() { DDD = "92", Numero = "84009400" }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace ClapApp.Model
 {
@@ -88,10 +89,26 @@ namespace ClapApp.Model
 
     public class Perfil
     {
+        private BitmapImage m_image;
+
         public int Id
         {
             get;
             set;
+        }
+
+        // ---
+
+        public BitmapImage Imagem
+        {
+            get
+            {
+                return m_image;
+            }
+            set
+            {
+                m_image = value;
+            }
         }
 
         // ---
@@ -273,7 +290,7 @@ namespace ClapApp.Model
             this.Nome = that.Nome.Substring(0);
             this.Senha = that.Senha.Substring(0);
             this.Sobrenome = that.Sobrenome.Substring(0);
-
+            this.m_image = that.m_image;
             this.Numeros.Clear();
 
             foreach (var numero in that.Numeros)
@@ -308,6 +325,14 @@ namespace ClapApp.Model
                 numero.DonoId = this.Id;
                 NumerosControl.InsertNumero(numero);
             }    
+        }
+
+        public string SetImageByPath
+        {
+            set
+            {
+                this.m_image = new BitmapImage(new Uri(value, UriKind.Relative));
+            }
         }
     }
 }

@@ -32,8 +32,8 @@
             </phone:PivotItem>
             
             <!--Pivot item two-->
-            <phone:PivotItem Header="proximidades" Name="Adabo">
-                <StackPanel>
+            <phone:PivotItem Header="proximidades" Name="Adabo" Margin="14,0,10,-239">
+                <StackPanel Margin="0, 0, 0, 0">
                     <TextBlock Text="Aqui estão listados alguns dos animais perdidos próximos de você." TextWrapping="Wrap"/>
                     
                     <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
@@ -42,7 +42,7 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Margin="0,0,0,15" Orientation="Horizontal" Tap="AnimalButton_Tap">
-                                            <Image Stretch="UniformToFill" Source="{Binding Imagem}" Width="100" Height="100"/>
+                                            <Image Stretch="Fill" Source="{Binding Imagem}" Width="100" Height="100"/>
                                             <StackPanel Orientation="Vertical" Margin="0, -10, 0, 0">
                                                 <TextBlock Text="{Binding Nome}" Style="{StaticResource PhoneTextLargeStyle}"/>
                                                 <TextBlock Text="{Binding EspecieSexo}" Style="{StaticResource PhoneTextSubtleStyle}"/>
