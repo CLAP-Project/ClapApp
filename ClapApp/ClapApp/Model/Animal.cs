@@ -91,6 +91,14 @@ namespace ClapApp.Model
             }
         }
 
+        public BitmapImage ImagemDono
+        {
+            get
+            {
+                return this.Dono.Imagem;
+            }
+        }
+
         public Status Status
         {
             get;

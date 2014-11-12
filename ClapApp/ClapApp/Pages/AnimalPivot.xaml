@@ -22,7 +22,7 @@
             <phone:PivotItem Header="animal">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,15,0,0" Tap="DonoButton_Tap">
-                        <Image Source="/Assets/ApplicationIcon.png" Width="80" Height="80" HorizontalAlignment="Left"/>
+                        <Image Source="{Binding ImagemDono}" Stretch="UniformToFill" Width="80" Height="80" HorizontalAlignment="Left"/>
 
                         <StackPanel>
                             <TextBlock Text="Toque para ir ao dono" Style="{StaticResource PhoneTextLargeStyle}"/>

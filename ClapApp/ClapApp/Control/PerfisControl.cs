@@ -98,7 +98,7 @@ namespace ClapApp.Control
                 Nome = "Guido",
                 Especie = "Gato",
                 Sexo = Sexo.Macho,
-                Status = Status.OK,
+                Status = Status.Perdido,
                 Descricao = "Gato com pelagem de \"tuxedo\", costas pretas, \"máscara\" preta no rosto, mancha preta no queixo que lembra uma barbicha. Olhos amarelos. Muito gordo. Sua cauda tem a ponta torta.",
                 SetImageGambs = "../Images/guido.jpg"
             },
