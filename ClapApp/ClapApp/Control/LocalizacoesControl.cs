@@ -12,7 +12,7 @@ namespace ClapApp.Control
         private static int _inserted = 0;
         private static Dictionary<int, Localizacao> _localizacoes = new Dictionary<int, Localizacao>();
 
-        public static int insertLocalizacao(Localizacao localizacao)
+        public static int InsertLocalizacao(Localizacao localizacao)
         {
             localizacao = localizacao.Copy();
             localizacao.Id = _inserted++;

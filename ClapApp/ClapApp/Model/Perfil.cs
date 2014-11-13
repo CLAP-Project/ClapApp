@@ -32,7 +32,7 @@ namespace ClapApp.Model
         public string Numero
         {
             get;
-            set;
+            set; 
         }
 
         public string DDDNumero

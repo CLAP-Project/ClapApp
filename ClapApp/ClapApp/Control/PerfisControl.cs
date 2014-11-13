@@ -1,6 +1,7 @@
 ﻿using ClapApp.Model;
 using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,9 @@ namespace ClapApp.Control
     static class PerfisControl
     {
         private static int _inserted = 0;
-        private static Dictionary<int, Perfil> _perfis = new Dictionary<int,Perfil>();
+        private static Dictionary<int, Perfil> _perfis = new Dictionary<int, Perfil>();
 
-        private static void make(Perfil perfil, NumeroTelefonico[] numeros, params Animal[] animais)
+        private static void make(Perfil perfil, NumeroTelefonico[] numeros, params AnimalLocalizacoes[] animaislocs)
         {
             var id = InsertPerfil(perfil);
 
@@ -22,10 +23,16 @@ namespace ClapApp.Control
                 NumerosControl.InsertNumero(numero);
             }
 
-            foreach (var animal in animais)
+            foreach (AnimalLocalizacoes animalloc in animaislocs)
             {
-                animal.DonoId = id;
-                AnimaisControl.InsertAnimal(animal);
+                animalloc.Animal.DonoId = id;
+                int animalId = AnimaisControl.InsertAnimal(animalloc.Animal);
+
+                foreach (Localizacao localizacao in animalloc.Localizacoes)
+                {
+                    localizacao.AnimalId = animalId;
+                    LocalizacoesControl.InsertLocalizacao(localizacao);
+                }
             }
         }
 
@@ -54,7 +61,8 @@ namespace ClapApp.Control
                 new NumeroTelefonico() { DDD = "92", Numero = "89909100" },
                 new NumeroTelefonico() { DDD = "92", Numero = "81009200" }
             },
-            new Animal()
+
+            new AnimalLocalizacoes(new Animal()
             {
                 Nome = "Ligeirinho",
                 Especie = "Caramujo",
@@ -62,23 +70,29 @@ namespace ClapApp.Control
                 Sexo = Sexo.Indefinido,
                 Status = Status.Perdido,
                 Descricao = "O caramujo mais ligeiro na face da Terra. Ele consegue te passar esquistossomose sem que você veja quem foi!"
-            },
-            new Animal()
+            }, new Localizacao[] {
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.1356065, -59.9909563) },
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.1350387, -59.9908061) },
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.1352315, -59.9897976) },
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.135585, -59.9886711) },
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.1348137, -59.9882205) }
+            }),
+            new AnimalLocalizacoes(new Animal()
             {
                 Nome = "Felpuda",
                 Especie = "Gato",
                 Sexo = Sexo.Femea,
                 Status = Status.OK,
                 Descricao = "Gata velha e careca, tem só alguns fiapinhos de pelo. Vai morrer já já."
-            },
-            new Animal()
+            }, null),
+            new AnimalLocalizacoes(new Animal()
             {
                 Nome = "Magalhães",
                 Especie = "Barata",
                 Sexo = Sexo.Indefinido,
                 Status = Status.OK,
                 Descricao = "A barata mais preta que você já viu na sua vida. Ela tem só cinco pernas e meia antena."
-            });
+            }, null));
 
             make(new Perfil()
             {
@@ -93,7 +107,7 @@ namespace ClapApp.Control
             new NumeroTelefonico[] {
                 new NumeroTelefonico() { DDD = "92", Numero = "83009300" }
             },
-            new Animal()
+            new AnimalLocalizacoes(new Animal()
             {
                 Nome = "Guido",
                 Especie = "Gato",
@@ -101,8 +115,14 @@ namespace ClapApp.Control
                 Status = Status.Perdido,
                 Descricao = "Gato com pelagem de \"tuxedo\", costas pretas, \"máscara\" preta no rosto, mancha preta no queixo que lembra uma barbicha. Olhos amarelos. Muito gordo. Sua cauda tem a ponta torta.",
                 SetImageGambs = "../Images/guido.jpg"
-            },
-            new Animal()
+            }, new Localizacao[] {
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0895888, -60.0344724)},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0895352, -60.0336892)},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0888174, -60.0333888)},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0879068, -60.0335926)},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0872533, -60.0337321)}
+            }),
+            new AnimalLocalizacoes(new Animal()
             {
                 Nome = "Dory",
                 Especie = "Cachorro",
@@ -110,8 +130,8 @@ namespace ClapApp.Control
                 Sexo = Sexo.Femea,
                 Status = Status.Perdido,
                 Descricao = "Cadela schnauzer de pelo preto e patas brancas. Tem a cauda cortada. Responde pelo nome."
-            },
-            new Animal()
+            }, null),
+            new AnimalLocalizacoes(new Animal()
             {
                 Nome = "Cosmo",
                 Especie = "Peixe beta",
@@ -119,8 +139,8 @@ namespace ClapApp.Control
                 Sexo = Sexo.Macho,
                 Status = Status.Perdido,
                 Descricao = "É um peixe multicolorido que sabe fazer malabarismo e responde pelo nome."
-            },
-            new Animal()
+            }, null),
+            new AnimalLocalizacoes(new Animal()
             {
                 Nome = "Jack Tartaruga",
                 Especie = "Cágado",
@@ -128,7 +148,7 @@ namespace ClapApp.Control
                 SetImageGambs = "../Images/cagado.jpg",
                 Status = Status.Perdido,
                 Descricao = "Essa é tartaruguinha mais louca do pedaço. Ela vai aprontar altas confusões que deixarão de pernas para o ar uma turma muito doida!"
-            });
+            }, null));
 
             make(new Perfil()
             {
@@ -143,7 +163,8 @@ namespace ClapApp.Control
             new NumeroTelefonico[] {
                 new NumeroTelefonico() { DDD = "92", Numero = "84009400" }
             },
-            new Animal()
+
+            new AnimalLocalizacoes(new Animal()
             {
                 Nome = "Didu",
                 Especie = "Cachorro",
@@ -151,8 +172,12 @@ namespace ClapApp.Control
                 Status = Status.Perdido,
                 SetImageGambs = "../Images/didu.jpg",
                 Descricao = "Vira-lata que sabe voar com as orelhas. Ele traz o jornal sempre que mandado e adora Doritos, assim como o dono."
-            },
-            new Animal()
+            }, new Localizacao[] {
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0774366, -60.0402115)},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0778973, -60.0406407)},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0786258, -60.0405656)}
+            }),
+            new AnimalLocalizacoes(new Animal()
             {
                 Nome = "Amanito",
                 Especie = "Cogumelo",
@@ -160,7 +185,7 @@ namespace ClapApp.Control
                 Status = Status.Perdido,
                 SetImageGambs = "../Images/amanita.jpg",
                 Descricao = "Cultivado desde que era um esporinho no meu pescoço, não é agressivo com estranhos, mas pode liberar esporos venenosos se provocado. Odeia luz."
-            });
+            }, null));
 
             make(new Perfil()
             {
@@ -174,7 +199,7 @@ namespace ClapApp.Control
             new NumeroTelefonico[] {
                 new NumeroTelefonico() { DDD = "92", Numero = "85009500" }
             },
-            new Animal()
+            new AnimalLocalizacoes(new Animal()
             {
                 Nome = "Pulguinha 1",
                 Especie = "Pulga",
@@ -182,8 +207,8 @@ namespace ClapApp.Control
                 SetImageGambs = "../Images/pulgafemea.jpg",
                 Status = Status.Perdido,
                 Descricao = "Ela gosta muito de cabelo, estou começando a achar que talvez ela seja um piolho!"
-            },
-            new Animal()
+            }, null),
+            new AnimalLocalizacoes(new Animal()
             {
                 Nome = "Pulguinha 2",
                 Especie = "Pulga",
@@ -191,7 +216,7 @@ namespace ClapApp.Control
                 SetImageGambs = "../Images/pulgamacho.jpg",
                 Status = Status.Perdido,
                 Descricao = "Sabe muitos truques, como pular por dentro de aros e assobiar enquanto chupa cana. Seu tipo de sangue favorito é O+."
-            });
+            }, null));
         }
 
         // ---
