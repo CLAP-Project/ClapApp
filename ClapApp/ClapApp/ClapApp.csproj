@@ -195,6 +195,9 @@
     <Content Include="Assets\clapdoggy3.png" />
     <Content Include="Assets\clapdoggy.png" />
     <Content Include="Assets\IconeMedioThumbnail.png" />
+    <Content Include="Assets\LogoClapGrande.png" />
+    <Content Include="Assets\LogoClapMedio.png" />
+    <Content Include="Assets\LogoClapPequeno.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -220,6 +223,7 @@
     <Content Include="Images\cagado.jpg" />
     <Content Include="Images\cancel.png" />
     <Content Include="Images\caramujo.jpg" />
+    <Content Include="Assets\claplogo.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\didu.jpg" />
     <Content Include="Images\dory.jpg" />

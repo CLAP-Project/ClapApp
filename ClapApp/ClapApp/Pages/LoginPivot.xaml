@@ -21,7 +21,7 @@
             <!--Pivot item one-->
             <phone:PivotItem Header="login">
                 <StackPanel>
-                    <Image Width="220" Margin="0, 0, 0, 20" Source="/Assets/clapdoggy.png"></Image>
+                    <Image Width="220" Margin="0, 0, 0, 20" Source="/Assets/LogoClapGrande.png"></Image>
                     <TextBlock Text="E-mail" Style="{StaticResource PhoneTextSubtleStyle}"/>
                     <toolkit:PhoneTextBox Name="TxtEmail"/>
                     <TextBlock Text="Senha" Style="{StaticResource PhoneTextSubtleStyle}"/>
