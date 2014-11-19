@@ -356,5 +356,10 @@ namespace ClapApp.Control
         {
             _loggedUsuarioId = _currentUsuarioId = -1;
         }
+
+        public static bool IsLoggedIn()
+        {
+            return _loggedUsuarioId != -1;
+        }
     }
 }

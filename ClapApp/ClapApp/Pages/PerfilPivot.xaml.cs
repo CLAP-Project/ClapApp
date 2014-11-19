@@ -342,7 +342,9 @@ namespace ClapApp.Pages
 
         private void LogoutButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            PerfisControl.Logout();
+            if (PerfisControl.IsCurrentUsuarioLoggedIn())
+                PerfisControl.Logout();
+
             NavigationService.Navigate(LoginPivot.GetUri());
         }
     }

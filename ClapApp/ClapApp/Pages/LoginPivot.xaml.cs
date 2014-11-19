@@ -201,6 +201,17 @@ namespace ClapApp.Pages
         {
             AnimaisListBox.ItemsSource = null;
             AnimaisListBox.ItemsSource = AnimaisControl.GetAllAnimaisPerdidos();
+
+            if (PerfisControl.IsLoggedIn())
+            {
+                StkLogin.Visibility = Visibility.Collapsed;
+                StkVoltar.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                StkVoltar.Visibility = Visibility.Collapsed;
+                StkLogin.Visibility = System.Windows.Visibility.Visible;
+            }
         }
 
         private void AnimalButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -239,6 +250,12 @@ namespace ClapApp.Pages
         {
             var qrInfo = StkQRInfo.DataContext as QRInfo;
             AnimalButtonEvent.ViewAnimalProfile(this, qrInfo.Id); 
+        }
+
+        private void VoltarButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            PerfisControl.SetCurrentUsuario(PerfisControl.GetLoggedUsuarioId());
+            NavigationService.Navigate(PerfilPivot.GetUri());
         }
     }
 }
