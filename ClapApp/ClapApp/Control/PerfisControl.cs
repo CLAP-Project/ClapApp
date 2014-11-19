@@ -351,5 +351,10 @@ namespace ClapApp.Control
 
             return false;
         }
+
+        public static void Logout()
+        {
+            _loggedUsuarioId = _currentUsuarioId = -1;
+        }
     }
 }

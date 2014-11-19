@@ -129,6 +129,14 @@ namespace ClapApp.Model
             }
         }
 
+        public string LogoutButtonContent
+        {
+            get
+            {
+                return IsCurrentUsuario ? "Log out" : "Tela inicial";
+            }
+        }
+
         public string Email
         {
             get;

@@ -17,7 +17,7 @@ using System.Windows.Media.Imaging;
 
 namespace ClapApp.Pages
 {
-    class QRInfo
+    public class QRInfo
     {
         private Animal _animal;
 
@@ -55,6 +55,11 @@ namespace ClapApp.Pages
     {
         private PhotoCamera camera;
         private bool capturing = false;
+
+        public static Uri GetUri()
+        {
+            return new Uri("/Pages/LoginPivot.xaml", UriKind.Relative);
+        }
 
         public LoginPivot()
         {

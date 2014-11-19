@@ -71,6 +71,10 @@
                         <TextBlock Text="moradia" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
                         <TextBlock Text="{Binding CidadeEstado}" Style="{StaticResource PhoneTextSubtleStyle}"/>
                     </StackPanel>
+
+                    <StackPanel Margin="0,15,0,0"> <!--Visibility="{Binding IsCurrentUsuarioVisiblity}"-->
+                        <Button Content="{Binding LogoutButtonContent}" Width="170" HorizontalAlignment="Right" Name="LogoutButton" Tap="LogoutButton_Tap"/>
+                    </StackPanel>
                 </StackPanel>
             </phone:PivotItem>
 
