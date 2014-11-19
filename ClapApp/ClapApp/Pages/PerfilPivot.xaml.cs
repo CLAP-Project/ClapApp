@@ -347,5 +347,10 @@ namespace ClapApp.Pages
 
             NavigationService.Navigate(LoginPivot.GetUri());
         }
+
+        private void StkEmail_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(EnviarEmailPage.GetUri());
+        }
     }
 }

@@ -57,7 +57,7 @@
                 <StackPanel>
                     <Image Source="{Binding Imagem}" Width="180" Height="180" HorizontalAlignment="Left"/>
 
-                    <StackPanel Margin="0,15,0,0">
+                    <StackPanel Margin="0,15,0,0" Name="StkEmail" Tap="StkEmail_Tap">
                         <TextBlock Text="enviar e-mail" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
                         <TextBlock Text="{Binding Email}" Style="{StaticResource PhoneTextSubtleStyle}"/>
                     </StackPanel>
