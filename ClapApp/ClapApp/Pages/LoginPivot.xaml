@@ -99,6 +99,8 @@
                                        TextWrapping="Wrap"
                                        TextAlignment="Center" />
 
+                            <Button Content="Visualizar perfil do dono" Name="VerDonoButton" Tap="VerDonoButton_Tap" Visibility="Collapsed"/>
+                            
                             <StackPanel Name="StkQRInfo" Visibility="Collapsed">
                                 <StackPanel Margin="0,15,0,0"/>
                                 <Button Content="Ver perfil do animal" Name="BtnAnimal" Click="BtnAnimal_Click"/>

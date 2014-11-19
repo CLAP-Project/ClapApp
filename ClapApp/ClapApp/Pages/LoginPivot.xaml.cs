@@ -14,6 +14,7 @@ using Microsoft.Devices;
 using System.IO;
 using MessagingToolkit.Barcode;
 using System.Windows.Media.Imaging;
+using System.Device.Location;
 
 namespace ClapApp.Pages
 {
@@ -124,18 +125,33 @@ namespace ClapApp.Pages
                     {
                         result = barcodeDecoder.Decode(qrImage, decodingOptions);
 
-                        //resultText.Text = result.Text;
+                        resultText.Text = result.Text;
+                        VerDonoButton.Visibility = System.Windows.Visibility.Visible;
 
-                        resultText.Text = "Animal identificado.";
+                        foreach (var animal in PerfisControl.GetPerfilByEmail("tim@a.com").Animais)
+                        {
+                            if (animal.Especie.Equals("Ovelha"))
+                            {
+                                LocalizacoesControl.InsertLocalizacao(new Localizacao()
+                                {
+                                    DataHora = DateTime.Now,
+                                    Coordenada = new GeoCoordinate(-3.1243974, -59.9838239),
+                                    AnimalId = animal.Id
+                                });
+                            }
+                        }
 
-                        StkQRInfo.Visibility = Visibility.Visible;
-                        StkQRInfo.DataContext = new QRInfo(0);
+                        //resultText.Text = "Animal identificado.";
+
+                        //StkQRInfo.Visibility = Visibility.Visible;
+                        //StkQRInfo.DataContext = new QRInfo(0);
                     }
                     catch (NotFoundException)
                     {
                         // this is expected if the image does not contain a valid
                         // code, Or is too distorted to read
                         resultText.Text = "Imagem não identificada. Aponte a câmera para o código QR na coleira do animal.";
+                        VerDonoButton.Visibility = System.Windows.Visibility.Collapsed;
                     }
                     catch (Exception ex)
                     {
@@ -231,6 +247,19 @@ namespace ClapApp.Pages
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var animal in PerfisControl.GetPerfilByEmail("tim@a.com").Animais)
+            {
+                if (animal.Especie.Equals("Ovelha"))
+                {
+                    LocalizacoesControl.InsertLocalizacao(new Localizacao()
+                    {
+                        DataHora = DateTime.Now,
+                        Coordenada = new GeoCoordinate(-3.1243974, -59.9838239),
+                        AnimalId = animal.Id
+                    });
+                }
+            }
+
             var email = TxtEmail.Text;
 
             if (email.Equals(""))
@@ -255,6 +284,14 @@ namespace ClapApp.Pages
         private void VoltarButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             PerfisControl.SetCurrentUsuario(PerfisControl.GetLoggedUsuarioId());
+            NavigationService.Navigate(PerfilPivot.GetUri());
+        }
+
+        private void VerDonoButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            PerfisControl.SetCurrentUsuario(PerfisControl.GetPerfilIdByEmail("tim@a.com"));
+            
+            PerfilPivot.FocusOnProfile();
             NavigationService.Navigate(PerfilPivot.GetUri());
         }
     }

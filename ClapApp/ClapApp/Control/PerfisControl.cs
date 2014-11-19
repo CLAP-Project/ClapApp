@@ -118,11 +118,8 @@ namespace ClapApp.Control
                 Descricao = "Uma ovelha branquinha e felpuda. Responde pelo nome e é muito dócil, embora tímida diante de estranhos.",
                 SetImageGambs = "../Images/ovelha.jpg"
             }, new Localizacao[] {
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0895888, -60.0344724), DataHora = DateTime.Today},
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0895352, -60.0336892), DataHora = DateTime.Today},
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0888174, -60.0333888), DataHora = DateTime.Today},
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0879068, -60.0335926), DataHora = DateTime.Today},
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0872533, -60.0337321), DataHora = DateTime.Today}
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.124301,-59.9860877), DataHora = DateTime.Today},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.1243974,-59.9838239), DataHora = DateTime.Today}
             }),
             new AnimalLocalizacoes(new Animal()
             {
@@ -256,6 +253,28 @@ namespace ClapApp.Control
         public static Perfil GetPerfilById(int id)
         {
             return _perfis[id].Copy();
+        }
+
+        public static Perfil GetPerfilByEmail(string email)
+        {
+            foreach (var perfil in _perfis.Values)
+            {
+                if (perfil.Email.Equals(email))
+                    return perfil.Copy();
+            }
+
+            return null;
+        }
+
+        public static int GetPerfilIdByEmail(string email)
+        {
+            foreach (var perfil in _perfis.Values)
+            {
+                if (perfil.Email.Equals(email))
+                    return perfil.Id;
+            }
+
+            return -1;
         }
 
         // ---
