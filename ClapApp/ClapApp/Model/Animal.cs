@@ -46,14 +46,6 @@ namespace ClapApp.Model
             set;
         }
 
-        public List<Localizacao> Historico
-        {
-            get
-            {
-                return LocalizacoesControl.GetLocalizacoesByAnimal(this.Id);
-            }
-        }
-
         public string NomeEdit
         {
             get
@@ -126,19 +118,6 @@ namespace ClapApp.Model
             get
             {
                 return Dono.NomeSobrenome;
-            }
-        }
-
-        public Visibility HasLocalizacaoVisibility
-        {
-            get
-            {
-                if (LocalizacoesControl.GetLocalizacoesByAnimal(this.Id).Count == 0)
-                {
-                    return Visibility.Visible;
-                }
-
-                return Visibility.Collapsed;
             }
         }
 

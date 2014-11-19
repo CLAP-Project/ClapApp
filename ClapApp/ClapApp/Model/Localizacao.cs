@@ -33,14 +33,6 @@ namespace ClapApp.Model
             set;
         }
 
-        public string AltLong
-        {
-            get
-            {
-                return Coordenada.Latitude.ToString() + ", " + Coordenada.Longitude.ToString();
-            }
-        }
-
         public bool IsFotoQRCode
         {
             get;

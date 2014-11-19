@@ -63,37 +63,32 @@ namespace ClapApp.Pages
             ShowAnimalLocationOnTheMap(null, null);
         }
 
-        private void ShowAnimalLocationOnTheMap(object sender, EventArgs e)
+        private async void ShowAnimalLocationOnTheMap(object sender, EventArgs e)
         {
-            //Geolocator myGeolocator = new Geolocator();
-            //Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
-            //Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
+            Geolocator myGeolocator = new Geolocator();
+            Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
+            Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
+            GeoCoordinate myGeoCoordinate =
+            CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
 
-            int animalId = AnimaisControl.GetCurrentAnimal().Id;
-            List<Localizacao> localizacoes = LocalizacoesControl.GetLocalizacoesByAnimal(animalId);
+            this.mapaLocalizacao.Center = myGeoCoordinate;
+            this.mapaLocalizacao.ZoomLevel = 13;
 
-            if (localizacoes.Count != 0) {
-                this.mapaLocalizacao.Center = localizacoes.ElementAt(0).Coordenada;
-                this.mapaLocalizacao.ZoomLevel = 13;
-            }
             //Círculo de marcação no mapa
 
-            MapLayer myLocationLayer = new MapLayer();
+
             //Criando camada para conter a marcação
-            foreach (Localizacao localizacao in localizacoes) {
-                MapOverlay myLocationOverlay = new MapOverlay();
-                myLocationOverlay.Content = createMarker();
-                myLocationOverlay.PositionOrigin = new Point(0.5, 0.5);
-                myLocationOverlay.GeoCoordinate = localizacao.Coordenada;
+            MapOverlay myLocationOverlay = new MapOverlay();
+            myLocationOverlay.Content = createMarker();
+            myLocationOverlay.PositionOrigin = new Point(0.5, 0.5);
+            myLocationOverlay.GeoCoordinate = myGeoCoordinate;
 
-                myLocationLayer.Add(myLocationOverlay);
-            }
+            //Atribuição para localização
+            MapLayer myLocationLayer = new MapLayer();
+            myLocationLayer.Add(myLocationOverlay);
 
+            //Adição da camada no mapa
             this.mapaLocalizacao.Layers.Add(myLocationLayer);
-        }
-
-        private void SetMapCenterCoordenate(GeoCoordinate g) {
-            this.mapaLocalizacao.Center = g;
         }
 
         private Ellipse createMarker()
@@ -162,13 +157,6 @@ namespace ClapApp.Pages
         private void GaleriaButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
 
-        }
-
-        private void StackPanelHistorico_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            this.Pivot.SelectedIndex = 1;
-            GeoCoordinate gc = ((sender as StackPanel).DataContext as Localizacao).Coordenada;
-            SetMapCenterCoordenate(gc);
         }
 
     }

@@ -5,7 +5,7 @@
     <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
 
     <System:String x:Key="ApplicationName">CLAP</System:String>
-        <SolidColorBrush x:Key="BackgroundColor" Color="#2C71AA" />
+    <SolidColorBrush x:Key="BackgroundColor" Color="#264A69" />
     <SolidColorBrush x:Key="PerdidoColor" Color="#FFD200" />
 
     </Application.Resources>
