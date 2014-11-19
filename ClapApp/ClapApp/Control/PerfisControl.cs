@@ -61,15 +61,7 @@ namespace ClapApp.Control
             new NumeroTelefonico[] {
                 new NumeroTelefonico() { DDD = "92", Numero = "81009100" },
                 new NumeroTelefonico() { DDD = "92", Numero = "82209100" },
-                new NumeroTelefonico() { DDD = "92", Numero = "83009110" },
-                new NumeroTelefonico() { DDD = "92", Numero = "84039100" },
-                new NumeroTelefonico() { DDD = "92", Numero = "85009100" },
-                new NumeroTelefonico() { DDD = "92", Numero = "86009100" },
-                new NumeroTelefonico() { DDD = "92", Numero = "87009100" },
-                new NumeroTelefonico() { DDD = "92", Numero = "88009100" },
-                new NumeroTelefonico() { DDD = "92", Numero = "89009100" },
-                new NumeroTelefonico() { DDD = "92", Numero = "89909100" },
-                new NumeroTelefonico() { DDD = "92", Numero = "81009200" }
+                new NumeroTelefonico() { DDD = "92", Numero = "83009110" }
             },
 
             new AnimalLocalizacoes(new Animal()
@@ -81,11 +73,11 @@ namespace ClapApp.Control
                 Status = Status.Perdido,
                 Descricao = "O caramujo mais ligeiro na face da Terra. Ele consegue te passar esquistossomose sem que você veja quem foi!"
             }, new Localizacao[] {
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.1356065, -59.9909563) },
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.1350387, -59.9908061) },
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.1352315, -59.9897976) },
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.135585, -59.9886711) },
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.1348137, -59.9882205) }
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.1356065, -59.9909563), DataHora = new DateTime(2014, 10, 9, 12, 30, 00) },
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.1350387, -59.9908061), DataHora = new DateTime(2014, 10, 9, 12, 50, 05) },
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.1352315, -59.9897976), DataHora = new DateTime(2014, 10, 9, 13, 10, 20) },
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.135585, -59.9886711), DataHora = new DateTime(2014, 10, 9, 13, 30, 10) },
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.1348137, -59.9882205), DataHora = new DateTime(2014, 10, 9, 13, 50, 10) }
             }),
             new AnimalLocalizacoes(new Animal()
             {
@@ -119,6 +111,21 @@ namespace ClapApp.Control
             },
             new AnimalLocalizacoes(new Animal()
             {
+                Nome = "Clarice",
+                Especie = "Ovelha",
+                Sexo = Sexo.Femea,
+                Status = Status.OK,
+                Descricao = "Uma ovelha branquinha e felpuda. Responde pelo nome e é muito dócil, embora tímida diante de estranhos.",
+                SetImageGambs = "../Images/ovelha.jpg"
+            }, new Localizacao[] {
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0895888, -60.0344724), DataHora = DateTime.Today},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0895352, -60.0336892), DataHora = DateTime.Today},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0888174, -60.0333888), DataHora = DateTime.Today},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0879068, -60.0335926), DataHora = DateTime.Today},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0872533, -60.0337321), DataHora = DateTime.Today}
+            }),
+            new AnimalLocalizacoes(new Animal()
+            {
                 Nome = "Guido",
                 Especie = "Gato",
                 Sexo = Sexo.Macho,
@@ -138,7 +145,7 @@ namespace ClapApp.Control
                 Especie = "Cachorro",
                 SetImageGambs = "../Images/dory.jpg",
                 Sexo = Sexo.Femea,
-                Status = Status.Perdido,
+                Status = Status.OK,
                 Descricao = "Cadela schnauzer de pelo preto e patas brancas. Tem a cauda cortada. Responde pelo nome."
             }, null),
             new AnimalLocalizacoes(new Animal()
@@ -156,7 +163,7 @@ namespace ClapApp.Control
                 Especie = "Cágado",
                 Sexo = Sexo.Macho,
                 SetImageGambs = "../Images/cagado.jpg",
-                Status = Status.Perdido,
+                Status = Status.OK,
                 Descricao = "Essa é tartaruguinha mais louca do pedaço. Ela vai aprontar altas confusões que deixarão de pernas para o ar uma turma muito doida!"
             }, null));
 
