@@ -16,6 +16,8 @@ using ShowMyLocationOnMap;
 using Microsoft.Phone.Maps.Controls;
 using System.Windows.Shapes;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using Microsoft.Phone.Maps.Services;
 
 namespace ClapApp.Pages
 {
@@ -23,6 +25,9 @@ namespace ClapApp.Pages
     {
         private ApplicationBarIconButton[] _animalButtons, _localizacaoButtons, _historicoButtons, _coleiraButtons;
         private ApplicationBarIconButton[][] _buttons;
+
+        private RouteQuery RotaQuery = null;
+        private TravelMode _travelMode = TravelMode.Walking;
 
         public AnimalPivot()
         {
@@ -61,6 +66,7 @@ namespace ClapApp.Pages
             };
 
             ShowAnimalLocationOnTheMap(null, null);
+            CalcularRota(LocalizacoesControl.GetLocalizacoesByAnimal(AnimaisControl.GetCurrentAnimal().Id));
         }
 
         private void ShowAnimalLocationOnTheMap(object sender, EventArgs e)
@@ -72,19 +78,31 @@ namespace ClapApp.Pages
             int animalId = AnimaisControl.GetCurrentAnimal().Id;
             List<Localizacao> localizacoes = LocalizacoesControl.GetLocalizacoesByAnimal(animalId);
 
+            MapLayer myLocationLayer = new MapLayer();
+
             if (localizacoes.Count != 0) {
-                this.mapaLocalizacao.Center = localizacoes.ElementAt(0).Coordenada;
+                GeoCoordinate geo = localizacoes.ElementAt(0).Coordenada;
+                this.mapaLocalizacao.Center = geo;
                 this.mapaLocalizacao.ZoomLevel = 13;
+
+                MapOverlay myLocationOverlay = new MapOverlay();
+                myLocationOverlay.Content = createMarker(true);
+                myLocationOverlay.PositionOrigin = new Point(0.5, 0.5);
+                myLocationOverlay.GeoCoordinate = geo;
+
+                myLocationLayer.Add(myLocationOverlay);
             }
             //Círculo de marcação no mapa
 
-            MapLayer myLocationLayer = new MapLayer();
+            
+
             //Criando camada para conter a marcação
-            foreach (Localizacao localizacao in localizacoes) {
+            for (int i = 1; i < localizacoes.Count; i++)
+            {
                 MapOverlay myLocationOverlay = new MapOverlay();
-                myLocationOverlay.Content = createMarker();
+                myLocationOverlay.Content = createMarker(false);
                 myLocationOverlay.PositionOrigin = new Point(0.5, 0.5);
-                myLocationOverlay.GeoCoordinate = localizacao.Coordenada;
+                myLocationOverlay.GeoCoordinate = localizacoes.ElementAt(i).Coordenada;
 
                 myLocationLayer.Add(myLocationOverlay);
             }
@@ -96,15 +114,63 @@ namespace ClapApp.Pages
             this.mapaLocalizacao.Center = g;
         }
 
-        private Ellipse createMarker()
+        private Route RotaAnimal = null;
+        private MapRoute RotaMapaAnimal = null;
+
+        private void RotaQuery_QueryCompleted(object sender, QueryCompletedEventArgs<Route> e)
         {
-            return new Ellipse()
+            if (e.Error == null)
+            {
+                RotaAnimal = e.Result;
+                RotaMapaAnimal = new MapRoute(RotaAnimal);
+                mapaLocalizacao.AddRoute(RotaMapaAnimal);
+            }
+            else
+            {
+                MessageBox.Show("Ocorreu um erro ao traçar a rota do animal!");
+            }
+        }
+
+        private void CalcularRota(List<Localizacao> rota)
+        {
+            List<GeoCoordinate> lst = new List<GeoCoordinate>();
+
+            if (rota != null)
+            {
+                if (rota.Count != 0)
+                {
+                    foreach (Localizacao loc in rota)
+                    {
+                        lst.Add(loc.Coordenada);
+                    }
+                    RotaQuery = new RouteQuery();
+                    RotaQuery.TravelMode = _travelMode;
+                    RotaQuery.Waypoints = lst;
+                    RotaQuery.QueryCompleted += RotaQuery_QueryCompleted;
+                    RotaQuery.QueryAsync();
+                }
+            }
+        }
+
+        private Image createMarker(bool isAtual)
+        {
+            Image im = new Image();
+            if (!isAtual)
+            {
+                im.Source = new BitmapImage(new Uri("../Images/pinoTrajeto.png", UriKind.Relative));
+            }
+            else
+            {
+                im.Source = new BitmapImage(new Uri("../Images/pinoAtual.png", UriKind.Relative));
+            }
+            return im;
+            /*return new Ellipse()
             {
                 Fill = new SolidColorBrush(Colors.Blue),
                 Height = 20,
                 Width = 20,
-                Opacity = 50
-            };
+                Opacity = 50    
+            };*/
         }
 
         public static Uri GetUri()
@@ -129,7 +195,6 @@ namespace ClapApp.Pages
         private void DonoButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             PerfisControl.SetCurrentUsuario((LayoutRoot.DataContext as Animal).DonoId);
-            
             PerfilPivot.FocusOnProfile();
             NavigationService.Navigate(PerfilPivot.GetUri());
         }

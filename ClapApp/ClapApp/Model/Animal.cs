@@ -226,22 +226,29 @@ namespace ClapApp.Model
         {
             get
             {
-                return IsPerdido ? new SolidColorBrush(new Color() { R = 224, G = 57, B = 57, A = 255 }) :
+                return IsPerdido ? new SolidColorBrush(new Color() { R = 255, G = 238, B = 0, A = 255 }) :
                     //App.Current.Resources["PerdidoColor"] as SolidColorBrush :
                     //new SolidColorBrush(new Color() { R = 255, G = 89, B = 60, A = 255 })
                     new SolidColorBrush(new Color() { R = 000, G = 255, B = 000, A = 255 });
             }
         }
 
-        private static Random rand = new Random();
+        /*private static Random rand = new Random();
 
-        private string m_gambs = rand.Next(2) == 0 ? "50°03'46.461\"S 125°48'26.533\"E 978.90m" : "Sem localização";
+        private string m_gambs = rand.Next(2) == 0 ? "50°03'46.461\"S 125°48'26.533\"E 978.90m" : "Sem localização";*/
 
         public string LocalizacaoMaisRecente
         {
             get
             {
-                return m_gambs;
+                var locals = this.Historico;
+
+                if (locals.Count == 0) return "Sem localização";
+                else
+                {
+                    var local = locals[0];
+                    return "Rastreado em " + local.DataHora;
+                }
             }
         }
 
@@ -272,7 +279,7 @@ namespace ClapApp.Model
             this.Id = that.Id;
             this.DonoId = that.DonoId;
             this.Especie = that.Especie.Substring(0);
-            this.m_gambs = that.m_gambs.Substring(0);
+            //this.m_gambs = that.m_gambs.Substring(0);
             this.Nome = that.Nome.Substring(0);
             this.Sexo = that.Sexo;
             this.Status = that.Status;

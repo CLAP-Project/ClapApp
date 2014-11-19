@@ -6,8 +6,7 @@
 
     <System:String x:Key="ApplicationName">CLAP</System:String>
         <SolidColorBrush x:Key="BackgroundColor" Color="#2C71AA" />
-    <SolidColorBrush x:Key="PerdidoColor" Color="#FFD200" />
-
+        <SolidColorBrush x:Key="PerdidoColor" Color="#FFEE00" />
     </Application.Resources>
   <Application.ApplicationLifetimeObjects>
     <!--Required object that handles lifetime events for the application-->

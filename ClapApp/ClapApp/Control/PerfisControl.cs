@@ -183,9 +183,9 @@ namespace ClapApp.Control
                 SetImageGambs = "../Images/didu.jpg",
                 Descricao = "Vira-lata que sabe voar com as orelhas. Ele traz o jornal sempre que mandado e adora Doritos, assim como o dono."
             }, new Localizacao[] {
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0774366, -60.0402115)},
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0778973, -60.0406407)},
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0786258, -60.0405656)}
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0774366, -60.0402115), DataHora = new DateTime(2014, 9, 3, 20, 7, 0)},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0778973, -60.0406407), DataHora = new DateTime(2014, 9, 3, 20, 2, 10)},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0786258, -60.0405656), DataHora = new DateTime(2014, 9, 3, 20, 4, 20)}
             }),
             new AnimalLocalizacoes(new Animal()
             {

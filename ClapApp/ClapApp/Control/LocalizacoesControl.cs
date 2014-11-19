@@ -62,7 +62,7 @@ namespace ClapApp.Control
 
             result.Sort((Localizacao left, Localizacao right) =>
             {
-                return left.DataHora.CompareTo(right.DataHora);
+                return right.DataHora.CompareTo(left.DataHora);
             });
 
             return result;

@@ -6,12 +6,14 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
     SupportedOrientations="Portrait"  Orientation="Portrait"
+    
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -76,25 +78,19 @@
             <!--Pivot item three-->
             <phone:PivotItem Header="histórico">
                 <StackPanel>
-                    <TextBlock Text="Não há nenhuma localização para ser mostrada."/>
+                    <TextBlock Visibility="{Binding HasLocalizacaoVisibility}" Width="320" Margin="0,200,0,0" TextWrapping="Wrap" Text="Não há nenhuma localização para ser mostrada."/>
                     <ScrollViewer MaxWidth="525" HorizontalScrollBarVisibility="Disabled">
                         <ListBox Name="LstHistorico" ItemsSource="{Binding Historico}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Margin="0,0,0,20" Tap="StackPanelHistorico_Tap">
-                                        <TextBlock Text="{Binding AltLong}" Style="{StaticResource PhoneTextLargeStyle}"/>
-                                        <TextBlock Text="{Binding DataHora}" Margin="10,0,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                        <TextBlock Text="{Binding DataHora}" Style="{StaticResource PhoneTextLargeStyle}"/>
+                                        <TextBlock Text="{Binding AltLong}" Margin="10,0,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
                     </ScrollViewer>
-                </StackPanel>
-            </phone:PivotItem>
-
-            <!--Pivot item four-->
-            <phone:PivotItem Header="coleira">
-                <StackPanel>
                 </StackPanel>
             </phone:PivotItem>
         </phone:Pivot>

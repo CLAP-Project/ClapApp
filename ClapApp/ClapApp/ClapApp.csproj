@@ -228,9 +228,12 @@
     <Content Include="Images\didu.jpg" />
     <Content Include="Images\dory.jpg" />
     <Content Include="Images\edit.png" />
+    <Content Include="Images\phone.png" />
     <Content Include="Images\guido.jpg" />
     <Content Include="Images\max.jpg" />
     <Content Include="Images\peixebeta.jpg" />
+    <Content Include="Images\pinoAtual.png" />
+    <Content Include="Images\pinoTrajeto.png" />
     <Content Include="Images\pulgafemea.jpg" />
     <Content Include="Images\pulgamacho.jpg" />
     <Content Include="Images\ruben.jpg" />

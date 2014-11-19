@@ -18,7 +18,7 @@ namespace ClapApp.Pages
     {
         private ApplicationBarIconButton[][] _barButtons;
         private ApplicationBarIconButton[] _telefonesButtons, _animaisButtons, _perfilButtons;
-        private ApplicationBarIconButton _editarTelefoneButton, _excluirTelefoneButton, _excluirAnimalButton;
+        private ApplicationBarIconButton _editarTelefoneButton, _excluirTelefoneButton, _ligarTelefoneButton, _excluirAnimalButton;
 
         private int _selectedAnimalId = -1;
 
@@ -99,34 +99,49 @@ namespace ClapApp.Pages
             var textBlock = sender as TextBlock;
             var telefone = textBlock.DataContext as NumeroTelefonico;
 
-            if (_editarTelefoneButton.IsEnabled = _excluirTelefoneButton.IsEnabled = (telefone.Id != _selectedTelefone))
+            if (PerfisControl.GetLoggedUsuarioId() != -1) // Verificação se há algum usuário logado.
+            {
+                if (_editarTelefoneButton.IsEnabled = _excluirTelefoneButton.IsEnabled = _ligarTelefoneButton.IsEnabled = (telefone.Id != _selectedTelefone))
+                {
+                    if (_selectedTextBlock != null)
+                        _selectedTextBlock.Foreground = NormalBlock.Foreground;
+
+                    textBlock.Foreground = SelectedBlock.Foreground;
+
+                    _selectedTelefone = telefone.Id;
+                    _selectedTextBlock = textBlock;
+                }
+                else
+                {
+                    textBlock.Foreground = NormalBlock.Foreground;
+
+                    _selectedTelefone = -1;
+                    _selectedTextBlock = null;
+                }
+            }
+            else
             {
                 if (_selectedTextBlock != null)
                     _selectedTextBlock.Foreground = NormalBlock.Foreground;
+                
+                _selectedTelefone = telefone.Id;
+                _selectedTextBlock = textBlock;
 
                 textBlock.Foreground = SelectedBlock.Foreground;
 
                 _selectedTelefone = telefone.Id;
                 _selectedTextBlock = textBlock;
-            }
-            else
-            {
-                textBlock.Foreground = NormalBlock.Foreground;
 
-                _selectedTelefone = -1;
-                _selectedTextBlock = null;
+                (new PhoneCallTask()
+                {
+                    PhoneNumber = _selectedTextBlock.Text
+                }).Show();
             }
         }
 
         private void TelefoneText_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            if (_selectedTextBlock == null)
-                return;
-
-            (new PhoneCallTask()
-            {
-                PhoneNumber = _selectedTextBlock.Text
-            }).Show();
+            
         }
 
         private void TelefoneText_Loaded(object sender, RoutedEventArgs e)
@@ -211,6 +226,19 @@ namespace ClapApp.Pages
 
             _editarTelefoneButton.IsEnabled = false;
 
+            _ligarTelefoneButton = BarButtons.MakeButton("phone.png", "ligar", (object sender, EventArgs e) =>
+            {
+                if (_selectedTextBlock == null)
+                    return;
+
+                (new PhoneCallTask()
+                {
+                    PhoneNumber = _selectedTextBlock.Text
+                }).Show();
+            });
+
+            _ligarTelefoneButton.IsEnabled = false;
+
             _excluirTelefoneButton = BarButtons.MakeButton("delete.png", "excluir", (object sender, EventArgs e) =>
             {
                 NumerosControl.EraseNumeroById(_selectedTelefone);
@@ -222,6 +250,7 @@ namespace ClapApp.Pages
 
             _telefonesButtons = new ApplicationBarIconButton[]
             {
+                _ligarTelefoneButton,
                 BarButtons.MakeButton("add.png", "novo", (object sender, EventArgs e) =>
                 {
                     _selectedTelefone = -1;
