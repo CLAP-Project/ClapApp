@@ -11,6 +11,7 @@ using MessagingToolkit.Barcode;
 using Microsoft.Devices;
 using System.IO;
 using System.Windows.Media.Imaging;
+using ClapApp.View;
 
 namespace ClapApp.Pages
 {
@@ -23,7 +24,7 @@ namespace ClapApp.Pages
         {
             InitializeComponent();
         }
-        
+
         // ---
 
         public static Uri GetUri()
@@ -58,6 +59,14 @@ namespace ClapApp.Pages
 
         // ---
 
+        private void identifiedAnimal(string codeString)
+        {
+            /*StkQRInfo.Visibility = Visibility.Visible;
+            StkQRInfo.DataContext = new QRInfo(0);*/
+            QRCodeResultPage.QRInfo = new QRInfo(0);
+            NavigationService.Navigate(QRCodeResultPage.GetUri());
+        }
+
         private void camera_CaptureImageAvailable(object sender, ContentReadyEventArgs e)
         {
             capturing = false;
@@ -88,13 +97,16 @@ namespace ClapApp.Pages
                     {
                         result = barcodeDecoder.Decode(qrImage, decodingOptions);
 
-                        resultText.Text = result.Text;
+                        //resultText.Text = result.Text;
+
+                        identifiedAnimal(resultText.Text);
+                        resultText.Text = "Animal identificado.";
                     }
                     catch (NotFoundException)
                     {
                         // this is expected if the image does not contain a valid
                         // code, Or is too distorted to read
-                        resultText.Text = "<nothing to display>";
+                        resultText.Text = "Imagem não identificada. Aponte a câmera para o código QR na coleira do animal.";
                     }
                     catch (Exception ex)
                     {
@@ -152,6 +164,17 @@ namespace ClapApp.Pages
             }
 
             base.OnNavigatedFrom(e);
+        }
+
+        private void TesteButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            identifiedAnimal("");
+        }
+
+        private void BtnAnimal_Click(object sender, RoutedEventArgs e)
+        {
+            var qrInfo = StkQRInfo.DataContext as QRInfo;
+            AnimalButtonEvent.ViewAnimalProfile(this, qrInfo.Id);
         }
     }
 }

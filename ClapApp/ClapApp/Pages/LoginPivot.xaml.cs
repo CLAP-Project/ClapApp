@@ -17,37 +17,42 @@ using System.Windows.Media.Imaging;
 
 namespace ClapApp.Pages
 {
-    class QRInfo
+    public class QRInfo
     {
         private Animal _animal;
 
         public QRInfo(int animalId)
         {
             _animal = AnimaisControl.GetAnimalById(animalId);
+
+            this.Id = animalId;
+            this.Nome = _animal.Nome;
+            this.NumeroDoDono = _animal.Dono.Numeros[0].DDDNumero;
+        }
+
+        public QRInfo(string nome, string numero, int id)
+        {
+            this.Id = id;
+            this.Nome = nome;
+            this.NumeroDoDono = numero;
         }
 
         public string Nome
         {
-            get
-            {
-                return _animal.Nome;
-            }
+            get;
+            set;
         }
 
         public string NumeroDoDono
         {
-            get
-            {
-                return _animal.Dono.Numeros[0].DDDNumero;
-            }
+            get;
+            set;
         }
 
         public int Id
         {
-            get
-            {
-                return _animal.Id;
-            }
+            get;
+            set;
         }
     }
 
@@ -234,6 +239,11 @@ namespace ClapApp.Pages
         {
             var qrInfo = StkQRInfo.DataContext as QRInfo;
             AnimalButtonEvent.ViewAnimalProfile(this, qrInfo.Id); 
+        }
+
+        private void QRCodeButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(QrCodeScanPage.GetUri());
         }
     }
 }

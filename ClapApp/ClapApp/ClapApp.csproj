@@ -116,6 +116,9 @@
     <Compile Include="Pages\AnimalPivot.xaml.cs">
       <DependentUpon>AnimalPivot.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\QRCodeResultPage.xaml.cs">
+      <DependentUpon>QRCodeResultPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\QrCodeScanPage.xaml.cs">
       <DependentUpon>QrCodeScanPage.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AnimalPivot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\QRCodeResultPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

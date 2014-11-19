@@ -90,7 +90,10 @@
                                        VerticalAlignment="Top"
                                        Width="399"
                                        TextWrapping="Wrap"
-                                       TextAlignment="Center" />
+                                       TextAlignment="Center"
+                                       Visibility="Collapsed"/>
+                            
+                            <Button Content="Iniciar verificação" Width="365" Name="QRCodeButton" Tap="QRCodeButton_Tap"/>
 
                             <StackPanel Name="StkQRInfo" Visibility="Collapsed">
                                 <StackPanel Margin="0,15,0,0"/>
