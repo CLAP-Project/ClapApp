@@ -16,6 +16,7 @@ namespace ClapApp.Control
         private static void make(Perfil perfil, NumeroTelefonico[] numeros, params AnimalLocalizacoes[] animaislocs)
         {
             var id = InsertPerfil(perfil);
+            int animalId = 0;
 
             foreach (var numero in numeros)
             {
@@ -23,15 +24,24 @@ namespace ClapApp.Control
                 NumerosControl.InsertNumero(numero);
             }
 
-            foreach (AnimalLocalizacoes animalloc in animaislocs)
+            if (animaislocs != null)
             {
-                animalloc.Animal.DonoId = id;
-                int animalId = AnimaisControl.InsertAnimal(animalloc.Animal);
-
-                foreach (Localizacao localizacao in animalloc.Localizacoes)
+                foreach (AnimalLocalizacoes animalloc in animaislocs)
                 {
-                    localizacao.AnimalId = animalId;
-                    LocalizacoesControl.InsertLocalizacao(localizacao);
+                    if (animalloc.Animal != null) //Têm coisas a melhorar nessa parte do código, essas validações de null e tal, mas não vou mexer com isso não. O foco hoje, 12/11/2014 é nas localizações no mapa.
+                    {
+                        animalloc.Animal.DonoId = id;
+                        animalId = AnimaisControl.InsertAnimal(animalloc.Animal);
+                    }
+
+                    if (animalloc.Localizacoes != null)
+                    {
+                        foreach (Localizacao localizacao in animalloc.Localizacoes)
+                        {
+                            localizacao.AnimalId = animalId;
+                            LocalizacoesControl.InsertLocalizacao(localizacao);
+                        }
+                    }
                 }
             }
         }
@@ -116,11 +126,11 @@ namespace ClapApp.Control
                 Descricao = "Gato com pelagem de \"tuxedo\", costas pretas, \"máscara\" preta no rosto, mancha preta no queixo que lembra uma barbicha. Olhos amarelos. Muito gordo. Sua cauda tem a ponta torta.",
                 SetImageGambs = "../Images/guido.jpg"
             }, new Localizacao[] {
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0895888, -60.0344724)},
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0895352, -60.0336892)},
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0888174, -60.0333888)},
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0879068, -60.0335926)},
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.0872533, -60.0337321)}
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0895888, -60.0344724), DataHora = DateTime.Today},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0895352, -60.0336892), DataHora = DateTime.Today},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0888174, -60.0333888), DataHora = DateTime.Today},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0879068, -60.0335926), DataHora = DateTime.Today},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.0872533, -60.0337321), DataHora = DateTime.Today}
             }),
             new AnimalLocalizacoes(new Animal()
             {
