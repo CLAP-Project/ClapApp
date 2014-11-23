@@ -247,19 +247,6 @@ namespace ClapApp.Pages
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var animal in PerfisControl.GetPerfilByEmail("tim@a.com").Animais)
-            {
-                if (animal.Especie.Equals("Ovelha"))
-                {
-                    LocalizacoesControl.InsertLocalizacao(new Localizacao()
-                    {
-                        DataHora = DateTime.Now,
-                        Coordenada = new GeoCoordinate(-3.1243974, -59.9838239),
-                        AnimalId = animal.Id
-                    });
-                }
-            }
-
             var email = TxtEmail.Text;
 
             if (email.Equals(""))

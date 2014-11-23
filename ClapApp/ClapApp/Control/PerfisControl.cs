@@ -118,8 +118,8 @@ namespace ClapApp.Control
                 Descricao = "Uma ovelha branquinha e felpuda. Responde pelo nome e é muito dócil, embora tímida diante de estranhos.",
                 SetImageGambs = "../Images/ovelha.jpg"
             }, new Localizacao[] {
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.124301,-59.9860877), DataHora = DateTime.Today},
-                new Localizacao() { Coordenada = new GeoCoordinate(-3.1243974,-59.9838239), DataHora = DateTime.Today}
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.1243974,-59.9898239), DataHora = DateTime.Today},
+                new Localizacao() { Coordenada = new GeoCoordinate(-3.124301,-59.9860877), DataHora = DateTime.Today}
             }),
             new AnimalLocalizacoes(new Animal()
             {
